@@ -65,7 +65,10 @@
                             title: 'Settlements',
                             source: new ol.source.Vector({
                                 url: 'data/settlements.geojson',
-                                format: new ol.format.GeoJSON()
+                                format: new ol.format.GeoJSON({
+                                    dataProjection: 'EPSG:4326',
+                                    featureProjection: 'EPSG:4326'
+                                })
                             }),
                             style: function(feature) {
                                 return new ol.style.Style({
