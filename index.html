@@ -1,25 +1,88 @@
 <!DOCTYPE html>
 <html>
-    <head>
+<head>
     <title>Old-World-Atlas</title>
     <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
     <meta http-equiv='imagetoolbar' content='no'/>
-    <style type="text/css"> v\:* {behavior:url(#default#VML);}
-        html, body { overflow: hidden; padding: 0; height: 100%; width: 100%; font-family: 'Lucida Grande',Geneva,Arial,Verdana,sans-serif; }
+    <style type="text/css">
+        v\:* { behavior: url(#default#VML); }
+        html, body { 
+            overflow: hidden; 
+            padding: 0; 
+            height: 100%; 
+            width: 100%; 
+            font-family: 'Lucida Grande', Geneva, Arial, Verdana, sans-serif; 
+        }
         body { margin: 0; background: #fff; }
-        h1 { margin: 0; padding: 6px; border:0; font-size: 20pt; position: absolute; top: 10px; right: 10px; background: rgba(255, 255, 255, 0.8); z-index: 10; text-align: right; }
+        h1 { 
+            margin: 0; 
+            padding: 6px; 
+            border: 0; 
+            font-size: 20pt; 
+            position: absolute; 
+            top: 10px; 
+            right: 10px; 
+            background: rgba(255, 255, 255, 0.8); 
+            z-index: 10; 
+            text-align: right; 
+        }
         #header { display: none; }
         #subheader { display: none; }
         #map { height: 100%; border: none; }
-        #mouse-position { position: absolute; bottom: 10px; right: 10px; background: rgba(255, 255, 255, 0.8); padding: 5px; z-index: 10; font-size: 12px; }
-        .title-subheader { margin: 0; padding: 0; font-size: 10px; color: #666; font-weight: normal; }
-        .settlement-label { font-size: 12px; font-weight: bold; background: rgba(255, 255, 255, 0.8); padding: 2px 4px; border-radius: 3px; }
-        .settlement-popup { padding: 10px; font-size: 12px; }
-        .settlement-popup p { margin: 5px 0; }
-        #settlement-toggle { position: absolute; top: 60px; right: 30px; z-index: 10; display: flex; align-items: center; gap: 8px; background: rgba(255, 255, 255, 0.9); padding: 8px 12px; border-radius: 4px; font-size: 13px; cursor: pointer; user-select: none; box-shadow: 0 2px 4px rgba(0,0,0,0.1); transition: all 0.2s ease; }
-        #settlement-toggle:hover { background: rgba(255, 255, 255, 1); box-shadow: 0 3px 6px rgba(0,0,0,0.15); }
-        #settlement-toggle input[type="checkbox"] { cursor: pointer; width: 16px; height: 16px; margin: 0; }
-        #settlement-toggle label { cursor: pointer; margin: 0; }
+        #mouse-position { 
+            position: absolute; 
+            bottom: 10px; 
+            right: 10px; 
+            background: rgba(255, 255, 255, 0.8); 
+            padding: 5px; 
+            z-index: 10; 
+            font-size: 12px; 
+        }
+        .title-subheader { 
+            margin: 0; 
+            padding: 0; 
+            font-size: 10px; 
+            color: #666; 
+            font-weight: normal; 
+        }
+        .settlement-popup { 
+            padding: 10px; 
+            font-size: 12px; 
+        }
+        .settlement-popup p { 
+            margin: 5px 0; 
+        }
+        #settlement-toggle { 
+            position: absolute; 
+            top: 60px; 
+            right: 30px; 
+            z-index: 10; 
+            display: flex; 
+            align-items: center; 
+            gap: 8px; 
+            background: rgba(255, 255, 255, 0.9); 
+            padding: 8px 12px; 
+            border-radius: 4px; 
+            font-size: 13px; 
+            cursor: pointer; 
+            user-select: none; 
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1); 
+            transition: all 0.2s ease; 
+        }
+        #settlement-toggle:hover { 
+            background: rgba(255, 255, 255, 1); 
+            box-shadow: 0 3px 6px rgba(0,0,0,0.15); 
+        }
+        #settlement-toggle input[type="checkbox"] { 
+            cursor: pointer; 
+            width: 16px; 
+            height: 16px; 
+            margin: 0; 
+        }
+        #settlement-toggle label { 
+            cursor: pointer; 
+            margin: 0; 
+        }
     </style>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@main/dist/en/v7.0.0/legacy/ol.css" type="text/css">
     <script src="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@main/dist/en/v7.0.0/legacy/ol.js"></script>
@@ -29,236 +92,25 @@
 <body>
     <div id="header"><h1>Old-World-Atlas</h1></div>
     <div id="map" class="map"></div>
+    
     <div id="settlement-toggle">
         <input type="checkbox" id="settlement-checkbox" checked>
         <label for="settlement-checkbox">Settlements</label>
     </div>
+    
     <div style="position: absolute; top: 10px; right: 30px; z-index: 10;">
         <h1>Atlas of the Old World</h1>
         <p class="title-subheader">Alpha. @toddkoz</p>
     </div>
+    
     <div id="mouse-position"></div>
-    <script type="text/javascript">
-        // Image bounds from tilemapresource.xml
-        const imageBounds = [-4.79269114725315, 40.30062386071874, 13.73066378234685, 58.82397879031875];
 
-        /**
-         * Filters settlements based on criteria:
-         * - Valid coordinates (array with 2 numbers)
-         * - Within image bounds
-         * - size_category >= 3
-         */
-        function filterSettlements(features) {
-            return features.filter(function(feature) {
-                const props = feature.properties;
-                const coords = feature.geometry.coordinates;
-
-                // Check if coordinates are valid
-                if (!coords || coords.length !== 2 || 
-                    typeof coords[0] !== 'number' || 
-                    typeof coords[1] !== 'number' ||
-                    isNaN(coords[0]) || 
-                    isNaN(coords[1])) {
-                    return false;
-                }
-
-                const [lon, lat] = coords;
-
-                // Check if within bounds [minX, minY, maxX, maxY]
-                if (lon < imageBounds[0] || lon > imageBounds[2] ||
-                    lat < imageBounds[1] || lat > imageBounds[3]) {
-                    return false;
-                }
-
-                // Check size_category >= 3
-                if (!props.size_category || props.size_category < 3) {
-                    return false;
-                }
-
-                return true;
-            });
-        }
-
-        var mousePositionControl = new ol.control.MousePosition({
-            className: 'custom-mouse-position',
-            target: document.getElementById('mouse-position'),
-            undefinedHTML: '&nbsp;'
-        });
-        
-        // Load settlements GeoJSON
-        var settlementSource = new ol.source.Vector();
-        var settlementVectorLayer = null;
-        var allSettlements = [];
-        
-        fetch('data/settlements_georeferenced.geojson')
-            .then(function(response) {
-                return response.json();
-            })
-            .then(function(json) {
-                // Filter settlements
-                const filteredFeatures = filterSettlements(json.features);
-                
-                // Create features for OpenLayers
-                const features = filteredFeatures.map(function(feature) {
-                    const coords = feature.geometry.coordinates;
-                    return new ol.Feature({
-                        geometry: new ol.geom.Point(coords),
-                        name: feature.properties.name,
-                        sizeCategory: feature.properties.size_category,
-                        population: feature.properties.population,
-                        province: feature.properties.province
-                    });
-                });
-                
-                allSettlements = features;
-                settlementSource.addFeatures(features);
-            })
-            .catch(function(e) {
-                console.error('Error loading settlements:', e);
-            });
-        
-        var map = new ol.Map({
-            controls: ol.control.defaults.defaults().extend([mousePositionControl]),
-            target: 'map',
-
-            layers: [
-                new ol.layer.Group({
-                    title: 'Overlay',
-                    layers: [
-                        new ol.layer.Tile({
-                            title: 'Map Tiles',
-                            source: new ol.source.TileImage({
-                                attributions: '',
-                                tileGrid: new ol.tilegrid.TileGrid({
-                                    extent: [-4.7926911472531506,40.3006238607187441,13.7306637823468485,58.8239787903187477],
-                                    origin: [-4.7926911472531506,40.3006238607187441],
-                                    resolutions: [0.0740934197183999999,0.0370467098591999999,0.0185233549296,0.00926167746479999998,0.00463083873239999999,0.0023154193662,0.0011577096831,0.000578854841549999999],
-                                    tileSize: [256, 256]
-                                }),
-                                tileUrlFunction: function(tileCoord) {
-                                    return ('https://raw.githubusercontent.com/dr-laser/oldworldatlas-repository/main/{z}/{x}/{y}.png'
-                                        .replace('{z}', String(tileCoord[0]))
-                                        .replace('{x}', String(tileCoord[1]))
-                                        .replace('{y}', String(- 1 - tileCoord[2])));
-                                },
-                            })
-                        }),
-                    ]
-                }),
-                settlementVectorLayer = new ol.layer.Vector({
-                    title: 'Settlements (Size 3+)',
-                    source: settlementSource,
-                    style: function(feature) {
-                        const sizeCategory = feature.get('sizeCategory');
-                        const currentResolution = map.getView().getResolution();
-                        
-                        // Zoom-dependent visibility
-                        // At default zoom (0.016), only show size 5+
-                        // As you zoom in (resolution decreases), lower tiers become visible
-                        const shouldShow = (currentResolution <= 0.005 && sizeCategory >= 3) ||
-                                          (currentResolution <= 0.015 && sizeCategory >= 4) ||
-                                          (sizeCategory >= 5);
-                        
-                        if (!shouldShow) {
-                            return new ol.style.Style({}); // Empty style hides the feature
-                        }
-
-                        // Smaller circle sizes
-                        let size = 3;
-                        let color = 'rgba(0, 0, 255, 0.8)';
-                        let textSize = '8px';
-
-                        if (sizeCategory >= 6) {
-                            size = 6;
-                            color = 'rgba(255, 0, 0, 0.8)'; // Largest cities - red
-                            textSize = '12px';
-                        } else if (sizeCategory === 5) {
-                            size = 5;
-                            color = 'rgba(255, 0, 0, 0.8)'; // Large cities - red
-                            textSize = '11px';
-                        } else if (sizeCategory === 4) {
-                            size = 4;
-                            color = 'rgba(255, 128, 0, 0.8)'; // Medium cities - orange
-                            textSize = '10px';
-                        } else if (sizeCategory === 3) {
-                            size = 3;
-                            color = 'rgba(0, 128, 255, 0.8)'; // Small towns - light blue
-                            textSize = '9px';
-                        }
-
-                        return new ol.style.Style({
-                            image: new ol.style.Circle({
-                                radius: size,
-                                fill: new ol.style.Fill({ color: color }),
-                                stroke: new ol.style.Stroke({ color: 'rgba(255, 255, 255, 0.9)', width: 1 })
-                            }),
-                            text: new ol.style.Text({
-                                text: feature.get('name'),
-                                offsetY: -12,
-                                font: textSize + ' Arial, sans-serif',
-                                fill: new ol.style.Fill({ color: '#000' }),
-                                stroke: new ol.style.Stroke({ color: '#fff', width: 2 })
-                            })
-                        });
-                    }
-                })
-            ],
-            view: new ol.View({
-                center: [3.832390, 49.796453],
-                resolution: 0.0159930693920000006,
-                maxResolution: 0.0370467098591999999,
-                minResolution: 0.000578854841549999999
-            })
-        });
-
-        // Update settlement visibility when zoom changes
-        map.getView().on('change:resolution', function() {
-            settlementSource.changed();
-        });
-
-        // Toggle settlement layer visibility
-        document.getElementById('settlement-checkbox').addEventListener('change', function() {
-            if (settlementVectorLayer) {
-                settlementVectorLayer.setVisible(this.checked);
-            }
-        });
-
-        // Popup overlay for feature info
-        var popup = document.createElement('div');
-        popup.id = 'popup';
-        popup.className = 'ol-popup';
-        popup.style.cssText = 'position: absolute; background-color: white; border: 1px solid #ccc; border-radius: 4px; box-shadow: 0 0 10px rgba(0,0,0,0.2); padding: 10px; display: none; max-width: 200px; font-size: 12px; z-index: 100;';
-        document.body.appendChild(popup);
-
-        var popupOverlay = new ol.Overlay({
-            element: popup,
-            autoPan: true,
-            autoPanAnimation: {
-                duration: 250
-            }
-        });
-        map.addOverlay(popupOverlay);
-
-        // Handle click on settlements
-        map.on('click', function(evt) {
-            var feature = map.forEachFeatureAtPixel(evt.pixel, function(feature) {
-                return feature;
-            });
-            
-            if (feature && feature.get('name')) {
-                var html = '<div class="settlement-popup">' +
-                    '<p><strong>' + feature.get('name') + '</strong></p>' +
-                    '<p>Size Category: ' + feature.get('sizeCategory') + '</p>' +
-                    '<p>Population: ' + (feature.get('population') || 'Unknown') + '</p>' +
-                    (feature.get('province') ? '<p>Province: ' + feature.get('province') + '</p>' : '') +
-                    '</div>';
-                popup.innerHTML = html;
-                popupOverlay.setPosition(evt.coordinate);
-                popup.style.display = 'block';
-            } else {
-                popup.style.display = 'none';
-            }
-        });
-    </script>
+    <!-- Load scripts in order -->
+    <script src="js/utils.js"></script>
+    <script src="js/styling.js"></script>
+    <script src="js/settlement-data.js"></script>
+    <script src="js/map-manager.js"></script>
+    <script src="js/ui-controls.js"></script>
+    <script src="js/app.js"></script>
 </body>
 </html>

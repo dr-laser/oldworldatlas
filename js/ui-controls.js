@@ -1,0 +1,156 @@
+/**
+ * UI controls management for Old World Atlas
+ */
+
+class UIControls {
+    constructor() {
+        this.popupElement = null;
+        this.popupOverlay = null;
+        this.settlementCheckbox = null;
+    }
+
+    /**
+     * Initialize UI controls
+     * @param {ol.Map} map - OpenLayers map instance
+     */
+    initialize(map) {
+        this.initializeSettlementToggle();
+        this.initializePopup(map);
+    }
+
+    /**
+     * Initialize settlement toggle checkbox
+     * @private
+     */
+    initializeSettlementToggle() {
+        this.settlementCheckbox = document.getElementById('settlement-checkbox');
+        if (this.settlementCheckbox) {
+            this.settlementCheckbox.addEventListener('change', (e) => {
+                const layer = mapManager.getSettlementLayer();
+                if (layer) {
+                    layer.setVisible(e.target.checked);
+                }
+            });
+        }
+    }
+
+    /**
+     * Initialize popup overlay
+     * @private
+     * @param {ol.Map} map - OpenLayers map instance
+     */
+    initializePopup(map) {
+        this.popupElement = document.createElement('div');
+        this.popupElement.id = 'popup';
+        this.popupElement.className = 'ol-popup';
+        this.popupElement.style.cssText = 'position: absolute; background-color: white; border: 1px solid #ccc; border-radius: 4px; box-shadow: 0 0 10px rgba(0,0,0,0.2); padding: 10px; display: none; max-width: 250px; font-size: 12px; z-index: 100;';
+        document.body.appendChild(this.popupElement);
+
+        this.popupOverlay = new ol.Overlay({
+            element: this.popupElement,
+            autoPan: true,
+            autoPanAnimation: {
+                duration: 250
+            }
+        });
+        map.addOverlay(this.popupOverlay);
+
+        // Handle clicks on features
+        map.on('click', (evt) => this.handleMapClick(evt));
+    }
+
+    /**
+     * Handle map click events
+     * @private
+     * @param {ol.MapBrowserEvent} evt
+     */
+    handleMapClick(evt) {
+        let feature = null;
+        mapManager.getMap().forEachFeatureAtPixel(evt.pixel, (f) => {
+            feature = f;
+            return true; // Stop iteration
+        });
+
+        if (feature && feature.get('name')) {
+            this.showSettlementPopup(feature, evt.coordinate);
+        } else {
+            this.hidePopup();
+        }
+    }
+
+    /**
+     * Show settlement information popup
+     * @param {ol.Feature} feature - Settlement feature
+     * @param {array} coordinate - Map coordinate [lon, lat]
+     */
+    showSettlementPopup(feature, coordinate) {
+        const name = feature.get('name');
+        const sizeCategory = feature.get('sizeCategory');
+        const population = feature.get('population');
+        const province = feature.get('province');
+        const sizeLabel = getSizeCategoryLabel(sizeCategory);
+
+        let html = `<div class="settlement-popup">
+            <p><strong>${this.escapeHtml(name)}</strong></p>
+            <p>Type: ${sizeLabel}</p>`;
+
+        if (population && population > 0) {
+            html += `<p>Population: ${population.toLocaleString()}</p>`;
+        }
+
+        if (province) {
+            html += `<p>Province: ${this.escapeHtml(province)}</p>`;
+        }
+
+        html += '</div>';
+
+        this.popupElement.innerHTML = html;
+        this.popupOverlay.setPosition(coordinate);
+        this.popupElement.style.display = 'block';
+    }
+
+    /**
+     * Hide popup
+     */
+    hidePopup() {
+        this.popupElement.style.display = 'none';
+    }
+
+    /**
+     * Escape HTML to prevent XSS
+     * @private
+     * @param {string} text
+     * @returns {string}
+     */
+    escapeHtml(text) {
+        const div = document.createElement('div');
+        div.textContent = text;
+        return div.innerHTML;
+    }
+
+    /**
+     * Toggle settlement layer visibility
+     * @param {boolean} visible
+     */
+    setSettlementVisibility(visible) {
+        const layer = mapManager.getSettlementLayer();
+        if (layer) {
+            layer.setVisible(visible);
+        }
+        if (this.settlementCheckbox) {
+            this.settlementCheckbox.checked = visible;
+        }
+    }
+
+    /**
+     * Get settlement visibility state
+     * @returns {boolean}
+     */
+    isSettlementVisible() {
+        const layer = mapManager.getSettlementLayer();
+        return layer ? layer.getVisible() : true;
+    }
+}
+
+// Create global instance
+const uiControls = new UIControls();
