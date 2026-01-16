@@ -80,6 +80,7 @@
         // Load settlements GeoJSON
         var settlementSource = new ol.source.Vector();
         var settlementLayer = null;
+        var allSettlements = [];
         
         fetch('data/settlements_georeferenced.geojson')
             .then(function(response) {
@@ -101,6 +102,7 @@
                     });
                 });
                 
+                allSettlements = features;
                 settlementSource.addFeatures(features);
             })
             .catch(function(e) {
@@ -140,32 +142,54 @@
                     source: settlementSource,
                     style: function(feature) {
                         const sizeCategory = feature.get('sizeCategory');
-                        let size = 8;
-                        let color = 'rgba(0, 0, 255, 0.8)';
+                        const currentResolution = map.getView().getResolution();
+                        
+                        // Zoom-dependent visibility
+                        // At default zoom (0.016), only show size 5+
+                        // As you zoom in (resolution decreases), lower tiers become visible
+                        const shouldShow = (currentResolution <= 0.005 && sizeCategory >= 3) ||
+                                          (currentResolution <= 0.015 && sizeCategory >= 4) ||
+                                          (sizeCategory >= 5);
+                        
+                        if (!shouldShow) {
+                            return new ol.style.Style({}); // Empty style hides the feature
+                        }
 
-                        if (sizeCategory >= 5) {
-                            size = 14;
+                        // Smaller circle sizes
+                        let size = 3;
+                        let color = 'rgba(0, 0, 255, 0.8)';
+                        let textSize = '8px';
+
+                        if (sizeCategory >= 6) {
+                            size = 6;
+                            color = 'rgba(255, 0, 0, 0.8)'; // Largest cities - red
+                            textSize = '12px';
+                        } else if (sizeCategory === 5) {
+                            size = 5;
                             color = 'rgba(255, 0, 0, 0.8)'; // Large cities - red
+                            textSize = '11px';
                         } else if (sizeCategory === 4) {
-                            size = 12;
+                            size = 4;
                             color = 'rgba(255, 128, 0, 0.8)'; // Medium cities - orange
+                            textSize = '10px';
                         } else if (sizeCategory === 3) {
-                            size = 10;
+                            size = 3;
                             color = 'rgba(0, 128, 255, 0.8)'; // Small towns - light blue
+                            textSize = '9px';
                         }
 
                         return new ol.style.Style({
                             image: new ol.style.Circle({
                                 radius: size,
                                 fill: new ol.style.Fill({ color: color }),
-                                stroke: new ol.style.Stroke({ color: 'rgba(255, 255, 255, 0.9)', width: 2 })
+                                stroke: new ol.style.Stroke({ color: 'rgba(255, 255, 255, 0.9)', width: 1 })
                             }),
                             text: new ol.style.Text({
                                 text: feature.get('name'),
-                                offsetY: -20,
-                                font: '10px Arial, sans-serif',
+                                offsetY: -12,
+                                font: textSize + ' Arial, sans-serif',
                                 fill: new ol.style.Fill({ color: '#000' }),
-                                stroke: new ol.style.Stroke({ color: '#fff', width: 3 })
+                                stroke: new ol.style.Stroke({ color: '#fff', width: 2 })
                             })
                         });
                     }
@@ -177,6 +201,11 @@
                 maxResolution: 0.0370467098591999999,
                 minResolution: 0.000578854841549999999
             })
+        });
+
+        // Update settlement visibility when zoom changes
+        map.getView().on('change:resolution', function() {
+            settlementSource.changed();
         });
 
         // Popup overlay for feature info
