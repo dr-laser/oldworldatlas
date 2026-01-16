@@ -34,6 +34,29 @@
             target: document.getElementById('mouse-position'),
             undefinedHTML: '&nbsp;'
         });
+        
+        // Load settlements GeoJSON
+        var settlementSource = new ol.source.Vector({
+            url: 'data/settlements.geojson',
+            format: new ol.format.GeoJSON(),
+            loader: function(extent, resolution, projection, success, failure) {
+                var url = 'data/settlements.geojson';
+                fetch(url)
+                    .then(function(response) {
+                        return response.json();
+                    })
+                    .then(function(json) {
+                        var features = new ol.format.GeoJSON().readFeatures(json);
+                        settlementSource.addFeatures(features);
+                        success(features);
+                    })
+                    .catch(function(e) {
+                        console.error('Error loading settlements:', e);
+                        failure();
+                    });
+            }
+        });
+        
         var map = new ol.Map({
             controls: ol.control.defaults.defaults().extend([mousePositionControl]),
             target: 'map',
@@ -65,10 +88,7 @@
                 }),
                 new ol.layer.Vector({
                     title: 'Settlements',
-                    source: new ol.source.Vector({
-                        url: 'data/settlements.geojson',
-                        format: new ol.format.GeoJSON()
-                    }),
+                    source: settlementSource,
                     style: function(feature) {
                         return new ol.style.Style({
                             image: new ol.style.Circle({
