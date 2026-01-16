@@ -11,6 +11,8 @@
         #header { height: 43px; padding: 0; background-color: #eee; border: 1px solid #888; }
         #subheader { height: 12px; text-align: right; font-size: 10px; color: #555;}
         #map { height: 90%; border: 1px solid #888; }
+        .settlement-popup { padding: 10px; font-size: 12px; }
+        .settlement-popup p { margin: 5px 0; }
     </style>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@main/dist/en/v7.0.0/legacy/ol.css" type="text/css">
     <script src="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@main/dist/en/v7.0.0/legacy/ol.js"></script>
@@ -23,11 +25,128 @@
     <div id="map" class="map"></div>
     <div id="mouse-position"></div>
     <script type="text/javascript">
+        // Image bounds from tilemapresource.xml
+        const imageBounds = [-4.79269114725315, 40.30062386071874, 13.73066378234685, 58.82397879031875];
+
+        /**
+         * Filters settlements based on criteria:
+         * - Valid coordinates (array with 2 numbers)
+         * - Within image bounds
+         * - size_category >= 3
+         */
+        function filterSettlements(features) {
+            return features.filter(function(feature) {
+                const props = feature.properties;
+                const coords = feature.geometry.coordinates;
+
+                // Check if coordinates are valid
+                if (!coords || coords.length !== 2 || 
+                    typeof coords[0] !== 'number' || 
+                    typeof coords[1] !== 'number' ||
+                    isNaN(coords[0]) || 
+                    isNaN(coords[1])) {
+                    return false;
+                }
+
+                const [lon, lat] = coords;
+
+                // Check if within bounds [minX, minY, maxX, maxY]
+                if (lon < imageBounds[0] || lon > imageBounds[2] ||
+                    lat < imageBounds[1] || lat > imageBounds[3]) {
+                    return false;
+                }
+
+                // Check size_category >= 3
+                if (!props.size_category || props.size_category < 3) {
+                    return false;
+                }
+
+                return true;
+            });
+        }
+
+        /**
+         * Creates a vector layer with filtered settlements
+         */
+        function createSettlementsLayer(settlementsData) {
+            const filteredFeatures = filterSettlements(settlementsData.features);
+            
+            // Create features for OpenLayers
+            const features = filteredFeatures.map(function(feature) {
+                const coords = feature.geometry.coordinates;
+                return new ol.Feature({
+                    geometry: new ol.geom.Point(coords),
+                    name: feature.properties.name,
+                    sizeCategory: feature.properties.size_category,
+                    population: feature.properties.population,
+                    province: feature.properties.province
+                });
+            });
+
+            // Create vector source
+            const vectorSource = new ol.source.Vector({
+                features: features
+            });
+
+            // Create styling function based on size_category
+            const styleFunction = function(feature) {
+                const sizeCategory = feature.get('sizeCategory');
+                let size = 8;
+                let color = 'rgba(0, 0, 255, 0.8)';
+
+                if (sizeCategory >= 5) {
+                    size = 14;
+                    color = 'rgba(255, 0, 0, 0.8)'; // Large cities - red
+                } else if (sizeCategory === 4) {
+                    size = 12;
+                    color = 'rgba(255, 128, 0, 0.8)'; // Medium cities - orange
+                } else if (sizeCategory === 3) {
+                    size = 10;
+                    color = 'rgba(0, 128, 255, 0.8)'; // Small towns - light blue
+                }
+
+                return new ol.style.Style({
+                    image: new ol.style.Circle({
+                        radius: size,
+                        fill: new ol.style.Fill({
+                            color: color
+                        }),
+                        stroke: new ol.style.Stroke({
+                            color: 'rgba(255, 255, 255, 0.9)',
+                            width: 2
+                        })
+                    }),
+                    text: new ol.style.Text({
+                        text: feature.get('name'),
+                        offsetY: -20,
+                        font: '10px Arial, sans-serif',
+                        fill: new ol.style.Fill({
+                            color: '#000'
+                        }),
+                        stroke: new ol.style.Stroke({
+                            color: '#fff',
+                            width: 3
+                        })
+                    })
+                });
+            };
+
+            return new ol.layer.Vector({
+                title: 'Settlements (Size 3+)',
+                source: vectorSource,
+                style: styleFunction
+            });
+        }
+
         var mousePositionControl = new ol.control.MousePosition({
             className: 'custom-mouse-position',
             target: document.getElementById('mouse-position'),
             undefinedHTML: '&nbsp;'
         });
+
+        // Initialize map with base layer
+        var settlementLayer = null;
+
         var map = new ol.Map({
             controls: ol.control.defaults.defaults().extend([mousePositionControl]),
             target: 'map',
@@ -37,8 +156,7 @@
                     title: 'Overlay',
                     layers: [
                         new ol.layer.Tile({
-                            title: 'Overlay',
-                            // opacity: 0.7,
+                            title: 'Map Tiles',
                             source: new ol.source.TileImage({
                                 attributions: '',
                                 tileGrid: new ol.tilegrid.TileGrid({
@@ -62,6 +180,54 @@
                 center: [4.468986, 49.562301],
                 resolution: 0.037047,
             })
+        });
+
+        // Load and add settlements layer
+        fetch('data/settlements_georeferenced.geojson')
+            .then(response => response.json())
+            .then(data => {
+                settlementLayer = createSettlementsLayer(data);
+                map.getLayers().item(0).getLayers().push(settlementLayer);
+            })
+            .catch(error => {
+                console.error('Error loading settlements data:', error);
+            });
+
+        // Popup overlay for feature info
+        var popup = document.createElement('div');
+        popup.id = 'popup';
+        popup.className = 'ol-popup';
+        popup.style.cssText = 'position: absolute; background-color: white; border: 1px solid #ccc; border-radius: 4px; box-shadow: 0 0 10px rgba(0,0,0,0.2); padding: 10px; display: none; max-width: 200px; font-size: 12px; z-index: 100;';
+        document.body.appendChild(popup);
+
+        var popupOverlay = new ol.Overlay({
+            element: popup,
+            autoPan: true,
+            autoPanAnimation: {
+                duration: 250
+            }
+        });
+        map.addOverlay(popupOverlay);
+
+        // Handle click on settlements
+        map.on('click', function(evt) {
+            var feature = map.forEachFeatureAtPixel(evt.pixel, function(feature) {
+                return feature;
+            });
+            
+            if (feature && feature.get('name')) {
+                var html = '<div class="settlement-popup">' +
+                    '<p><strong>' + feature.get('name') + '</strong></p>' +
+                    '<p>Size Category: ' + feature.get('sizeCategory') + '</p>' +
+                    '<p>Population: ' + (feature.get('population') || 'Unknown') + '</p>' +
+                    (feature.get('province') ? '<p>Province: ' + feature.get('province') + '</p>' : '') +
+                    '</div>';
+                popup.innerHTML = html;
+                popupOverlay.setPosition(evt.coordinate);
+                popup.style.display = 'block';
+            } else {
+                popup.style.display = 'none';
+            }
         });
     </script>
 </body>
