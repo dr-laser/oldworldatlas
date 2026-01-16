@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <kml xmlns="http://www.opengis.net/kml/2.2">
   <Document>
-    <name>Old-World-Atlas</name>
+    <name>Atlas-of-the-Old-World</name>
     <description></description>
     <Style>
       <ListStyle id="hideChildren">
@@ -12,10 +12,10 @@
       <name>1/0/0.png</name>
       <Region>
         <LatLonAltBox>
-          <north>49.98836999162879</north>
-          <south>41.79991846292479</south>
-          <east>4.02430726133100</east>
-          <west>-4.16414426737300</west>
+          <north>49.78458158467394</north>
+          <south>40.30062386071874</south>
+          <east>4.69126657670205</east>
+          <west>-4.79269114725315</west>
         </LatLonAltBox>
         <Lod>
           <minLodPixels>128</minLodPixels>
@@ -33,10 +33,10 @@
       <name>1/0/1.png</name>
       <Region>
         <LatLonAltBox>
-          <north>58.17682152033279</north>
-          <south>49.98836999162879</south>
-          <east>4.02430726133100</east>
-          <west>-4.16414426737300</west>
+          <north>59.26853930862914</north>
+          <south>49.78458158467394</south>
+          <east>4.69126657670205</east>
+          <west>-4.79269114725315</west>
         </LatLonAltBox>
         <Lod>
           <minLodPixels>128</minLodPixels>
@@ -54,10 +54,10 @@
       <name>1/1/0.png</name>
       <Region>
         <LatLonAltBox>
-          <north>49.98836999162879</north>
-          <south>41.79991846292479</south>
-          <east>12.21275879003500</east>
-          <west>4.02430726133100</west>
+          <north>49.78458158467394</north>
+          <south>40.30062386071874</south>
+          <east>14.17522430065725</east>
+          <west>4.69126657670205</west>
         </LatLonAltBox>
         <Lod>
           <minLodPixels>128</minLodPixels>
@@ -75,10 +75,10 @@
       <name>1/1/1.png</name>
       <Region>
         <LatLonAltBox>
-          <north>58.17682152033279</north>
-          <south>49.98836999162879</south>
-          <east>12.21275879003500</east>
-          <west>4.02430726133100</west>
+          <north>59.26853930862914</north>
+          <south>49.78458158467394</south>
+          <east>14.17522430065725</east>
+          <west>4.69126657670205</west>
         </LatLonAltBox>
         <Lod>
           <minLodPixels>128</minLodPixels>
