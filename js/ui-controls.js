@@ -7,6 +7,7 @@ class UIControls {
         this.popupElement = null;
         this.popupOverlay = null;
         this.settlementCheckbox = null;
+        this.poiCheckbox = null;
     }
 
     /**
@@ -15,6 +16,7 @@ class UIControls {
      */
     initialize(map) {
         this.initializeSettlementToggle();
+        this.initializePOIToggle();
         this.initializePopup(map);
     }
 
@@ -27,6 +29,22 @@ class UIControls {
         if (this.settlementCheckbox) {
             this.settlementCheckbox.addEventListener('change', (e) => {
                 const layer = mapManager.getSettlementLayer();
+                if (layer) {
+                    layer.setVisible(e.target.checked);
+                }
+            });
+        }
+    }
+
+    /**
+     * Initialize POI toggle checkbox
+     * @private
+     */
+    initializePOIToggle() {
+        this.poiCheckbox = document.getElementById('poi-checkbox');
+        if (this.poiCheckbox) {
+            this.poiCheckbox.addEventListener('change', (e) => {
+                const layer = mapManager.getPOILayer();
                 if (layer) {
                     layer.setVisible(e.target.checked);
                 }
@@ -85,6 +103,23 @@ class UIControls {
      */
     showSettlementPopup(feature, coordinate) {
         const name = feature.get('name');
+        const featureType = feature.get('featureType');
+        
+        // Handle POI features
+        if (featureType === 'poi') {
+            const poiType = feature.get('type');
+            let html = `<div class="settlement-popup">
+                <p><strong>${this.escapeHtml(name)}</strong></p>
+                <p>Type: ${this.escapeHtml(poiType)}</p>
+            </div>`;
+            
+            this.popupElement.innerHTML = html;
+            this.popupOverlay.setPosition(coordinate);
+            this.popupElement.style.display = 'block';
+            return;
+        }
+        
+        // Handle settlement features
         const sizeCategory = feature.get('sizeCategory');
         const population = feature.get('population');
         const province = feature.get('province');

@@ -10,15 +10,28 @@ class SettlementDataManager {
     }
 
     /**
-     * Load settlements from GeoJSON file
-     * @param {string} dataPath - Path to GeoJSON file
+     * Load settlements from multiple GeoJSON files
+     * @param {string|string[]} dataPaths - Path or array of paths to GeoJSON files
      * @returns {Promise}
      */
-    async loadSettlements(dataPath) {
+    async loadSettlements(dataPaths) {
         try {
-            const response = await fetch(dataPath);
-            const data = await response.json();
-            this.rawFeatures = data.features;
+            // Support both single path and array of paths for backwards compatibility
+            const paths = Array.isArray(dataPaths) ? dataPaths : [dataPaths];
+            
+            // Fetch all files in parallel
+            const responses = await Promise.all(
+                paths.map(path => fetch(path))
+            );
+            
+            // Parse all JSON data
+            const datasets = await Promise.all(
+                responses.map(response => response.json())
+            );
+            
+            // Combine all features from all datasets
+            this.rawFeatures = datasets.flatMap(data => data.features);
+            
             this.filterAndIndexSettlements();
             return this.filteredFeatures;
         } catch (error) {

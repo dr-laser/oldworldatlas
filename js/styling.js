@@ -68,6 +68,34 @@ function getSettlementStyleConfig(sizeCategory) {
 }
 
 /**
+ * Create an OpenLayers Style object for a POI
+ * @param {OL.Feature} feature - OpenLayers feature
+ * @returns {OL.style.Style}
+ */
+function createPOIStyle(feature) {
+    return new ol.style.Style({
+        image: new ol.style.Circle({
+            radius: 4,
+            fill: new ol.style.Fill({ color: 'rgba(148, 0, 211, 0.7)' }),
+            stroke: new ol.style.Stroke({ 
+                color: 'rgba(255, 255, 255, 0.9)', 
+                width: 1 
+            })
+        }),
+        text: new ol.style.Text({
+            text: feature.get('name'),
+            offsetY: -12,
+            font: '10px Arial, sans-serif',
+            fill: new ol.style.Fill({ color: '#000' }),
+            stroke: new ol.style.Stroke({ 
+                color: '#fff', 
+                width: 2 
+            })
+        })
+    });
+}
+
+/**
  * Create an OpenLayers Style object for a settlement
  * @param {OL.Feature} feature - OpenLayers feature
  * @param {number} currentResolution - Current map resolution

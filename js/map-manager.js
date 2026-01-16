@@ -8,6 +8,8 @@ class MapManager {
         this.targetElementId = targetElementId;
         this.settlementVectorLayer = null;
         this.settlementSource = null;
+        this.poiVectorLayer = null;
+        this.poiSource = null;
     }
 
     /**
@@ -22,6 +24,7 @@ class MapManager {
         });
 
         this.settlementSource = new ol.source.Vector();
+        this.poiSource = new ol.source.Vector();
 
         this.map = new ol.Map({
             controls: ol.control.defaults.defaults().extend([mousePositionControl]),
@@ -33,7 +36,8 @@ class MapManager {
                         this.createTileLayer(),
                     ]
                 }),
-                this.createSettlementLayer()
+                this.createSettlementLayer(),
+                this.createPOILayer()
             ],
             view: new ol.View({
                 center: [3.832390, 49.796453],
@@ -43,8 +47,12 @@ class MapManager {
             })
         });
 
-        // Store reference to settlement layer for visibility control
+        // Store references to layers for visibility control
         this.settlementVectorLayer = this.map.getLayers().item(1);
+        this.poiVectorLayer = this.map.getLayers().item(2);
+        
+        // POI layer starts hidden (unchecked)
+        this.poiVectorLayer.setVisible(false);
 
         return this.map;
     }
@@ -89,11 +97,32 @@ class MapManager {
     }
 
     /**
+     * Create POI vector layer
+     * @private
+     * @returns {ol.layer.Vector}
+     */
+    createPOILayer() {
+        return new ol.layer.Vector({
+            title: 'Points of Interest',
+            source: this.poiSource,
+            style: (feature) => createPOIStyle(feature)
+        });
+    }
+
+    /**
      * Add features to settlement layer
      * @param {array} features - Array of ol.Feature objects
      */
     addSettlementFeatures(features) {
         this.settlementSource.addFeatures(features);
+    }
+
+    /**
+     * Add features to POI layer
+     * @param {array} features - Array of ol.Feature objects
+     */
+    addPOIFeatures(features) {
+        this.poiSource.addFeatures(features);
     }
 
     /**
@@ -150,6 +179,22 @@ class MapManager {
      */
     getSettlementLayer() {
         return this.settlementVectorLayer;
+    }
+
+    /**
+     * Get POI source
+     * @returns {ol.source.Vector}
+     */
+    getPOISource() {
+        return this.poiSource;
+    }
+
+    /**
+     * Get POI layer
+     * @returns {ol.layer.Vector}
+     */
+    getPOILayer() {
+        return this.poiVectorLayer;
     }
 }
 
