@@ -43,7 +43,7 @@
                     title: 'Overlay',
                     layers: [
                         new ol.layer.Tile({
-                            title: 'Overlay',
+                            title: 'Map Tiles',
                             // opacity: 0.7,
                             source: new ol.source.TileImage({
                                 attributions: '',
@@ -61,34 +61,36 @@
                                 },
                             })
                         }),
-                        new ol.layer.Vector({
-                            title: 'Settlements',
-                            source: new ol.source.Vector({
-                                url: 'data/settlements.geojson',
-                                format: new ol.format.GeoJSON()
-                            }),
-                            style: function(feature) {
-                                return new ol.style.Style({
-                                    image: new ol.style.Circle({
-                                        radius: 6,
-                                        fill: new ol.style.Fill({ color: 'rgba(255, 0, 0, 0.8)' }),
-                                        stroke: new ol.style.Stroke({ color: 'rgba(0, 0, 0, 0.8)', width: 2 })
-                                    }),
-                                    text: new ol.style.Text({
-                                        text: feature.get('name'),
-                                        offsetY: 12,
-                                        fill: new ol.style.Fill({ color: '#000' }),
-                                        stroke: new ol.style.Stroke({ color: '#fff', width: 2 })
-                                    })
-                                });
-                            }
-                        })
                     ]
                 }),
+                new ol.layer.Vector({
+                    title: 'Settlements',
+                    source: new ol.source.Vector({
+                        url: 'data/settlements.geojson',
+                        format: new ol.format.GeoJSON()
+                    }),
+                    style: function(feature) {
+                        return new ol.style.Style({
+                            image: new ol.style.Circle({
+                                radius: 6,
+                                fill: new ol.style.Fill({ color: 'rgba(255, 0, 0, 0.8)' }),
+                                stroke: new ol.style.Stroke({ color: 'rgba(0, 0, 0, 0.8)', width: 2 })
+                            }),
+                            text: new ol.style.Text({
+                                text: feature.get('name'),
+                                offsetY: 12,
+                                fill: new ol.style.Fill({ color: '#000' }),
+                                stroke: new ol.style.Stroke({ color: '#fff', width: 2 })
+                            })
+                        });
+                    }
+                })
             ],
             view: new ol.View({
                 center: [3.832390, 49.796453],
                 resolution: 0.0159930693920000006,
+                maxResolution: 0.0479792081840000018,
+                minResolution: 0.000499783418500000017
             })
         });
     </script>
