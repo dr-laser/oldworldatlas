@@ -18,35 +18,35 @@ const SETTLEMENT_STYLES = {
             radius: 2,
             color: 'rgba(100, 200, 100, 0.7)',
             fontSize: 8,
-            minZoomLevel: 1.0,
+            minZoomLevel: 0.003,
             label: 'Village'
         },
         2: {
             radius: 2.5,
             color: 'rgba(50, 180, 150, 0.75)',
             fontSize: 8,
-            minZoomLevel: 1.0,
+            minZoomLevel: 0.003,
             label: 'Large Village'
         },
         3: {
             radius: 3,
             color: 'rgba(0, 128, 255, 0.8)',
             fontSize: 9,
-            minZoomLevel: 0.005,
+            minZoomLevel: 0.010,
             label: 'Small Town'
         },
         4: {
             radius: 4,
             color: 'rgba(255, 128, 0, 0.8)',
             fontSize: 10,
-            minZoomLevel: 0.005,
+            minZoomLevel: 1.0,
             label: 'City'
         },
         5: {
             radius: 5,
             color: 'rgba(255, 0, 0, 0.8)',
             fontSize: 11,
-            minZoomLevel: 0.005,
+            minZoomLevel: 1.0,
             label: 'Large City'
         },
         6: {
