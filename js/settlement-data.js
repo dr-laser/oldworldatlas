@@ -80,11 +80,6 @@ class SettlementDataManager {
             return false;
         }
 
-        // Size category >= 3
-        if (!props.size_category || props.size_category < 3) {
-            return false;
-        }
-
         return true;
     }
 
