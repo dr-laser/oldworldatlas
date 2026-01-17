@@ -6,19 +6,19 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -2.768594013576485,
-          51.899516269449705
+          -2.7160665291904245,
+          51.82950728643307
         ]
       },
       "properties": {
         "name": "Erlach",
         "province": "",
-        "population": 121,
+        "population": 100,
         "notes": [],
         "size_category": 1,
         "inkscape_coordinates": [
-          270.42365,
-          383.24078
+          273.42365,
+          387.24078
         ]
       }
     },
@@ -27,19 +27,19 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -2.5523438515251984,
-          52.16170129099094
+          -2.499816367139138,
+          52.091692307974306
         ]
       },
       "properties": {
         "name": "Siert",
         "province": "",
-        "population": 220,
+        "population": 1978,
         "notes": [],
-        "size_category": 1,
+        "size_category": 2,
         "inkscape_coordinates": [
-          282.78229,
-          368.26376
+          285.78229,
+          372.26376
         ]
       }
     },
@@ -48,19 +48,19 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -2.7123473980748605,
-          52.04318809306914
+          -2.6598199136888,
+          51.97317911005251
         ]
       },
       "properties": {
         "name": "Ammerhuis",
         "province": "",
-        "population": 100,
+        "population": 145,
         "notes": [],
         "size_category": 1,
         "inkscape_coordinates": [
-          273.63922,
-          375.03323
+          276.63922,
+          379.03323
         ]
       }
     },
@@ -69,19 +69,19 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -2.600106586438203,
-          53.33612251168309
+          -2.5475791020521417,
+          53.26611352866645
         ]
       },
       "properties": {
         "name": "Salfen",
         "province": "",
-        "population": 1337,
+        "population": 4668,
         "notes": [],
-        "size_category": 2,
+        "size_category": 3,
         "inkscape_coordinates": [
-          280.07047,
-          301.16876
+          283.07047,
+          305.16876
         ]
       }
     },
@@ -90,19 +90,19 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -2.3331963645173524,
-          53.37190963181173
+          -2.2806688801312918,
+          53.3019006487951
         ]
       },
       "properties": {
         "name": "Leydenhoven",
         "province": "",
-        "population": 100,
+        "population": 168,
         "notes": [],
         "size_category": 1,
         "inkscape_coordinates": [
-          295.32016,
-          299.12622
+          298.32016,
+          303.12622
         ]
       }
     },
@@ -111,19 +111,19 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -2.9452374036214977,
-          52.96235814051641
+          -2.892709919235437,
+          52.89234915749978
         ]
       },
       "properties": {
         "name": "Grimpengratz",
         "province": "",
-        "population": 100,
+        "population": 6871,
         "notes": [],
-        "size_category": 1,
+        "size_category": 3,
         "inkscape_coordinates": [
-          260.34698,
-          322.51935
+          263.34698,
+          326.51935
         ]
       }
     },
@@ -132,19 +132,19 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -3.391649380576548,
-          52.67282976692859
+          -3.3391218961904876,
+          52.60282078391195
         ]
       },
       "properties": {
         "name": "Lemmbourg",
         "province": "",
-        "population": 1334,
+        "population": 100,
         "notes": [],
-        "size_category": 2,
+        "size_category": 1,
         "inkscape_coordinates": [
-          234.83829,
-          339.05679
+          237.83829,
+          343.05679
         ]
       }
     },
@@ -153,8 +153,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -2.9835776761098263,
-          53.026355131408785
+          -2.9310501917237666,
+          52.95634614839216
         ]
       },
       "properties": {
@@ -164,8 +164,8 @@
         "notes": [],
         "size_category": 4,
         "inkscape_coordinates": [
-          258.15744,
-          318.86292
+          261.15744,
+          322.86292
         ]
       }
     },
@@ -174,8 +174,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -2.747059548351368,
-          53.04814512972076
+          -2.6945320639653083,
+          52.978136146704124
         ]
       },
       "properties": {
@@ -185,8 +185,8 @@
         "notes": [],
         "size_category": 4,
         "inkscape_coordinates": [
-          271.67056,
-          317.61981
+          274.67056,
+          321.61981
         ]
       }
     },
@@ -195,19 +195,19 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -3.4579863443911645,
-          52.876134077079
+          -3.405458860005104,
+          52.80612509406237
         ]
       },
       "properties": {
         "name": "Keterveen",
         "province": "",
-        "population": 222,
+        "population": 100,
         "notes": [],
         "size_category": 1,
         "inkscape_coordinates": [
-          231.05125,
-          327.44153
+          234.05125,
+          331.44153
         ]
       }
     },
@@ -216,19 +216,19 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -3.0735479940947013,
-          52.84115571912744
+          -3.0210205097086407,
+          52.77114673611081
         ]
       },
       "properties": {
         "name": "Maasten",
         "province": "",
-        "population": 586,
+        "population": 358,
         "notes": [],
         "size_category": 2,
         "inkscape_coordinates": [
-          253.01456,
-          329.44269
+          256.01455999999996,
+          333.44269
         ]
       }
     },
@@ -237,19 +237,19 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -3.247583926545574,
-          52.77878759181692
+          -3.1950564421595136,
+          52.708778608800294
         ]
       },
       "properties": {
         "name": "Teskerdorp",
         "province": "",
-        "population": 194,
+        "population": 397,
         "notes": [],
-        "size_category": 1,
+        "size_category": 2,
         "inkscape_coordinates": [
-          243.0706,
-          333.00449
+          246.0706,
+          337.00449
         ]
       }
     },
@@ -258,19 +258,19 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -2.950719088052475,
-          52.918815483134175
+          -2.8981916036664144,
+          52.84880650011754
         ]
       },
       "properties": {
         "name": "Koorst",
         "province": "",
-        "population": 837,
+        "population": 100,
         "notes": [],
-        "size_category": 2,
+        "size_category": 1,
         "inkscape_coordinates": [
-          260.03317,
-          325.0069
+          263.03317,
+          329.0069
         ]
       }
     },
@@ -279,19 +279,19 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -2.778582345427396,
-          53.232035073327644
+          -2.7260548610413355,
+          53.16202609031101
         ]
       },
       "properties": {
         "name": "Vesterecht",
         "province": "",
-        "population": 1326,
+        "population": 172,
         "notes": [],
-        "size_category": 2,
+        "size_category": 1,
         "inkscape_coordinates": [
-          269.87225,
-          307.11395
+          272.87225,
+          311.11395
         ]
       }
     },
@@ -300,19 +300,19 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -2.3573183139659193,
-          53.1034386465907
+          -2.3047908295798587,
+          53.03342966357407
         ]
       },
       "properties": {
         "name": "Moerasstad",
         "province": "",
-        "population": 1640,
+        "population": 237,
         "notes": [],
-        "size_category": 2,
+        "size_category": 1,
         "inkscape_coordinates": [
-          293.93814,
-          314.46378
+          296.93814,
+          318.46378
         ]
       }
     },
@@ -321,19 +321,19 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -2.683619242203778,
-          53.09690675210402
+          -2.6310917578177184,
+          53.02689776908739
         ]
       },
       "properties": {
         "name": "Rijkersfort",
         "province": "",
-        "population": 285,
+        "population": 100,
         "notes": [],
         "size_category": 1,
         "inkscape_coordinates": [
-          275.29575,
-          314.83453
+          278.29575,
+          318.83453
         ]
       }
     },
@@ -342,8 +342,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -3.1971062882216854,
-          54.33932906809151
+          -3.1445788038356257,
+          54.26932008507488
         ]
       },
       "properties": {
@@ -353,8 +353,8 @@
         "notes": [],
         "size_category": 3,
         "inkscape_coordinates": [
-          245.97705,
-          243.85118
+          248.97705,
+          247.85118
         ]
       }
     },
@@ -363,19 +363,19 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -3.3089511822352167,
-          54.77300394359478
+          -3.256423697849157,
+          54.702994960578145
         ]
       },
       "properties": {
         "name": "Almshoven",
         "province": "",
-        "population": 393,
+        "population": 4348,
         "notes": [],
-        "size_category": 2,
+        "size_category": 3,
         "inkscape_coordinates": [
-          239.59337,
-          219.07452
+          242.59337,
+          223.07452
         ]
       }
     },
@@ -384,19 +384,19 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -1.3552913266783593,
-          54.41870181359578
+          -1.3027638422922987,
+          54.34869283057915
         ]
       },
       "properties": {
         "name": "Randstaad",
         "province": "",
-        "population": 100,
+        "population": 4193,
         "notes": [],
-        "size_category": 1,
+        "size_category": 3,
         "inkscape_coordinates": [
-          351.20517,
-          239.33026
+          354.20517,
+          243.33026
         ]
       }
     },
@@ -405,19 +405,19 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -1.4541683249678492,
-          56.539887818538965
+          -1.4016408405817895,
+          56.46987883552233
         ]
       },
       "properties": {
         "name": "Loenen",
         "province": "",
-        "population": 100,
+        "population": 883,
         "notes": [],
-        "size_category": 1,
+        "size_category": 2,
         "inkscape_coordinates": [
-          345.58676,
-          118.14624
+          348.58676,
+          122.14624
         ]
       }
     },
@@ -426,19 +426,19 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -1.4315739944123855,
-          56.30777053905412
+          -1.379046510026325,
+          56.23776155603749
         ]
       },
       "properties": {
         "name": "Oostwald",
         "province": "",
-        "population": 160,
+        "population": 225,
         "notes": [],
         "size_category": 1,
         "inkscape_coordinates": [
-          346.87427,
-          131.40726
+          349.87427,
+          135.40726
         ]
       }
     },
@@ -447,19 +447,19 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -1.6914481713412428,
-          55.43222960937524
+          -1.6389206869551822,
+          55.36222062635861
         ]
       },
       "properties": {
         "name": "Stedum",
         "province": "",
-        "population": 203,
+        "population": 197,
         "notes": [],
         "size_category": 1,
         "inkscape_coordinates": [
-          332.01443,
-          181.42496
+          335.01443,
+          185.42496
         ]
       }
     },
@@ -468,19 +468,19 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -1.8599069705064606,
-          57.45601984054825
+          -1.8073794861203991,
+          57.386010857531616
         ]
       },
       "properties": {
         "name": "Aarnau",
         "province": "",
-        "population": 100,
+        "population": 3004,
         "notes": [],
-        "size_category": 1,
+        "size_category": 3,
         "inkscape_coordinates": [
-          322.41925,
-          65.804642
+          325.41925,
+          69.804642
         ]
       }
     },
@@ -489,8 +489,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -1.9585746677943927,
-          57.39819094659912
+          -1.906047183408333,
+          57.32818196358249
         ]
       },
       "properties": {
@@ -500,8 +500,8 @@
         "notes": [],
         "size_category": 1,
         "inkscape_coordinates": [
-          316.78131,
-          69.107674
+          319.78131,
+          73.107674
         ]
       }
     },
@@ -510,8 +510,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -1.6837584291299335,
-          56.91923642228841
+          -1.6312309447438729,
+          56.84922743927178
         ]
       },
       "properties": {
@@ -521,8 +521,8 @@
         "notes": [],
         "size_category": 1,
         "inkscape_coordinates": [
-          332.47525,
-          96.472366
+          335.47525,
+          100.472366
         ]
       }
     },
@@ -531,8 +531,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -1.2965964578058147,
-          54.76277210804646
+          -1.244068973419754,
+          54.69276312502983
         ]
       },
       "properties": {
@@ -542,8 +542,8 @@
         "notes": [],
         "size_category": 1,
         "inkscape_coordinates": [
-          354.56351,
-          219.67397
+          357.56351,
+          223.67397
         ]
       }
     },
@@ -552,8 +552,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -2.6185397669076824,
-          52.5201277100076
+          -2.566012282521622,
+          52.450118726990965
         ]
       },
       "properties": {
@@ -563,8 +563,8 @@
         "notes": [],
         "size_category": 4,
         "inkscape_coordinates": [
-          279.00555,
-          347.78638
+          282.00555,
+          351.78638
         ]
       }
     },
@@ -573,19 +573,19 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -2.7806343303768575,
-          52.610218770486334
+          -2.728106845990798,
+          52.540209787469706
         ]
       },
       "properties": {
         "name": "Ruttenkoop",
         "province": "",
-        "population": 126,
+        "population": 588,
         "notes": [],
-        "size_category": 1,
+        "size_category": 2,
         "inkscape_coordinates": [
-          269.74603,
-          342.63828
+          272.74603,
+          346.63828
         ]
       }
     },
@@ -594,19 +594,19 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -3.2264184783503866,
-          52.27714433068071
+          -3.173890993964327,
+          52.207135347664085
         ]
       },
       "properties": {
         "name": "Heuveldorp",
         "province": "",
-        "population": 100,
+        "population": 3411,
         "notes": [],
-        "size_category": 1,
+        "size_category": 3,
         "inkscape_coordinates": [
-          244.27258,
-          361.66351
+          247.27258,
+          365.66351
         ]
       }
     },
@@ -615,19 +615,19 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -3.199685951909262,
-          54.043277278899204
+          -3.1471584675232016,
+          53.97326829588257
         ]
       },
       "properties": {
         "name": "Heppeldorp",
         "province": "",
-        "population": 100,
+        "population": 254,
         "notes": [],
         "size_category": 1,
         "inkscape_coordinates": [
-          245.82539,
-          260.76459
+          248.82539,
+          264.76459
         ]
       }
     },
@@ -636,19 +636,19 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -3.866165432727421,
-          52.62330278703989
+          -3.81363794834136,
+          52.55329380402326
         ]
       },
       "properties": {
         "name": "Fort Bergbes",
         "province": "",
-        "population": 879,
+        "population": 100,
         "notes": [],
-        "size_category": 2,
+        "size_category": 1,
         "inkscape_coordinates": [
-          207.72742,
-          341.88275
+          210.72742,
+          345.88275
         ]
       }
     },
@@ -657,8 +657,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -3.1752175962007305,
-          52.44946123667094
+          -3.122690111814671,
+          52.37945225365431
         ]
       },
       "properties": {
@@ -668,8 +668,8 @@
         "notes": [],
         "size_category": 1,
         "inkscape_coordinates": [
-          247.20029,
-          351.81943
+          250.20029,
+          355.81943
         ]
       }
     },
@@ -678,19 +678,19 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -1.2082256715426265,
-          54.34486349612374
+          -1.1556981871565668,
+          54.274854513107115
         ]
       },
       "properties": {
         "name": "Grensstad",
         "province": "",
-        "population": 1141,
+        "population": 100,
         "notes": [],
-        "size_category": 2,
+        "size_category": 1,
         "inkscape_coordinates": [
-          359.60629,
-          243.54973
+          362.60629,
+          247.54973
         ]
       }
     },
@@ -699,19 +699,19 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -1.228565193780586,
-          54.287565009949496
+          -1.1760377093945253,
+          54.21755602693287
         ]
       },
       "properties": {
         "name": "Wouduin",
         "province": "",
-        "population": 100,
+        "population": 111,
         "notes": [],
         "size_category": 1,
         "inkscape_coordinates": [
-          358.44342,
-          246.82304
+          361.44342,
+          250.82304
         ]
       }
     },
@@ -720,19 +720,19 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -1.2949990804198643,
-          54.22703159418956
+          -1.2424715960338037,
+          54.15702261117293
         ]
       },
       "properties": {
         "name": "Gorssel",
         "province": "",
-        "population": 100,
+        "population": 124,
         "notes": [],
         "size_category": 1,
         "inkscape_coordinates": [
-          354.64703,
-          250.28082
+          357.64703,
+          254.28082
         ]
       }
     },
@@ -741,19 +741,19 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -1.2934483116608702,
-          54.5565112402681
+          -1.2409208272748105,
+          54.48650225725147
         ]
       },
       "properties": {
         "name": "Gieten",
         "province": "",
-        "population": 100,
+        "population": 1280,
         "notes": [],
-        "size_category": 1,
+        "size_category": 2,
         "inkscape_coordinates": [
-          354.74039,
-          231.45767
+          357.74039,
+          235.45767
         ]
       }
     },
@@ -762,19 +762,19 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -1.7558164601161712,
-          57.03654046694953
+          -1.7032889757301106,
+          56.966531483932904
         ]
       },
       "properties": {
         "name": "Diever",
         "province": "",
-        "population": 100,
+        "population": 195,
         "notes": [],
         "size_category": 1,
         "inkscape_coordinates": [
-          328.36011,
-          89.770256
+          331.36011,
+          93.770256
         ]
       }
     },
@@ -783,19 +783,19 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -3.1403888461375358,
-          55.61587836864232
+          -3.087861361751476,
+          55.545869385625686
         ]
       },
       "properties": {
         "name": "Rotsachhaven",
         "province": "",
-        "population": 705,
+        "population": 924,
         "notes": [],
         "size_category": 2,
         "inkscape_coordinates": [
-          249.23589,
-          170.92238
+          252.23589,
+          174.92238
         ]
       }
     },
@@ -804,19 +804,19 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -3.1043527998482627,
-          55.8934305466306
+          -3.051825315462203,
+          55.82342156361396
         ]
       },
       "properties": {
         "name": "Fort Solace",
         "province": "",
-        "population": 748,
+        "population": 100,
         "notes": [],
-        "size_category": 2,
+        "size_category": 1,
         "inkscape_coordinates": [
-          251.29872,
-          155.0661
+          254.29872,
+          159.0661
         ]
       }
     },
@@ -825,8 +825,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -2.621311201759335,
-          53.236935214597786
+          -2.5687837173732744,
+          53.16692623158116
         ]
       },
       "properties": {
@@ -836,8 +836,8 @@
         "notes": [],
         "size_category": 5,
         "inkscape_coordinates": [
-          278.85757,
-          306.83517
+          281.85757,
+          310.83517
         ]
       }
     },
@@ -846,19 +846,19 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -2.0291676310306146,
-          53.051108328416795
+          -1.976640146644554,
+          52.98109934540017
         ]
       },
       "properties": {
         "name": "Smerigwaard",
         "province": "",
-        "population": 178,
+        "population": 100,
         "notes": [],
         "size_category": 1,
         "inkscape_coordinates": [
-          312.68536,
-          317.45584
+          315.68536,
+          321.45584
         ]
       }
     },
@@ -867,19 +867,19 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -2.136311291523838,
-          53.07982139188386
+          -2.0837838071377774,
+          53.009812408867234
         ]
       },
       "properties": {
         "name": "Klauperdorf",
         "province": "",
-        "population": 144,
+        "population": 100,
         "notes": [],
         "size_category": 1,
         "inkscape_coordinates": [
-          306.56442,
-          315.81467
+          309.56442,
+          319.81467
         ]
       }
     },
@@ -888,19 +888,19 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -2.9339727091055225,
-          51.738387262022336
+          -2.881445224719462,
+          51.66837827900571
         ]
       },
       "properties": {
         "name": "Fessel",
         "province": "",
-        "population": 121,
+        "population": 100,
         "notes": [],
         "size_category": 1,
         "inkscape_coordinates": [
-          260.97287,
-          392.44485
+          263.97287,
+          396.44485
         ]
       }
     },
@@ -909,19 +909,19 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -2.953052100018698,
-          52.76865773493996
+          -2.900524615632637,
+          52.69864875192332
         ]
       },
       "properties": {
         "name": "Halsdorp",
         "province": "",
-        "population": 254,
+        "population": 278,
         "notes": [],
         "size_category": 1,
         "inkscape_coordinates": [
-          259.89771,
-          333.58539
+          262.89771,
+          337.58539
         ]
       }
     },
@@ -930,19 +930,19 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -2.712615410115066,
-          53.22322583707695
+          -2.660087925729006,
+          53.15321685406032
         ]
       },
       "properties": {
         "name": "Middeldijk",
         "province": "",
-        "population": 233,
+        "population": 265,
         "notes": [],
         "size_category": 1,
         "inkscape_coordinates": [
-          273.64096,
-          307.61771
+          276.64096,
+          311.61771
         ]
       }
     },
@@ -951,19 +951,19 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -2.7010337036808396,
-          53.03509577721184
+          -2.648506219294778,
+          52.965086794195216
         ]
       },
       "properties": {
         "name": "Havenrijk",
         "province": "",
-        "population": 582,
+        "population": 100,
         "notes": [],
-        "size_category": 2,
+        "size_category": 1,
         "inkscape_coordinates": [
-          274.29993,
-          318.36566
+          277.29993,
+          322.36566
         ]
       }
     },
@@ -972,8 +972,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -2.5790020991413707,
-          53.18622038418734
+          -2.52647461475531,
+          53.1162114011707
         ]
       },
       "properties": {
@@ -983,8 +983,8 @@
         "notes": [],
         "size_category": 1,
         "inkscape_coordinates": [
-          281.27405,
-          309.73282
+          284.27405,
+          313.73282
         ]
       }
     },
@@ -993,8 +993,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -2.757970220637631,
-          53.261349157451974
+          -2.7054427362515714,
+          53.19134017443535
         ]
       },
       "properties": {
@@ -1004,8 +1004,8 @@
         "notes": [],
         "size_category": 1,
         "inkscape_coordinates": [
-          271.05029,
-          305.43939
+          274.05029,
+          309.43939
         ]
       }
     },
@@ -1014,19 +1014,19 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -2.732288609658063,
-          52.975034627984606
+          -2.6797611252720035,
+          52.90502564496798
         ]
       },
       "properties": {
         "name": "Oudegracht",
         "province": "",
-        "population": 100,
+        "population": 130,
         "notes": [],
         "size_category": 1,
         "inkscape_coordinates": [
-          272.5134,
-          321.79672
+          275.5134,
+          325.79672
         ]
       }
     },
@@ -1035,19 +1035,19 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -2.774706449591803,
-          52.89858448495207
+          -2.7221789652057424,
+          52.82857550193544
         ]
       },
       "properties": {
         "name": "Kranedam",
         "province": "",
-        "population": 441,
+        "population": 293,
         "notes": [],
-        "size_category": 2,
+        "size_category": 1,
         "inkscape_coordinates": [
-          270.08887,
-          326.164
+          273.08887,
+          330.164
         ]
       }
     },
@@ -1056,19 +1056,19 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -2.783102958578759,
-          52.74849806687906
+          -2.7305754741926984,
+          52.67848908386243
         ]
       },
       "properties": {
         "name": "Zwanedam",
         "province": "",
-        "population": 777,
+        "population": 337,
         "notes": [],
         "size_category": 2,
         "inkscape_coordinates": [
-          269.60699,
-          334.73837
+          272.60699,
+          338.73837
         ]
       }
     },
@@ -1077,19 +1077,19 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -2.780231445233719,
-          52.72386740820489
+          -2.727703960847659,
+          52.65385842518826
         ]
       },
       "properties": {
         "name": "Zwaneveerboot",
         "province": "",
-        "population": 155,
+        "population": 211,
         "notes": [],
         "size_category": 1,
         "inkscape_coordinates": [
-          269.77069,
-          336.14554
+          272.77069,
+          340.14554
         ]
       }
     },
@@ -1098,19 +1098,19 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -2.680439940000751,
-          53.058805269739665
+          -2.6279124556146902,
+          52.98879628672304
         ]
       },
       "properties": {
         "name": "Zijlpoort",
         "province": "",
-        "population": 105,
+        "population": 100,
         "notes": [],
         "size_category": 1,
         "inkscape_coordinates": [
-          275.47684,
-          317.01129
+          278.47684,
+          321.01129
         ]
       }
     },
@@ -1119,19 +1119,19 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -2.8172628864475877,
-          53.21785448575374
+          -2.764735402061527,
+          53.14784550273711
         ]
       },
       "properties": {
         "name": "Stillebroek",
         "province": "",
-        "population": 612,
+        "population": 100,
         "notes": [],
-        "size_category": 2,
+        "size_category": 1,
         "inkscape_coordinates": [
-          267.66214,
-          307.9238
+          270.66214,
+          311.9238
         ]
       }
     },
@@ -1140,19 +1140,19 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -2.9325911167486405,
-          53.09934918056015
+          -2.88006363236258,
+          53.02934019754351
         ]
       },
       "properties": {
         "name": "Slangenmeer",
         "province": "",
-        "population": 280,
+        "population": 100,
         "notes": [],
         "size_category": 1,
         "inkscape_coordinates": [
-          261.07147,
-          314.69315
+          264.07147,
+          318.69315
         ]
       }
     },
@@ -1161,19 +1161,19 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -2.021467892294573,
-          53.45087692648117
+          -1.9689404079085122,
+          53.380867943464544
         ]
       },
       "properties": {
         "name": "Gieterveen",
         "province": "",
-        "population": 532,
+        "population": 100,
         "notes": [],
-        "size_category": 2,
+        "size_category": 1,
         "inkscape_coordinates": [
-          313.13104,
-          294.61713
+          316.13104,
+          298.61713
         ]
       }
     },
@@ -1182,8 +1182,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -3.003123280115152,
-          53.06536417204035
+          -2.9505957957290923,
+          52.99535518902371
         ]
       },
       "properties": {
@@ -1193,8 +1193,8 @@
         "notes": [],
         "size_category": 1,
         "inkscape_coordinates": [
-          257.04132,
-          316.63419
+          260.04132,
+          320.63419
         ]
       }
     },
@@ -1203,19 +1203,19 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -3.417273390878619,
-          52.747327624800334
+          -3.3647459064925593,
+          52.67731864178371
         ]
       },
       "properties": {
         "name": "Molenwaard",
         "province": "",
-        "population": 264,
+        "population": 111,
         "notes": [],
         "size_category": 1,
         "inkscape_coordinates": [
-          233.37541,
-          334.80054
+          236.37541,
+          338.80054
         ]
       }
     },
@@ -1224,8 +1224,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -2.891974179056719,
-          53.15777492442677
+          -2.8394466946706576,
+          53.08776594141014
         ]
       },
       "properties": {
@@ -1235,8 +1235,8 @@
         "notes": [],
         "size_category": 1,
         "inkscape_coordinates": [
-          263.39285,
-          311.35559
+          266.39285,
+          315.35559
         ]
       }
     },
@@ -1245,19 +1245,19 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -2.0107860721559643,
-          53.23247104571389
+          -1.9582585877699037,
+          53.162462062697266
         ]
       },
       "properties": {
         "name": "Zilvermeer",
         "province": "",
-        "population": 100,
+        "population": 338,
         "notes": [],
-        "size_category": 1,
+        "size_category": 2,
         "inkscape_coordinates": [
-          313.73816,
-          307.09473
+          316.73816,
+          311.09473
         ]
       }
     },
@@ -1266,19 +1266,19 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -2.5731571451461406,
-          52.56858154727344
+          -2.52062966076008,
+          52.498572564256804
         ]
       },
       "properties": {
         "name": "Torenbroek",
         "province": "",
-        "population": 666,
+        "population": 100,
         "notes": [],
-        "size_category": 2,
+        "size_category": 1,
         "inkscape_coordinates": [
-          281.59906,
-          345.01855
+          284.59906,
+          349.01855
         ]
       }
     },
@@ -1287,19 +1287,19 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -2.75186458991205,
-          52.662876477599404
+          -2.6993371055259896,
+          52.59286749458277
         ]
       },
       "properties": {
         "name": "Weteringh",
         "province": "",
-        "population": 100,
+        "population": 1605,
         "notes": [],
-        "size_category": 1,
+        "size_category": 2,
         "inkscape_coordinates": [
-          271.39047,
-          339.63016
+          274.39047,
+          343.63016
         ]
       }
     },
@@ -1308,19 +1308,19 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -3.1144390322049,
-          54.22696933890913
+          -3.0619115478188403,
+          54.1569603558925
         ]
       },
       "properties": {
         "name": "Swartenmeer",
         "province": "",
-        "population": 100,
+        "population": 438,
         "notes": [],
-        "size_category": 1,
+        "size_category": 2,
         "inkscape_coordinates": [
-          250.69839,
-          250.2709
+          253.69839,
+          254.2709
         ]
       }
     },
@@ -1329,19 +1329,19 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -2.4505708802699857,
-          53.30176431983923
+          -2.398043395883925,
+          53.2317553368226
         ]
       },
       "properties": {
         "name": "Veldendam",
         "province": "",
-        "population": 244,
+        "population": 477,
         "notes": [],
-        "size_category": 1,
+        "size_category": 2,
         "inkscape_coordinates": [
-          288.61328,
-          303.13275
+          291.61328,
+          307.13275
         ]
       }
     },
@@ -1350,19 +1350,19 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -3.077932185015105,
-          52.898492834253645
+          -3.0254047006290445,
+          52.82848385123701
         ]
       },
       "properties": {
         "name": "Polderwoude",
         "province": "",
-        "population": 13029,
+        "population": 100,
         "notes": [],
-        "size_category": 4,
+        "size_category": 1,
         "inkscape_coordinates": [
-          252.76491,
-          326.16699
+          255.76491,
+          330.16699
         ]
       }
     },
@@ -1371,19 +1371,19 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -2.783912217941616,
-          52.78481392867659
+          -2.731384733555555,
+          52.71480494565996
         ]
       },
       "properties": {
         "name": "Kruiswaard",
         "province": "",
-        "population": 464,
+        "population": 863,
         "notes": [],
         "size_category": 2,
         "inkscape_coordinates": [
-          269.56128,
-          332.66364
+          272.56128,
+          336.66364
         ]
       }
     },
@@ -1392,8 +1392,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -1.8352239292607333,
-          53.656364169325045
+          -1.7826964448746736,
+          53.58635518630841
         ]
       },
       "properties": {
@@ -1403,8 +1403,8 @@
         "notes": [],
         "size_category": 1,
         "inkscape_coordinates": [
-          323.77454,
-          282.87903
+          326.77454,
+          286.87903
         ]
       }
     },
@@ -1413,19 +1413,19 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -2.984634385864501,
-          52.85350087904772
+          -2.9321069014784404,
+          52.783491896031094
         ]
       },
       "properties": {
         "name": "Vlietdam",
         "province": "",
-        "population": 100,
+        "population": 468,
         "notes": [],
-        "size_category": 1,
+        "size_category": 2,
         "inkscape_coordinates": [
-          258.09457,
-          328.73807
+          261.09457,
+          332.73807
         ]
       }
     },
@@ -1434,19 +1434,19 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -3.089384030847893,
-          52.620948394688355
+          -3.0368565464618325,
+          52.55093941167172
         ]
       },
       "properties": {
         "name": "Spaarwoude",
         "province": "",
-        "population": 100,
+        "population": 593,
         "notes": [],
-        "size_category": 1,
+        "size_category": 2,
         "inkscape_coordinates": [
-          252.10663,
-          342.02301
+          255.10663,
+          346.02301
         ]
       }
     },
@@ -1455,8 +1455,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -2.5913486203253875,
-          52.185156250764635
+          -2.538821135939328,
+          52.115147267748
         ]
       },
       "properties": {
@@ -1466,8 +1466,8 @@
         "notes": [],
         "size_category": 1,
         "inkscape_coordinates": [
-          280.5542,
-          366.92349
+          283.5542,
+          370.92349
         ]
       }
     },
@@ -1476,19 +1476,19 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -2.9673688750297975,
-          53.1325972722687
+          -2.914841390643737,
+          53.06258828925207
         ]
       },
       "properties": {
         "name": "Wijkersdijk",
         "province": "",
-        "population": 623,
+        "population": 100,
         "notes": [],
-        "size_category": 2,
+        "size_category": 1,
         "inkscape_coordinates": [
-          259.08502,
-          312.79343
+          262.08502,
+          316.79343
         ]
       }
     },
@@ -1497,19 +1497,19 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -2.807408560853415,
-          52.938315608076586
+          -2.7548810764673544,
+          52.86830662505996
         ]
       },
       "properties": {
         "name": "Modderbroek",
         "province": "",
-        "population": 100,
+        "population": 356,
         "notes": [],
-        "size_category": 1,
+        "size_category": 2,
         "inkscape_coordinates": [
-          268.2211,
-          323.89392
+          271.2211,
+          327.89392
         ]
       }
     },
@@ -1518,8 +1518,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -2.7578880075863967,
-          53.006201114876205
+          -2.705360523200336,
+          52.93619213185957
         ]
       },
       "properties": {
@@ -1529,8 +1529,8 @@
         "notes": [],
         "size_category": 1,
         "inkscape_coordinates": [
-          271.0513,
-          320.01599
+          274.0513,
+          324.01599
         ]
       }
     },
@@ -1539,19 +1539,19 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -2.6750459877121218,
-          52.84092644743069
+          -2.622518503326061,
+          52.770917464414055
         ]
       },
       "properties": {
         "name": "Zompveen",
         "province": "",
-        "population": 132,
+        "population": 123,
         "notes": [],
         "size_category": 1,
         "inkscape_coordinates": [
-          275.78186,
-          329.45874
+          278.78186,
+          333.45874
         ]
       }
     },
@@ -1560,19 +1560,19 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -2.671404283656801,
-          53.12267274742732
+          -2.6188767992707405,
+          53.05266376441069
         ]
       },
       "properties": {
         "name": "Moerwijk",
         "province": "",
-        "population": 202,
+        "population": 640,
         "notes": [],
-        "size_category": 1,
+        "size_category": 2,
         "inkscape_coordinates": [
-          275.99399,
-          313.36261
+          278.99399,
+          317.36261
         ]
       }
     },
@@ -1581,8 +1581,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -1.2246408046174144,
-          55.81076225318918
+          -1.1721133202313547,
+          55.74075327017255
         ]
       },
       "properties": {
@@ -1592,8 +1592,8 @@
         "notes": [],
         "size_category": 1,
         "inkscape_coordinates": [
-          358.68964,
-          159.80286
+          361.68964,
+          163.80286
         ]
       }
     },
@@ -1602,19 +1602,19 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -3.1027555373010243,
-          53.44748205097369
+          -3.0502280529149637,
+          53.37747306795706
         ]
       },
       "properties": {
         "name": "Lehmburg",
         "province": "",
-        "population": 123,
+        "population": 100,
         "notes": [],
         "size_category": 1,
         "inkscape_coordinates": [
-          251.35463,
-          294.80307
+          254.35463,
+          298.80307
         ]
       }
     },
@@ -1623,19 +1623,19 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -2.9265754910511355,
-          52.66019200051877
+          -2.8740480066650758,
+          52.590183017502135
         ]
       },
       "properties": {
         "name": "Frederichsdorp",
         "province": "",
-        "population": 190,
+        "population": 100,
         "notes": [],
         "size_category": 1,
         "inkscape_coordinates": [
-          261.40881,
-          339.78223
+          264.40881,
+          343.78223
         ]
       }
     },
@@ -1644,19 +1644,19 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -2.4832717490902354,
-          53.14074213460347
+          -2.4307442647041757,
+          53.07073315158684
         ]
       },
       "properties": {
         "name": "Rutten",
         "province": "",
-        "population": 959,
+        "population": 100,
         "notes": [],
-        "size_category": 2,
+        "size_category": 1,
         "inkscape_coordinates": [
-          286.74268,
-          312.3317
+          289.74268,
+          316.3317
         ]
       }
     },
@@ -1665,19 +1665,19 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -2.3234807530270203,
-          53.06434708991228
+          -2.2709532686409597,
+          52.99433810689565
         ]
       },
       "properties": {
         "name": "Calden",
         "province": "",
-        "population": 100,
+        "population": 2424,
         "notes": [],
-        "size_category": 1,
+        "size_category": 3,
         "inkscape_coordinates": [
-          295.87079,
-          316.69733
+          298.87079,
+          320.69733
         ]
       }
     },
@@ -1686,19 +1686,19 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -2.7807365113679836,
-          52.81767380245701
+          -2.728209026981923,
+          52.74766481944038
         ]
       },
       "properties": {
         "name": "Didern",
         "province": "",
-        "population": 100,
+        "population": 294,
         "notes": [],
         "size_category": 1,
         "inkscape_coordinates": [
-          269.74319,
-          330.78638
+          272.74319,
+          334.78638
         ]
       }
     },
@@ -1707,19 +1707,19 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -2.018977225984818,
-          53.022705292511645
+          -1.9664497415987574,
+          52.95269630949502
         ]
       },
       "properties": {
         "name": "Stapelhugel",
         "province": "",
-        "population": 361,
+        "population": 100,
         "notes": [],
-        "size_category": 2,
+        "size_category": 1,
         "inkscape_coordinates": [
-          313.26715,
-          319.07858
+          316.26715,
+          323.07858
         ]
       }
     },
@@ -1728,19 +1728,19 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -2.530772388317649,
-          53.26577963188643
+          -2.4782449039315892,
+          53.1957706488698
         ]
       },
       "properties": {
         "name": "Niddesdorf",
         "province": "",
-        "population": 1680,
+        "population": 100,
         "notes": [],
-        "size_category": 2,
+        "size_category": 1,
         "inkscape_coordinates": [
-          284.03067,
-          305.18796
+          287.03067,
+          309.18796
         ]
       }
     },
@@ -1749,8 +1749,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -2.0989823360737505,
-          53.493924839058934
+          -2.04645485168769,
+          53.4239158560423
         ]
       },
       "properties": {
@@ -1760,8 +1760,8 @@
         "notes": [],
         "size_category": 1,
         "inkscape_coordinates": [
-          308.70309,
-          292.15723
+          311.70309,
+          296.15723
         ]
       }
     },
@@ -1770,19 +1770,19 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -3.1120729096241186,
-          53.66630802836512
+          -3.059545425238058,
+          53.596299045348495
         ]
       },
       "properties": {
         "name": "Brakwaterdam",
         "province": "",
-        "population": 1019,
+        "population": 100,
         "notes": [],
-        "size_category": 2,
+        "size_category": 1,
         "inkscape_coordinates": [
-          250.82547,
-          282.30148
+          253.82547,
+          286.30148
         ]
       }
     },
@@ -1791,8 +1791,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -2.5782518888767525,
-          53.31208629775363
+          -2.525724404490692,
+          53.242077314736996
         ]
       },
       "properties": {
@@ -1802,8 +1802,8 @@
         "notes": [],
         "size_category": 1,
         "inkscape_coordinates": [
-          281.31873,
-          302.54211
+          284.31873,
+          306.54211
         ]
       }
     },
@@ -1812,19 +1812,19 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -1.8616420695519649,
-          54.510794627092345
+          -1.8091145851659052,
+          54.44078564407571
         ]
       },
       "properties": {
         "name": "Oud Torenburg",
         "province": "",
-        "population": 216,
+        "population": 100,
         "notes": [],
         "size_category": 1,
         "inkscape_coordinates": [
-          322.27756,
-          234.06525
+          325.27756,
+          238.06525
         ]
       }
     },
@@ -1833,8 +1833,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -1.8731242606128546,
-          54.59266295561121
+          -1.820596776226795,
+          54.522653972594576
         ]
       },
       "properties": {
@@ -1844,8 +1844,8 @@
         "notes": [],
         "size_category": 1,
         "inkscape_coordinates": [
-          321.62274,
-          229.38803
+          324.62274,
+          233.38803
         ]
       }
     },
@@ -1854,19 +1854,19 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -1.9829129678399067,
-          54.93813937789526
+          -1.930385483453846,
+          54.868130394878634
         ]
       },
       "properties": {
         "name": "Zwartweteren",
         "province": "",
-        "population": 201,
+        "population": 100,
         "notes": [],
         "size_category": 1,
         "inkscape_coordinates": [
-          315.35526,
-          209.65016
+          318.35526,
+          213.65016
         ]
       }
     },
@@ -1875,19 +1875,19 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -1.6111131400137388,
-          54.44205654628894
+          -1.5585856556276783,
+          54.372047563272304
         ]
       },
       "properties": {
         "name": "Heidestein",
         "province": "",
-        "population": 1954,
+        "population": 100,
         "notes": [],
-        "size_category": 2,
+        "size_category": 1,
         "inkscape_coordinates": [
-          336.58984,
-          237.99411
+          339.58984,
+          241.99411
         ]
       }
     },
@@ -1896,19 +1896,19 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -1.8646950103536613,
-          53.634788132332126
+          -1.8121675259676007,
+          53.5647791493155
         ]
       },
       "properties": {
         "name": "Gelderham",
         "province": "",
-        "population": 314,
+        "population": 100,
         "notes": [],
-        "size_category": 2,
+        "size_category": 1,
         "inkscape_coordinates": [
-          322.09048,
-          284.11145
+          325.09048,
+          288.11145
         ]
       }
     },
@@ -1917,8 +1917,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -1.9663402288566871,
-          54.15219166645346
+          -1.9138127444706265,
+          54.08218268343683
         ]
       },
       "properties": {
@@ -1928,8 +1928,8 @@
         "notes": [],
         "size_category": 1,
         "inkscape_coordinates": [
-          316.29074,
-          254.55145
+          319.29074,
+          258.55145
         ]
       }
     },
@@ -1938,19 +1938,19 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -1.9273984595751363,
-          55.55216967943573
+          -1.8748709751890749,
+          55.48216069641909
         ]
       },
       "properties": {
         "name": "Middenveld",
         "province": "",
-        "population": 250,
+        "population": 142,
         "notes": [],
         "size_category": 1,
         "inkscape_coordinates": [
-          318.5358,
-          174.57104
+          321.5358,
+          178.57104
         ]
       }
     },
@@ -1959,19 +1959,19 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -2.8589911500573573,
-          55.358836288785
+          -2.8064636656712976,
+          55.288827305768365
         ]
       },
       "properties": {
         "name": "Kromdijk aan Zee",
         "province": "",
-        "population": 443,
+        "population": 878,
         "notes": [],
         "size_category": 2,
         "inkscape_coordinates": [
-          265.30905,
-          185.60927
+          268.30905,
+          189.60927
         ]
       }
     },
@@ -1980,19 +1980,19 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -3.0243860201744797,
-          55.45542106124172
+          -2.971858535788419,
+          55.385412078225094
         ]
       },
       "properties": {
         "name": "Driftstrand",
         "province": "",
-        "population": 935,
+        "population": 100,
         "notes": [],
-        "size_category": 2,
+        "size_category": 1,
         "inkscape_coordinates": [
-          255.86107,
-          180.09016
+          258.86107000000004,
+          184.09016
         ]
       }
     },
@@ -2001,19 +2001,19 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -3.1014427904677433,
-          55.85984767361335
+          -3.0489153060816827,
+          55.789838690596724
         ]
       },
       "properties": {
         "name": "Noordwindhaven",
         "province": "",
-        "population": 139,
+        "population": 100,
         "notes": [],
         "size_category": 1,
         "inkscape_coordinates": [
-          251.46449,
-          156.98471
+          254.46449,
+          160.98471
         ]
       }
     },
@@ -2022,19 +2022,19 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -3.06866026348109,
-          55.71739831596632
+          -3.016132779095029,
+          55.647389332949686
         ]
       },
       "properties": {
         "name": "Kaap Tuinder",
         "province": "",
-        "population": 156,
+        "population": 408,
         "notes": [],
-        "size_category": 1,
+        "size_category": 2,
         "inkscape_coordinates": [
-          253.33537,
-          165.12308
+          256.33537,
+          169.12308
         ]
       }
     },
@@ -2043,19 +2043,19 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -2.778700106539972,
-          55.11487474143255
+          -2.7261726221539115,
+          55.04486575841592
         ]
       },
       "properties": {
         "name": "Zeemond",
         "province": "",
-        "population": 263,
+        "population": 299,
         "notes": [],
         "size_category": 1,
         "inkscape_coordinates": [
-          269.89273,
-          199.54738
+          272.89273,
+          203.54738
         ]
       }
     },
@@ -2064,19 +2064,19 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -1.975332719670435,
-          57.33692416704577
+          -1.9228052352843754,
+          57.26691518402914
         ]
       },
       "properties": {
         "name": "Laagvliet Haven",
         "province": "",
-        "population": 663,
+        "population": 100,
         "notes": [],
-        "size_category": 2,
+        "size_category": 1,
         "inkscape_coordinates": [
-          315.823,
-          72.607719
+          318.823,
+          76.607719
         ]
       }
     },
@@ -2085,19 +2085,19 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -2.4261852432909317,
-          53.184431514252545
+          -2.37365775890487,
+          53.11442253123592
         ]
       },
       "properties": {
         "name": "Rijpendijk",
         "province": "",
-        "population": 308,
+        "population": 180,
         "notes": [],
-        "size_category": 2,
+        "size_category": 1,
         "inkscape_coordinates": [
-          290.00479,
-          309.83615
+          293.00479,
+          313.83615
         ]
       }
     },
@@ -2106,19 +2106,19 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -2.046299150843592,
-          55.76324610425921
+          -1.9937716664575325,
+          55.693237121242575
         ]
       },
       "properties": {
         "name": "Brugwalde",
         "province": "",
-        "population": 100,
+        "population": 3445,
         "notes": [],
-        "size_category": 1,
+        "size_category": 3,
         "inkscape_coordinates": [
-          311.74579,
-          162.51137
+          314.74579,
+          166.51137
         ]
       }
     },
@@ -2127,19 +2127,19 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -1.9237231741690612,
-          56.3467998739772
+          -1.8711956897830007,
+          56.27679089096057
         ]
       },
       "properties": {
         "name": "Dreumelholt",
         "province": "",
-        "population": 100,
+        "population": 102,
         "notes": [],
         "size_category": 1,
         "inkscape_coordinates": [
-          318.75726,
-          129.17387
+          321.75726,
+          133.17387
         ]
       }
     },
@@ -2148,19 +2148,19 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -1.9561933213755145,
-          56.55520204896063
+          -1.903665836989454,
+          56.485193065943996
         ]
       },
       "properties": {
         "name": "Grootveen",
         "province": "",
-        "population": 1600,
+        "population": 100,
         "notes": [],
-        "size_category": 2,
+        "size_category": 1,
         "inkscape_coordinates": [
-          316.90518,
-          117.26762
+          319.90518,
+          121.26762
         ]
       }
     },
@@ -2169,19 +2169,19 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -1.9469469930502097,
-          56.61656736454853
+          -1.894419508664149,
+          56.546558381531895
         ]
       },
       "properties": {
         "name": "Peelwijk",
         "province": "",
-        "population": 1056,
+        "population": 100,
         "notes": [],
-        "size_category": 2,
+        "size_category": 1,
         "inkscape_coordinates": [
-          317.43433,
-          113.76189
+          320.43433,
+          117.76189
         ]
       }
     },
@@ -2190,19 +2190,19 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -2.7881213029091727,
-          54.5497616988128
+          -2.735593818523112,
+          54.47975271579617
         ]
       },
       "properties": {
         "name": "Vloedwijk",
         "province": "",
-        "population": 100,
+        "population": 179,
         "notes": [],
         "size_category": 1,
         "inkscape_coordinates": [
-          269.34631,
-          231.8322
+          272.34631,
+          235.8322
         ]
       }
     },
@@ -2211,19 +2211,19 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -2.8574822277577017,
-          54.13409729745693
+          -2.80495474337164,
+          54.064088314440305
         ]
       },
       "properties": {
         "name": "Middelplaat",
         "province": "",
-        "population": 100,
+        "population": 1891,
         "notes": [],
-        "size_category": 1,
+        "size_category": 2,
         "inkscape_coordinates": [
-          265.37756,
-          255.57858
+          268.37756,
+          259.57858
         ]
       }
     },
@@ -2232,19 +2232,19 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -2.623616829714143,
-          54.148021202575286
+          -2.5710893453280823,
+          54.07801221955866
         ]
       },
       "properties": {
         "name": "Oosterplaat",
         "province": "",
-        "population": 2148,
+        "population": 1621,
         "notes": [],
-        "size_category": 3,
+        "size_category": 2,
         "inkscape_coordinates": [
-          278.73901,
-          254.78484
+          281.73901,
+          258.78484000000003
         ]
       }
     },
@@ -2253,8 +2253,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -2.8217029636842863,
-          54.57638697666824
+          -2.7691754792982266,
+          54.50637799365161
         ]
       },
       "properties": {
@@ -2264,8 +2264,8 @@
         "notes": [],
         "size_category": 1,
         "inkscape_coordinates": [
-          267.4281,
-          230.31085
+          270.4281,
+          234.31085
         ]
       }
     },
@@ -2274,19 +2274,19 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -2.722600311062311,
-          56.41616509271138
+          -2.6700728266762503,
+          56.346156109694746
         ]
       },
       "properties": {
         "name": "Noordwijker",
         "province": "",
-        "population": 178,
+        "population": 234,
         "notes": [],
         "size_category": 1,
         "inkscape_coordinates": [
-          273.11664,
-          125.20512
+          276.11664,
+          129.20512
         ]
       }
     },
@@ -2295,19 +2295,19 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -1.8909759942179614,
-          55.0431063722347
+          -1.8384485098319008,
+          54.973097389218076
         ]
       },
       "properties": {
         "name": "Woltersum",
         "province": "",
-        "population": 329,
+        "population": 248,
         "notes": [],
-        "size_category": 2,
+        "size_category": 1,
         "inkscape_coordinates": [
-          320.60934,
-          203.65408
+          323.60934,
+          207.65408
         ]
       }
     },
@@ -2316,19 +2316,19 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -1.992807359226381,
-          54.837002382085316
+          -1.9402798748403205,
+          54.76699339906869
         ]
       },
       "properties": {
         "name": "Heerenwerf",
         "province": "",
-        "population": 100,
+        "population": 245,
         "notes": [],
         "size_category": 1,
         "inkscape_coordinates": [
-          314.78851,
-          215.42804
+          317.78851,
+          219.42804
         ]
       }
     },
@@ -2337,19 +2337,19 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -1.5225268977890405,
-          53.93975792660939
+          -1.469999413402979,
+          53.869748943592754
         ]
       },
       "properties": {
         "name": "Zegveld",
         "province": "",
-        "population": 100,
+        "population": 1171,
         "notes": [],
-        "size_category": 1,
+        "size_category": 2,
         "inkscape_coordinates": [
-          341.64371,
-          266.69107
+          344.64371,
+          270.69107
         ]
       }
     },
@@ -2358,19 +2358,19 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -2.255352580020557,
-          53.77756865084716
+          -2.2028250956344966,
+          53.70755966783052
         ]
       },
       "properties": {
         "name": "Rijpermeer",
         "province": "",
-        "population": 278,
+        "population": 206,
         "notes": [],
         "size_category": 1,
         "inkscape_coordinates": [
-          299.77341,
-          275.95151
+          302.77341,
+          279.95151
         ]
       }
     },
@@ -2379,19 +2379,19 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -1.9544164605650396,
-          54.10642686397314
+          -1.9018889761789781,
+          54.03641788095651
         ]
       },
       "properties": {
         "name": "Bovenkarspel",
         "province": "",
-        "population": 100,
+        "population": 395,
         "notes": [],
-        "size_category": 1,
+        "size_category": 2,
         "inkscape_coordinates": [
-          316.97131,
-          257.16608
+          319.97131,
+          261.16608
         ]
       }
     },
@@ -2400,19 +2400,19 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -2.996258547137086,
-          53.51812271470436
+          -2.9437310627510263,
+          53.44811373168773
         ]
       },
       "properties": {
         "name": "Schoonhoven",
         "province": "",
-        "population": 828,
+        "population": 2290,
         "notes": [],
-        "size_category": 2,
+        "size_category": 3,
         "inkscape_coordinates": [
-          257.44006,
-          290.76816
+          260.44006,
+          294.76816
         ]
       }
     },
@@ -2421,19 +2421,19 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -2.9221252829880298,
-          53.37572107782759
+          -2.86959779860197,
+          53.30571209481096
         ]
       },
       "properties": {
         "name": "Kreekhuizen",
         "province": "",
-        "population": 2352,
+        "population": 100,
         "notes": [],
-        "size_category": 3,
+        "size_category": 1,
         "inkscape_coordinates": [
-          261.6734,
-          298.90411
+          264.6734,
+          302.90411
         ]
       }
     },
@@ -2442,19 +2442,19 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -2.757727113285081,
-          53.39426769613259
+          -2.7051996288990203,
+          53.32425871311596
         ]
       },
       "properties": {
         "name": "Buitenkaag",
         "province": "",
-        "population": 950,
+        "population": 100,
         "notes": [],
-        "size_category": 2,
+        "size_category": 1,
         "inkscape_coordinates": [
-          271.0661,
-          297.84576
+          274.0661,
+          301.84576
         ]
       }
     }
