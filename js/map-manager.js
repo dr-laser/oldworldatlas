@@ -21,10 +21,22 @@ class MapManager {
      * @returns {ol.Map}
      */
     initialize() {
+        // Custom coordinate format function
+        const coordinateFormat = (coordinate) => {
+            if (!coordinate || !this.map) {
+                return '';
+            }
+            const lon = coordinate[0].toFixed(3);
+            const lat = coordinate[1].toFixed(3);
+            const zoom = this.map.getView().getResolution().toFixed(6);
+            return `X=${lon}, Y=${lat}, Z=${zoom}`;
+        };
+
         const mousePositionControl = new ol.control.MousePosition({
             className: 'custom-mouse-position',
             target: document.getElementById('mouse-position'),
-            undefinedHTML: '&nbsp;'
+            undefinedHTML: '&nbsp;',
+            coordinateFormat: coordinateFormat
         });
 
         this.settlementSource = new ol.source.Vector();
