@@ -83,7 +83,7 @@
         ]
       },
       "properties": {
-        "name": "CZARNEBŁOTA (The Blight)",
+        "name": "CZARNEBŁOTA \n (The Blight)",
         "waterbody_type": "Large Marsh",
         "inkscape_coordinates": [
           751.27795,
@@ -402,8 +402,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          0.30083043096652506,
-          57.38479478068612
+          0.408,
+          57.514
         ]
       },
       "properties": {
@@ -438,8 +438,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          3.908927550981713,
-          60.93626533109761
+          4.066,
+          57.415
         ]
       },
       "properties": {
