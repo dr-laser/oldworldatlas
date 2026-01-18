@@ -270,37 +270,83 @@ function createSettlementStyle(feature, currentResolution) {
         });
     }
     
-    // Return array of styles to separate marker from label for decluttering
-    // Marker is always shown, only label can be hidden by decluttering
-    const styles = [];
+    // Create style with feature-specific text (not cached)
+    // Set zIndex based on settlement size for decluttering priority
+    // Higher population settlements get higher zIndex and won't be hidden
+    const style = new ol.style.Style({
+        image: imageStyle,
+        zIndex: config.zIndex || sizeCategory  // Use configured zIndex or fall back to size
+    });
     
-    // Always add marker style (not decluttered)
-    if (showDotVisible) {
-        styles.push(new ol.style.Style({
-            image: imageStyle,
-            zIndex: config.zIndex || sizeCategory
-        }));
-    }
-    
-    // Add text label style (can be decluttered)
-    // Higher zIndex = higher priority, won't be hidden
+    // Add text if visible (feature-specific, so not cached)
     if (showLabel) {
-        styles.push(new ol.style.Style({
-            text: new ol.style.Text({
-                text: feature.get('name'),
-                offsetY: baseConfig.textOffsetY,
-                font: fontSize + 'px ' + baseConfig.textFont,
-                fill: new ol.style.Fill({ color: baseConfig.textFillColor }),
-                stroke: new ol.style.Stroke({ 
-                    color: baseConfig.textStrokeColor, 
-                    width: baseConfig.textStrokeWidth 
-                })
-            }),
-            zIndex: config.zIndex || sizeCategory  // Priority for decluttering
+        style.setText(new ol.style.Text({
+            text: feature.get('name'),
+            offsetY: baseConfig.textOffsetY,
+            font: fontSize + 'px ' + baseConfig.textFont,
+            fill: new ol.style.Fill({ color: baseConfig.textFillColor }),
+            stroke: new ol.style.Stroke({ 
+                color: baseConfig.textStrokeColor, 
+                width: baseConfig.textStrokeWidth 
+            })
         }));
     }
     
-    return styles.length > 0 ? styles : null;
+    return style;
+}
+
+/**
+ * Create an OpenLayers Style object for a settlement marker only (no label)
+ * Used for the always-visible marker layer underneath the decluttered label layer
+ * @param {OL.Feature} feature - OpenLayers feature
+ * @param {number} currentResolution - Current map resolution
+ * @returns {OL.style.Style}
+ */
+function createSettlementMarkerOnlyStyle(feature, currentResolution) {
+    if (!STYLES_CONFIG) {
+        return null;
+    }
+    
+    const sizeCategory = feature.get('sizeCategory');
+    const config = STYLES_CONFIG.settlements.sizeCategories[sizeCategory];
+    const baseConfig = STYLES_CONFIG.settlements.baseConfig;
+    
+    if (!config) {
+        return null;
+    }
+    
+    // Early exit for performance
+    if (currentResolution > config.minZoomLevelDot * 2) {
+        return null;
+    }
+    
+    // Check if dot should be visible
+    const showDotVisible = shouldShowDot(config, currentResolution);
+    
+    if (!showDotVisible) {
+        return null;
+    }
+    
+    // Get interpolated radius
+    const radius = getInterpolatedRadius(config, currentResolution);
+    
+    // Cache the circle image
+    const imageCacheKey = `settle_marker_${sizeCategory}_${currentResolution.toFixed(4)}`;
+    const imageStyle = getCachedStyle(STYLE_CACHE.settlements, imageCacheKey, () => {
+        return new ol.style.Circle({
+            radius: radius,
+            fill: new ol.style.Fill({ color: config.color }),
+            stroke: new ol.style.Stroke({ 
+                color: config.strokeColor || baseConfig.strokeColor, 
+                width: config.strokeWidth 
+            })
+        });
+    });
+    
+    // Return style with only the marker (no text)
+    return new ol.style.Style({
+        image: imageStyle
+    });
 }
 
 /**

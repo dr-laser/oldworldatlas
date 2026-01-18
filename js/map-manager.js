@@ -8,6 +8,8 @@ class MapManager {
         this.targetElementId = targetElementId;
         this.settlementVectorLayer = null;
         this.settlementSource = null;
+        this.settlementMarkersOnlyLayer = null;  // Marker-only layer (no declutter)
+        this.settlementMarkersOnlySource = null;
         this.poiVectorLayer = null;
         this.poiSource = null;
         this.provinceVectorLayer = null;
@@ -40,6 +42,7 @@ class MapManager {
         });
 
         this.settlementSource = new ol.source.Vector();
+        this.settlementMarkersOnlySource = new ol.source.Vector();  // Markers only (no labels)
         this.poiSource = new ol.source.Vector();
         this.provinceSource = new ol.source.Vector();
         this.waterSource = new ol.source.Vector();
@@ -56,7 +59,8 @@ class MapManager {
                 }),
                 this.createProvinceLayer(),
                 this.createWaterLayer(),
-                this.createSettlementLayer(),
+                this.createSettlementMarkersOnlyLayer(),  // Markers only, always visible
+                this.createSettlementLayer(),              // Labels + markers, can be decluttered
                 this.createPOILayer()
             ],
             view: new ol.View({
@@ -72,8 +76,9 @@ class MapManager {
         // Store references to layers for visibility control
         this.provinceVectorLayer = this.map.getLayers().item(1);
         this.waterVectorLayer = this.map.getLayers().item(2);
-        this.settlementVectorLayer = this.map.getLayers().item(3);
-        this.poiVectorLayer = this.map.getLayers().item(4);
+        this.settlementMarkersOnlyLayer = this.map.getLayers().item(3);
+        this.settlementVectorLayer = this.map.getLayers().item(4);
+        this.poiVectorLayer = this.map.getLayers().item(5);
         
         // POI layer starts hidden (unchecked)
         this.poiVectorLayer.setVisible(false);
@@ -104,6 +109,22 @@ class MapManager {
                         .replace('{y}', String(-1 - tileCoord[2])));
                 },
             })
+        });
+    }
+
+    /**
+     * Create settlement markers-only vector layer (no labels, no declutter)
+     * @private
+     * @returns {ol.layer.Vector}
+     */
+    createSettlementMarkersOnlyLayer() {
+        return new ol.layer.Vector({
+            title: 'Settlement Markers',
+            source: this.settlementMarkersOnlySource,
+            updateWhileAnimating: false,
+            updateWhileInteracting: false,
+            renderBuffer: 100,
+            style: (feature) => createSettlementMarkerOnlyStyle(feature, this.map.getView().getResolution())
         });
     }
 
@@ -176,6 +197,8 @@ class MapManager {
      */
     addSettlementFeatures(features) {
         this.settlementSource.addFeatures(features);
+        // Also add to marker-only layer for always-visible markers
+        this.settlementMarkersOnlySource.addFeatures(features);
     }
 
     /**
@@ -209,6 +232,7 @@ class MapManager {
         // Update styles on zoom change
         this.map.getView().on('change:resolution', () => {
             this.settlementSource.changed();
+            this.settlementMarkersOnlySource.changed();
             this.provinceSource.changed();
             this.waterSource.changed();
         });
