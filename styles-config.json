@@ -154,22 +154,22 @@
   },
   "provinces": {
     "Nation-State": {
-      "minFontSize": 32,
-      "maxFontSize": 32,
+      "minFontSize": 16,
+      "maxFontSize": 36,
       "minFontZoom": 100.0,
-      "maxFontZoom": 0.003,
+      "maxFontZoom": 0.008,
       "minZoomLevelLabel": 100.0,
-      "maxZoomLevelLabel": 0.003,
+      "maxZoomLevelLabel": 0.008,
       "textFont": "bold Arial, sans-serif",
       "textFillColor": "#0000004a",
       "textStrokeColor": "#ffffff00",
       "textStrokeWidth": 0
     },
     "Grand-Province": {
-      "minFontSize": 24,
-      "maxFontSize": 24,
-      "minFontZoom": 100.0,
-      "maxFontZoom": 0.0015,
+      "minFontSize": 12,
+      "maxFontSize": 36,
+      "minFontZoom": 0.025,
+      "maxFontZoom": 0.001,
       "minZoomLevelLabel": 100.0,
       "maxZoomLevelLabel": 0.0015,
       "textFont": "bold Arial, sans-serif",
@@ -178,9 +178,9 @@
       "textStrokeWidth": 0
     },
     "Province": {
-      "minFontSize": 18,
-      "maxFontSize": 18,
-      "minFontZoom": 100.0,
+      "minFontSize": 10,
+      "maxFontSize": 36,
+      "minFontZoom": 0.02,
       "maxFontZoom": 0.0015,
       "minZoomLevelLabel": 100.0,
       "maxZoomLevelLabel": 0.0015,
@@ -193,7 +193,7 @@
   "water": {
     "Ocean": {
       "minFontSize": 28,
-      "maxFontSize": 28,
+      "maxFontSize": 40,
       "minFontZoom": 100.0,
       "maxFontZoom": 0.010,
       "minZoomLevelLabel": 100.0,
@@ -204,8 +204,8 @@
       "textStrokeWidth": 2.5
     },
     "Major Sea": {
-      "minFontSize": 24,
-      "maxFontSize": 24,
+      "minFontSize": 16,
+      "maxFontSize": 30,
       "minFontZoom": 100.0,
       "maxFontZoom": 0.006,
       "minZoomLevelLabel": 100.0,
@@ -216,11 +216,11 @@
       "textStrokeWidth": 2.5
     },
     "Large Sea": {
-      "minFontSize": 20,
-      "maxFontSize": 20,
-      "minFontZoom": 100.0,
+      "minFontSize": 14,
+      "maxFontSize": 32,
+      "minFontZoom": 0.03,
       "maxFontZoom": 0.004,
-      "minZoomLevelLabel": 100.0,
+      "minZoomLevelLabel": 0.03,
       "maxZoomLevelLabel": 0.004,
       "textFont": "italic Arial, sans-serif",
       "textFillColor": "#0066cc",
@@ -228,11 +228,11 @@
       "textStrokeWidth": 2
     },
     "Medium Sea": {
-      "minFontSize": 16,
-      "maxFontSize": 16,
-      "minFontZoom": 100.0,
+      "minFontSize": 12,
+      "maxFontSize": 24,
+      "minFontZoom": 0.015,
       "maxFontZoom": 0.003,
-      "minZoomLevelLabel": 100.0,
+      "minZoomLevelLabel": 0.015,
       "maxZoomLevelLabel": 0.003,
       "textFont": "italic Arial, sans-serif",
       "textFillColor": "#0066cc",
@@ -240,11 +240,11 @@
       "textStrokeWidth": 2
     },
     "Small Sea": {
-      "minFontSize": 14,
-      "maxFontSize": 14,
-      "minFontZoom": 100.0,
+      "minFontSize": 10,
+      "maxFontSize": 20,
+      "minFontZoom": 0.008,
       "maxFontZoom": 0.002,
-      "minZoomLevelLabel": 100.0,
+      "minZoomLevelLabel": 0.008,
       "maxZoomLevelLabel": 0.002,
       "textFont": "italic Arial, sans-serif",
       "textFillColor": "#0066cc",
@@ -252,11 +252,11 @@
       "textStrokeWidth": 2
     },
     "Large Marsh": {
-      "minFontSize": 14,
-      "maxFontSize": 14,
-      "minFontZoom": 100.0,
-      "maxFontZoom": 0.002,
-      "minZoomLevelLabel": 100.0,
+      "minFontSize": 12,
+      "maxFontSize": 24,
+      "minFontZoom": 0.008,
+      "maxFontZoom": 0.001,
+      "minZoomLevelLabel": 0.008,
       "maxZoomLevelLabel": 0.002,
       "textFont": "italic Arial, sans-serif",
       "textFillColor": "#009999",
@@ -264,11 +264,11 @@
       "textStrokeWidth": 2
     },
     "Small Marsh": {
-      "minFontSize": 12,
-      "maxFontSize": 12,
-      "minFontZoom": 100.0,
+      "minFontSize": 10,
+      "maxFontSize": 16,
+      "minFontZoom": 0.006,
       "maxFontZoom": 0.0015,
-      "minZoomLevelLabel": 100.0,
+      "minZoomLevelLabel": 0.006,
       "maxZoomLevelLabel": 0.0015,
       "textFont": "italic Arial, sans-serif",
       "textFillColor": "#009999",
