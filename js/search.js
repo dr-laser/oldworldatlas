@@ -30,6 +30,15 @@ class SearchManager {
         // Set up event listeners
         this.searchInput.addEventListener('input', () => this.handleSearchInput());
         this.searchInput.addEventListener('focus', () => this.handleSearchInput());
+        this.searchInput.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter') {
+                // If dropdown has results, select the first one
+                const firstItem = this.dropdown.querySelector('.autocomplete-item');
+                if (firstItem && this.dropdown.style.display === 'block') {
+                    firstItem.click();
+                }
+            }
+        });
         this.clearButton.addEventListener('click', () => this.clearSelection());
 
         // Close dropdown when clicking outside
@@ -50,11 +59,12 @@ class SearchManager {
 
         // Get settlement features
         const settlementSource = mapManager.getSettlementSource();
+        
         if (settlementSource) {
             const settlements = settlementSource.getFeatures();
             settlements.forEach(feature => {
                 const name = feature.get('name');
-                const size = feature.get('size');
+                const sizeCategory = feature.get('sizeCategory');
                 const coord = feature.getGeometry().getCoordinates();
                 if (name) {
                     this.allFeatures.push({
@@ -62,7 +72,7 @@ class SearchManager {
                         name: name,
                         normalizedName: this.normalizeString(name),
                         type: 'Settlement',
-                        details: `Size ${size}`,
+                        details: `Size ${sizeCategory}`,
                         coordinate: coord
                     });
                 }
@@ -71,6 +81,7 @@ class SearchManager {
 
         // Get POI features
         const poiSource = mapManager.getPOISource();
+        
         if (poiSource) {
             const pois = poiSource.getFeatures();
             pois.forEach(feature => {
@@ -90,10 +101,7 @@ class SearchManager {
             });
         }
 
-        console.log('Built feature index:', {
-            settlements: this.allFeatures.filter(f => f.type === 'Settlement').length,
-            pois: this.allFeatures.filter(f => f.type === 'POI').length
-        });
+        console.log('Search indexed', this.allFeatures.length, 'features');
     }
 
     /**

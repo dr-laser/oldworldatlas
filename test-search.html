@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Search Test</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+        #search-input {
+            padding: 8px;
+            width: 300px;
+            font-size: 14px;
+        }
+        #autocomplete-dropdown {
+            border: 1px solid #ccc;
+            max-height: 200px;
+            overflow-y: auto;
+            display: none;
+        }
+        .autocomplete-item {
+            padding: 8px;
+            cursor: pointer;
+        }
+        .autocomplete-item:hover {
+            background: #f0f0f0;
+        }
+        #output {
+            margin-top: 20px;
+            padding: 10px;
+            background: #f5f5f5;
+            border: 1px solid #ddd;
+        }
+    </style>
+</head>
+<body>
+    <h1>Search Functionality Test</h1>
+    
+    <input type="text" id="search-input" placeholder="Type to search...">
+    <button id="clear-selection">Clear</button>
+    <div id="autocomplete-dropdown"></div>
+    
+    <div id="output">
+        <h3>Console Output:</h3>
+        <div id="console-log"></div>
+    </div>
+    
+    <script>
+        // Simple logging to page
+        const logDiv = document.getElementById('console-log');
+        function log(message) {
+            console.log(message);
+            logDiv.innerHTML += message + '<br>';
+        }
+        
+        log('Test page loaded');
+        
+        // Test that elements exist
+        const searchInput = document.getElementById('search-input');
+        const dropdown = document.getElementById('autocomplete-dropdown');
+        const clearButton = document.getElementById('clear-selection');
+        
+        log('Search input: ' + (searchInput ? 'FOUND' : 'NOT FOUND'));
+        log('Dropdown: ' + (dropdown ? 'FOUND' : 'NOT FOUND'));
+        log('Clear button: ' + (clearButton ? 'FOUND' : 'NOT FOUND'));
+        
+        // Add event listener
+        if (searchInput) {
+            searchInput.addEventListener('input', function() {
+                const value = this.value;
+                log('Input event fired: ' + value);
+                
+                if (value.length > 0) {
+                    dropdown.innerHTML = '<div class="autocomplete-item">Test result: ' + value + '</div>';
+                    dropdown.style.display = 'block';
+                    log('Dropdown should be visible');
+                } else {
+                    dropdown.style.display = 'none';
+                }
+            });
+            log('Event listener attached');
+        }
+        
+        log('Test setup complete');
+    </script>
+</body>
+</html>
