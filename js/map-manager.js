@@ -114,6 +114,7 @@ class MapManager {
         return new ol.layer.Vector({
             title: 'Settlements (Size 3+)',
             source: this.settlementSource,
+            declutter: true,               // Enable label decluttering to prevent overlaps
             updateWhileAnimating: false,  // Performance: don't update during animation
             updateWhileInteracting: false, // Performance: don't update while panning/zooming
             renderBuffer: 100,             // Render features slightly outside viewport

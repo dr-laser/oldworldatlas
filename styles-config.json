@@ -6,12 +6,14 @@
       "textFont": "Arial, sans-serif",
       "textFillColor": "#000",
       "textStrokeColor": "#fff",
-      "textStrokeWidth": 2
+      "textStrokeWidth": 2,
+      "enableDecluttering": true
     },
     "sizeCategories": {
       "1": {
         "label": "Village",
         "color": "rgba(100, 200, 100, 0.7)",
+        "zIndex": 1,
         "minFontSize": 11,
         "maxFontSize": 22,
         "minFontZoom": 0.003,
@@ -30,6 +32,7 @@
       "2": {
         "label": "Large Village",
         "color": "rgba(50, 180, 150, 0.75)",
+        "zIndex": 2,
         "minFontSize": 11,
         "maxFontSize": 22,
         "minFontZoom": 0.003,
@@ -48,6 +51,7 @@
       "3": {
         "label": "Small Town",
         "color": "rgba(0, 128, 255, 0.8)",
+        "zIndex": 3,
         "minFontSize": 12,
         "maxFontSize": 24,
         "minFontZoom": 0.010,
@@ -66,6 +70,7 @@
       "4": {
         "label": "City",
         "color": "rgba(255, 128, 0, 0.8)",
+        "zIndex": 4,
         "minFontSize": 13,
         "maxFontSize": 26,
         "minFontZoom": 1.0,
@@ -84,6 +89,7 @@
       "5": {
         "label": "Large City",
         "color": "rgba(255, 0, 0, 0.8)",
+        "zIndex": 5,
         "minFontSize": 14,
         "maxFontSize": 28,
         "minFontZoom": 1.0,
@@ -102,6 +108,7 @@
       "6": {
         "label": "Major City",
         "color": "rgba(255, 0, 0, 0.8)",
+        "zIndex": 6,
         "minFontSize": 15,
         "maxFontSize": 30,
         "minFontZoom": 1.0,

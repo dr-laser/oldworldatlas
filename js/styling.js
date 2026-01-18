@@ -271,8 +271,11 @@ function createSettlementStyle(feature, currentResolution) {
     }
     
     // Create style with feature-specific text (not cached)
+    // Set zIndex based on settlement size for decluttering priority
+    // Higher population settlements get higher zIndex and won't be hidden
     const style = new ol.style.Style({
-        image: imageStyle
+        image: imageStyle,
+        zIndex: config.zIndex || sizeCategory  // Use configured zIndex or fall back to size
     });
     
     // Add text if visible (feature-specific, so not cached)
