@@ -160,59 +160,61 @@ function createPOIStyle(feature, currentResolution) {
     }
     
     const config = STYLES_CONFIG.poi.default;
+    const baseConfig = STYLES_CONFIG.poi.baseConfig;
     
     // Early exit for performance - don't even check visibility if way out of range
     if (currentResolution > config.minZoomLevelLabel * 2) {
         return null;
     }
     
-    // Use cache for performance
-    const cacheKey = `${currentResolution.toFixed(4)}`;
-    return getCachedStyle(STYLE_CACHE.poi, cacheKey, () => {
-        const baseConfig = STYLES_CONFIG.poi.baseConfig;
-        
-        // Check visibility
-        const showLabel = shouldShowLabel(config, currentResolution);
-        const showDotVisible = shouldShowDot(config, currentResolution);
-        
-        if (!showLabel && !showDotVisible) {
-            return null;
-        }
+    // Check visibility
+    const showLabel = shouldShowLabel(config, currentResolution);
+    const showDotVisible = shouldShowDot(config, currentResolution);
     
-        // Get interpolated values
-        const fontSize = getInterpolatedFontSize(config, currentResolution);
-        const radius = getInterpolatedRadius(config, currentResolution);
-        
-        const style = new ol.style.Style({});
-        
-        // Add text if visible
-        if (showLabel) {
-            style.setText(new ol.style.Text({
-                text: feature.get('name'),
-                offsetY: baseConfig.textOffsetY,
-                font: fontSize + 'px ' + baseConfig.textFont,
-                fill: new ol.style.Fill({ color: baseConfig.textFillColor }),
-                stroke: new ol.style.Stroke({ 
-                    color: baseConfig.textStrokeColor, 
-                    width: baseConfig.textStrokeWidth 
-                })
-            }));
-        }
-        
-        // Add dot if visible
-        if (showDotVisible) {
-            style.setImage(new ol.style.Circle({
+    if (!showLabel && !showDotVisible) {
+        return null;
+    }
+    
+    // Get interpolated values
+    const fontSize = getInterpolatedFontSize(config, currentResolution);
+    const radius = getInterpolatedRadius(config, currentResolution);
+    
+    // Cache the circle image (non-feature-specific)
+    let imageStyle = null;
+    if (showDotVisible) {
+        const imageCacheKey = `poi_img_${currentResolution.toFixed(4)}`;
+        imageStyle = getCachedStyle(STYLE_CACHE.poi, imageCacheKey, () => {
+            return new ol.style.Circle({
                 radius: radius,
                 fill: new ol.style.Fill({ color: baseConfig.color }),
                 stroke: new ol.style.Stroke({ 
                     color: baseConfig.strokeColor, 
                     width: config.strokeWidth 
                 })
-            }));
-        }
-        
-        return style;
+            });
+        });
+    }
+    
+    // Create style with feature-specific text (not cached)
+    const style = new ol.style.Style({
+        image: imageStyle
     });
+    
+    // Add text if visible (feature-specific, so not cached)
+    if (showLabel) {
+        style.setText(new ol.style.Text({
+            text: feature.get('name'),
+            offsetY: baseConfig.textOffsetY,
+            font: fontSize + 'px ' + baseConfig.textFont,
+            fill: new ol.style.Fill({ color: baseConfig.textFillColor }),
+            stroke: new ol.style.Stroke({ 
+                color: baseConfig.textStrokeColor, 
+                width: baseConfig.textStrokeWidth 
+            })
+        }));
+    }
+    
+    return style;
 }
 
 /**
@@ -229,6 +231,7 @@ function createSettlementStyle(feature, currentResolution) {
     
     const sizeCategory = feature.get('sizeCategory');
     const config = STYLES_CONFIG.settlements.sizeCategories[sizeCategory];
+    const baseConfig = STYLES_CONFIG.settlements.baseConfig;
     
     if (!config) {
         return null;
@@ -239,53 +242,54 @@ function createSettlementStyle(feature, currentResolution) {
         return null;
     }
     
-    // Use cache for performance - key includes size category and resolution
-    const cacheKey = `${sizeCategory}_${currentResolution.toFixed(4)}`;
-    return getCachedStyle(STYLE_CACHE.settlements, cacheKey, () => {
-        const baseConfig = STYLES_CONFIG.settlements.baseConfig;
-        
-        // Check visibility
-        const showLabel = shouldShowLabel(config, currentResolution);
-        const showDotVisible = shouldShowDot(config, currentResolution);
-        
-        if (!showLabel && !showDotVisible) {
-            return null;
-        }
+    // Check visibility
+    const showLabel = shouldShowLabel(config, currentResolution);
+    const showDotVisible = shouldShowDot(config, currentResolution);
     
-        // Get interpolated values
-        const fontSize = getInterpolatedFontSize(config, currentResolution);
-        const radius = getInterpolatedRadius(config, currentResolution);
-        
-        const style = new ol.style.Style({});
-        
-        // Add text if visible
-        if (showLabel) {
-            style.setText(new ol.style.Text({
-                text: feature.get('name'),
-                offsetY: baseConfig.textOffsetY,
-                font: fontSize + 'px ' + baseConfig.textFont,
-                fill: new ol.style.Fill({ color: baseConfig.textFillColor }),
-                stroke: new ol.style.Stroke({ 
-                    color: baseConfig.textStrokeColor, 
-                    width: baseConfig.textStrokeWidth 
-                })
-            }));
-        }
-        
-        // Add dot if visible
-        if (showDotVisible) {
-            style.setImage(new ol.style.Circle({
+    if (!showLabel && !showDotVisible) {
+        return null;
+    }
+    
+    // Get interpolated values
+    const fontSize = getInterpolatedFontSize(config, currentResolution);
+    const radius = getInterpolatedRadius(config, currentResolution);
+    
+    // Cache the circle image (non-feature-specific)
+    let imageStyle = null;
+    if (showDotVisible) {
+        const imageCacheKey = `settle_img_${sizeCategory}_${currentResolution.toFixed(4)}`;
+        imageStyle = getCachedStyle(STYLE_CACHE.settlements, imageCacheKey, () => {
+            return new ol.style.Circle({
                 radius: radius,
                 fill: new ol.style.Fill({ color: config.color }),
                 stroke: new ol.style.Stroke({ 
                     color: config.strokeColor || baseConfig.strokeColor, 
                     width: config.strokeWidth 
                 })
-            }));
-        }
-        
-        return style;
+            });
+        });
+    }
+    
+    // Create style with feature-specific text (not cached)
+    const style = new ol.style.Style({
+        image: imageStyle
     });
+    
+    // Add text if visible (feature-specific, so not cached)
+    if (showLabel) {
+        style.setText(new ol.style.Text({
+            text: feature.get('name'),
+            offsetY: baseConfig.textOffsetY,
+            font: fontSize + 'px ' + baseConfig.textFont,
+            fill: new ol.style.Fill({ color: baseConfig.textFillColor }),
+            stroke: new ol.style.Stroke({ 
+                color: baseConfig.textStrokeColor, 
+                width: baseConfig.textStrokeWidth 
+            })
+        }));
+    }
+    
+    return style;
 }
 
 /**
@@ -312,23 +316,21 @@ function createProvinceStyle(feature, currentResolution) {
         return null;
     }
     
-    // Use cache for performance
-    const cacheKey = `${provinceType}_${currentResolution.toFixed(4)}`;
-    return getCachedStyle(STYLE_CACHE.provinces, cacheKey, () => {
-        // Get interpolated font size
-        const fontSize = getInterpolatedFontSize(config, currentResolution);
-        
-        return new ol.style.Style({
-            text: new ol.style.Text({
-                text: feature.get('name'),
-                font: fontSize + 'px ' + config.textFont,
-                fill: new ol.style.Fill({ color: config.textFillColor }),
-                stroke: new ol.style.Stroke({ 
-                    color: config.textStrokeColor, 
-                    width: config.textStrokeWidth 
-                })
+    // Get interpolated font size
+    const fontSize = getInterpolatedFontSize(config, currentResolution);
+    
+    // Province labels are text-only and feature-specific, so less benefit from caching
+    // The font size calculation is lightweight, so we create fresh styles
+    return new ol.style.Style({
+        text: new ol.style.Text({
+            text: feature.get('name'),
+            font: fontSize + 'px ' + config.textFont,
+            fill: new ol.style.Fill({ color: config.textFillColor }),
+            stroke: new ol.style.Stroke({ 
+                color: config.textStrokeColor, 
+                width: config.textStrokeWidth 
             })
-        });
+        })
     });
 }
 
@@ -356,22 +358,20 @@ function createWaterStyle(feature, currentResolution) {
         return null;
     }
     
-    // Use cache for performance
-    const cacheKey = `${waterbodyType}_${currentResolution.toFixed(4)}`;
-    return getCachedStyle(STYLE_CACHE.water, cacheKey, () => {
-        // Get interpolated font size
-        const fontSize = getInterpolatedFontSize(config, currentResolution);
-        
-        return new ol.style.Style({
-            text: new ol.style.Text({
-                text: feature.get('name'),
-                font: fontSize + 'px ' + config.textFont,
-                fill: new ol.style.Fill({ color: config.textFillColor }),
-                stroke: new ol.style.Stroke({ 
-                    color: config.textStrokeColor, 
-                    width: config.textStrokeWidth 
-                })
+    // Get interpolated font size
+    const fontSize = getInterpolatedFontSize(config, currentResolution);
+    
+    // Water labels are text-only and feature-specific, so less benefit from caching
+    // The font size calculation is lightweight, so we create fresh styles
+    return new ol.style.Style({
+        text: new ol.style.Text({
+            text: feature.get('name'),
+            font: fontSize + 'px ' + config.textFont,
+            fill: new ol.style.Fill({ color: config.textFillColor }),
+            stroke: new ol.style.Stroke({ 
+                color: config.textStrokeColor, 
+                width: config.textStrokeWidth 
             })
-        });
+        })
     });
 }
