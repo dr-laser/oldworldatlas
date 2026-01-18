@@ -27,6 +27,22 @@ async function initializeApp() {
         const olPOIFeatures = poiData.getOLFeatures();
         mapManager.addPOIFeatures(olPOIFeatures);
 
+        // Load province labels
+        const provinceFeatures = await provinceData.loadProvinces('data/province_labels.geojson');
+        console.log(`Loaded ${provinceFeatures.length} province labels`);
+        
+        // Add province labels to map
+        const olProvinceFeatures = provinceData.getOLFeatures();
+        mapManager.addProvinceFeatures(olProvinceFeatures);
+
+        // Load water labels
+        const waterFeatures = await waterData.loadWaterLabels('data/water_labels.geojson');
+        console.log(`Loaded ${waterFeatures.length} water labels`);
+        
+        // Add water labels to map
+        const olWaterFeatures = waterData.getOLFeatures();
+        mapManager.addWaterFeatures(olWaterFeatures);
+
         // Initialize UI controls
         uiControls.initialize(mapManager.getMap());
 

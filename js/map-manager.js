@@ -10,6 +10,10 @@ class MapManager {
         this.settlementSource = null;
         this.poiVectorLayer = null;
         this.poiSource = null;
+        this.provinceVectorLayer = null;
+        this.provinceSource = null;
+        this.waterVectorLayer = null;
+        this.waterSource = null;
     }
 
     /**
@@ -25,6 +29,8 @@ class MapManager {
 
         this.settlementSource = new ol.source.Vector();
         this.poiSource = new ol.source.Vector();
+        this.provinceSource = new ol.source.Vector();
+        this.waterSource = new ol.source.Vector();
 
         this.map = new ol.Map({
             controls: ol.control.defaults.defaults().extend([mousePositionControl]),
@@ -36,6 +42,8 @@ class MapManager {
                         this.createTileLayer(),
                     ]
                 }),
+                this.createProvinceLayer(),
+                this.createWaterLayer(),
                 this.createSettlementLayer(),
                 this.createPOILayer()
             ],
@@ -48,8 +56,10 @@ class MapManager {
         });
 
         // Store references to layers for visibility control
-        this.settlementVectorLayer = this.map.getLayers().item(1);
-        this.poiVectorLayer = this.map.getLayers().item(2);
+        this.provinceVectorLayer = this.map.getLayers().item(1);
+        this.waterVectorLayer = this.map.getLayers().item(2);
+        this.settlementVectorLayer = this.map.getLayers().item(3);
+        this.poiVectorLayer = this.map.getLayers().item(4);
         
         // POI layer starts hidden (unchecked)
         this.poiVectorLayer.setVisible(false);
@@ -110,6 +120,32 @@ class MapManager {
     }
 
     /**
+     * Create province labels vector layer
+     * @private
+     * @returns {ol.layer.Vector}
+     */
+    createProvinceLayer() {
+        return new ol.layer.Vector({
+            title: 'Province Labels',
+            source: this.provinceSource,
+            style: (feature) => createProvinceStyle(feature, this.map.getView().getResolution())
+        });
+    }
+
+    /**
+     * Create water labels vector layer
+     * @private
+     * @returns {ol.layer.Vector}
+     */
+    createWaterLayer() {
+        return new ol.layer.Vector({
+            title: 'Water Labels',
+            source: this.waterSource,
+            style: (feature) => createWaterStyle(feature, this.map.getView().getResolution())
+        });
+    }
+
+    /**
      * Add features to settlement layer
      * @param {array} features - Array of ol.Feature objects
      */
@@ -126,12 +162,30 @@ class MapManager {
     }
 
     /**
+     * Add features to province layer
+     * @param {array} features - Array of ol.Feature objects
+     */
+    addProvinceFeatures(features) {
+        this.provinceSource.addFeatures(features);
+    }
+
+    /**
+     * Add features to water layer
+     * @param {array} features - Array of ol.Feature objects
+     */
+    addWaterFeatures(features) {
+        this.waterSource.addFeatures(features);
+    }
+
+    /**
      * Set up event listeners for map
      */
     setupEventListeners() {
         // Update styles on zoom change
         this.map.getView().on('change:resolution', () => {
             this.settlementSource.changed();
+            this.provinceSource.changed();
+            this.waterSource.changed();
         });
     }
 

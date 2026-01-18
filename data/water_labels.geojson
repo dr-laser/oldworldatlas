@@ -1,0 +1,599 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.33302039792234694,
+          54.95051275793368
+        ]
+      },
+      "properties": {
+        "name": "SCHADENSUMPF",
+        "waterbody_type": "Large Marsh",
+        "inkscape_coordinates": [
+          409.61746,
+          208.95549
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -2.5505240094303545,
+          53.38853768691072
+        ]
+      },
+      "properties": {
+        "name": "CURSED MARSHES",
+        "waterbody_type": "Large Marsh",
+        "inkscape_coordinates": [
+          282.90399,
+          298.17465
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -1.1509192533022983,
+          51.92122557920642
+        ]
+      },
+      "properties": {
+        "name": "MIDDEN MARSHES",
+        "waterbody_type": "Large Marsh",
+        "inkscape_coordinates": [
+          362.84531,
+          382.01251
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.36044559848749,
+          48.08394170630943
+        ]
+      },
+      "properties": {
+        "name": "BYLORHOF MARSH",
+        "waterbody_type": "Large Marsh",
+        "inkscape_coordinates": [
+          791.93079,
+          601.29205
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.64659822694597,
+          57.13853584943165
+        ]
+      },
+      "properties": {
+        "name": "CZARNEBŁOTA (The Blight)",
+        "waterbody_type": "Large Marsh",
+        "inkscape_coordinates": [
+          751.27795,
+          83.998093
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -1.0635844563061223,
+          52.51631828367188
+        ]
+      },
+      "properties": {
+        "name": "MIRROR MOORS",
+        "waterbody_type": "Small Marsh",
+        "inkscape_coordinates": [
+          367.84354,
+          348.01553
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          7.37684689344744,
+          49.14896609069463
+        ]
+      },
+      "properties": {
+        "name": "GRIMMOOR",
+        "waterbody_type": "Small Marsh",
+        "inkscape_coordinates": [
+          850.01544,
+          540.45477
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          7.99786457984792,
+          49.24947848624046
+        ]
+      },
+      "properties": {
+        "name": "DUNKELMOOR",
+        "waterbody_type": "Small Marsh",
+        "inkscape_coordinates": [
+          885.49701,
+          534.7171
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.409254858980137,
+          49.64988958583544
+        ]
+      },
+      "properties": {
+        "name": "MORRSFENN",
+        "waterbody_type": "Small Marsh",
+        "inkscape_coordinates": [
+          794.742,
+          511.82986
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.662253563018429,
+          50.27291398964847
+        ]
+      },
+      "properties": {
+        "name": "TOTENSÜMPFE",
+        "waterbody_type": "Small Marsh",
+        "inkscape_coordinates": [
+          809.20538,
+          476.23837
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          7.705815983305276,
+          50.1971243386048
+        ]
+      },
+      "properties": {
+        "name": "HEL FENN",
+        "waterbody_type": "Small Marsh",
+        "inkscape_coordinates": [
+          868.82532,
+          480.57596
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.451505256151839,
+          47.3413945398583
+        ]
+      },
+      "properties": {
+        "name": "ALBENMOOR",
+        "waterbody_type": "Small Marsh",
+        "inkscape_coordinates": [
+          797.1225,
+          643.71442
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -2.339461618703683,
+          51.76074371722529
+        ]
+      },
+      "properties": {
+        "name": "GROOTSCHER MARSH",
+        "waterbody_type": "Small Marsh",
+        "inkscape_coordinates": [
+          294.93893,
+          391.17203
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -2.894427124320269,
+          51.40781352118305
+        ]
+      },
+      "properties": {
+        "name": "UHLAND BOGS",
+        "waterbody_type": "Small Marsh",
+        "inkscape_coordinates": [
+          263.22742,
+          411.33081
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.5382453499253765,
+          51.59814169344219
+        ]
+      },
+      "properties": {
+        "name": "THE FURDIENST",
+        "waterbody_type": "Small Marsh",
+        "inkscape_coordinates": [
+          397.84406,
+          400.47482
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          0.02387531555203637,
+          51.46318876613952
+        ]
+      },
+      "properties": {
+        "name": "ALTDORF FLATS",
+        "waterbody_type": "Small Marsh",
+        "inkscape_coordinates": [
+          429.95731,
+          408.18884
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          0.5974116932623899,
+          50.771510414137545
+        ]
+      },
+      "properties": {
+        "name": "REIKER MARSHES",
+        "waterbody_type": "Small Marsh",
+        "inkscape_coordinates": [
+          462.71472,
+          447.70865
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.7182461983424187,
+          51.47133813337006
+        ]
+      },
+      "properties": {
+        "name": "DRAKON MARSH",
+        "waterbody_type": "Small Marsh",
+        "inkscape_coordinates": [
+          387.55838,
+          407.71777
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          0.3724891793554912,
+          49.44850955735881
+        ]
+      },
+      "properties": {
+        "name": "THE OBERSLECHT",
+        "waterbody_type": "Small Marsh",
+        "inkscape_coordinates": [
+          449.84528,
+          523.28998
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          1.1928556002244397,
+          57.44181648742336
+        ]
+      },
+      "properties": {
+        "name": "TEUFELSUMPF",
+        "waterbody_type": "Small Marsh",
+        "inkscape_coordinates": [
+          496.83014,
+          66.638691
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          0.20567797493073758,
+          57.13918484249935
+        ]
+      },
+      "properties": {
+        "name": "HARGENSUMPF",
+        "waterbody_type": "Small Marsh",
+        "inkscape_coordinates": [
+          440.42612,
+          83.920715
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.23031555495574363,
+          49.04030234152641
+        ]
+      },
+      "properties": {
+        "name": "THE ORTSCHLAMM",
+        "waterbody_type": "Small Marsh",
+        "inkscape_coordinates": [
+          415.39981,
+          546.60638
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          0.30083043096652506,
+          57.38479478068612
+        ]
+      },
+      "properties": {
+        "name": "EIGER BAY",
+        "waterbody_type": "Small Sea",
+        "inkscape_coordinates": [
+          445.86594,
+          69.889732
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          1.7254163361890535,
+          57.603346470530134
+        ]
+      },
+      "properties": {
+        "name": "DROSSELSPULE BAY",
+        "waterbody_type": "Small Sea",
+        "inkscape_coordinates": [
+          527.25885,
+          57.414433
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          3.908927550981713,
+          60.93626533109761
+        ]
+      },
+      "properties": {
+        "name": "STARIVODA BAY (Altwasser)",
+        "waterbody_type": "Small Sea",
+        "inkscape_coordinates": [
+          652.05585,
+          -132.97894
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          2.255734668453255,
+          57.363747876200776
+        ]
+      },
+      "properties": {
+        "name": "KREIDEKLIPPE BIGHT",
+        "waterbody_type": "Small Sea",
+        "inkscape_coordinates": [
+          557.55365,
+          71.106621
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.6472237850557034,
+          57.541861852873275
+        ]
+      },
+      "properties": {
+        "name": "KLARWASSER BAY",
+        "waterbody_type": "Small Sea",
+        "inkscape_coordinates": [
+          391.70377,
+          60.909473
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -2.6214434332120566,
+          61.46812226481964
+        ]
+      },
+      "properties": {
+        "name": "MANAANSPOORT ZEE",
+        "waterbody_type": "Medium Sea",
+        "inkscape_coordinates": [
+          278.96896,
+          -163.41228
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -2.4318541008874615,
+          57.336153039940015
+        ]
+      },
+      "properties": {
+        "name": "BAY OF AARNAU",
+        "waterbody_type": "Medium Sea",
+        "inkscape_coordinates": [
+          289.74091,
+          72.648392
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.445781228067755,
+          46.70137232533485
+        ]
+      },
+      "properties": {
+        "name": "VARN DRAZH (",
+        "waterbody_type": "Medium Sea",
+        "inkscape_coordinates": [
+          911.05066,
+          680.29364
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -4.370199206513918,
+          40.591682379181634
+        ]
+      },
+      "properties": {
+        "name": "BAIA DELLE PERLE",
+        "waterbody_type": "Medium Sea",
+        "inkscape_coordinates": [
+          178.75699,
+          1029.2451
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -3.8591130044316113,
+          57.09437179376952
+        ]
+      },
+      "properties": {
+        "name": "SEA OF COURONNE",
+        "waterbody_type": "Large Sea",
+        "inkscape_coordinates": [
+          208.19495,
+          86.450775
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.11623443768342,
+          40.782801506251474
+        ]
+      },
+      "properties": {
+        "name": "SEA OF CLAWS",
+        "waterbody_type": "Major Sea",
+        "inkscape_coordinates": [
+          1234.9307,
+          1018.4634
+        ]
+      }
+    }
+  ]
+}

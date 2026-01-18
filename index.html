@@ -14,18 +14,6 @@
             font-family: 'Lucida Grande', Geneva, Arial, Verdana, sans-serif; 
         }
         body { margin: 0; background: #fff; }
-        h1 { 
-            margin: 0; 
-            padding: 6px; 
-            border: 0; 
-            font-size: 20pt; 
-            position: absolute; 
-            top: 10px; 
-            right: 10px; 
-            background: rgba(255, 255, 255, 0.8); 
-            z-index: 10; 
-            text-align: right; 
-        }
         #header { display: none; }
         #subheader { display: none; }
         #map { height: 100%; border: none; }
@@ -38,13 +26,52 @@
             z-index: 10; 
             font-size: 12px; 
         }
-        .title-subheader { 
+        
+        /* Title box */
+        .title-container { 
+            position: absolute; 
+            top: 10px; 
+            right: 10px; 
+            z-index: 10;
+            background: rgba(255, 255, 255, 0.8); 
+            padding: 10px 15px;
+            border-radius: 4px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .title-container h1 { 
             margin: 0; 
+            padding: 0; 
+            border: 0; 
+            font-size: 20pt; 
+            text-align: right;
+            line-height: 1.2;
+        }
+        
+        /* Make title wider on wider screens */
+        @media (min-width: 768px) {
+            .title-container h1 {
+                font-size: 24pt;
+                max-width: 400px;
+            }
+        }
+        
+        @media (min-width: 1024px) {
+            .title-container h1 {
+                font-size: 28pt;
+                max-width: 500px;
+            }
+        }
+        
+        .title-subheader { 
+            margin: 5px 0 0 0; 
             padding: 0; 
             font-size: 10px; 
             color: #666; 
-            font-weight: normal; 
+            font-weight: normal;
+            text-align: right;
         }
+        
         .settlement-popup { 
             padding: 10px; 
             font-size: 12px; 
@@ -52,67 +79,46 @@
         .settlement-popup p { 
             margin: 5px 0; 
         }
-        #settlement-toggle { 
-            position: absolute; 
-            top: 60px; 
-            right: 30px; 
-            z-index: 10; 
-            display: flex; 
-            align-items: center; 
-            gap: 8px; 
-            background: rgba(255, 255, 255, 0.9); 
-            padding: 8px 12px; 
-            border-radius: 4px; 
-            font-size: 13px; 
-            cursor: pointer; 
-            user-select: none; 
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1); 
-            transition: all 0.2s ease; 
+        
+        /* Toggle controls container - top left, horizontal */
+        .layer-toggles {
+            position: absolute;
+            top: 10px;
+            left: 60px; /* Offset from zoom buttons */
+            z-index: 10;
+            display: flex;
+            gap: 15px;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 8px 12px;
+            border-radius: 4px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            transition: all 0.2s ease;
         }
-        #settlement-toggle:hover { 
-            background: rgba(255, 255, 255, 1); 
-            box-shadow: 0 3px 6px rgba(0,0,0,0.15); 
+        
+        .layer-toggles:hover {
+            background: rgba(255, 255, 255, 1);
+            box-shadow: 0 3px 6px rgba(0,0,0,0.15);
         }
-        #settlement-toggle input[type="checkbox"] { 
-            cursor: pointer; 
-            width: 16px; 
-            height: 16px; 
-            margin: 0; 
+        
+        .toggle-item {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 13px;
+            cursor: pointer;
+            user-select: none;
         }
-        #settlement-toggle label { 
-            cursor: pointer; 
-            margin: 0; 
+        
+        .toggle-item input[type="checkbox"] {
+            cursor: pointer;
+            width: 16px;
+            height: 16px;
+            margin: 0;
         }
-        #poi-toggle { 
-            position: absolute; 
-            top: 100px; 
-            right: 30px; 
-            z-index: 10; 
-            display: flex; 
-            align-items: center; 
-            gap: 8px; 
-            background: rgba(255, 255, 255, 0.9); 
-            padding: 8px 12px; 
-            border-radius: 4px; 
-            font-size: 13px; 
-            cursor: pointer; 
-            user-select: none; 
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1); 
-            transition: all 0.2s ease; 
-        }
-        #poi-toggle:hover { 
-            background: rgba(255, 255, 255, 1); 
-            box-shadow: 0 3px 6px rgba(0,0,0,0.15); 
-        }
-        #poi-toggle input[type="checkbox"] { 
-            cursor: pointer; 
-            width: 16px; 
-            height: 16px; 
-            margin: 0; 
-        }
-        #poi-toggle label { 
-            cursor: pointer; 
-            margin: 0; 
+        
+        .toggle-item label {
+            cursor: pointer;
+            margin: 0;
         }
     </style>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@main/dist/en/v7.0.0/legacy/ol.css" type="text/css">
@@ -124,17 +130,20 @@
     <div id="header"><h1>Old-World-Atlas</h1></div>
     <div id="map" class="map"></div>
     
-    <div id="settlement-toggle">
-        <input type="checkbox" id="settlement-checkbox" checked>
-        <label for="settlement-checkbox">Settlements</label>
+    <!-- Layer toggle controls - top left, horizontal -->
+    <div class="layer-toggles">
+        <div class="toggle-item">
+            <input type="checkbox" id="settlement-checkbox" checked>
+            <label for="settlement-checkbox">Settlements</label>
+        </div>
+        <div class="toggle-item">
+            <input type="checkbox" id="poi-checkbox">
+            <label for="poi-checkbox">Points of Interest</label>
+        </div>
     </div>
     
-    <div id="poi-toggle">
-        <input type="checkbox" id="poi-checkbox">
-        <label for="poi-checkbox">Points of Interest</label>
-    </div>
-    
-    <div style="position: absolute; top: 10px; right: 30px; z-index: 10;">
+    <!-- Title box - top right -->
+    <div class="title-container">
         <h1>Atlas of the Old World</h1>
         <p class="title-subheader">Alpha. @toddkoz</p>
     </div>
@@ -146,6 +155,8 @@
     <script src="js/styling.js"></script>
     <script src="js/settlement-data.js"></script>
     <script src="js/poi-data.js"></script>
+    <script src="js/province-data.js"></script>
+    <script src="js/water-data.js"></script>
     <script src="js/map-manager.js"></script>
     <script src="js/ui-controls.js"></script>
     <script src="js/app.js"></script>

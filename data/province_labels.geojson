@@ -1,0 +1,625 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          3.1559659360464893,
+          52.76261606628629
+        ]
+      },
+      "properties": {
+        "name": "TALABHEIM",
+        "province_type": "Province",
+        "formal_title": "",
+        "part_of": "",
+        "inkscape_coordinates": [
+          608.91937,
+          333.9758
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          1.0902866341437418,
+          55.16801668816531
+        ]
+      },
+      "properties": {
+        "name": "MIDDENHEIM",
+        "province_type": "Province",
+        "formal_title": "",
+        "part_of": "",
+        "inkscape_coordinates": [
+          490.93729,
+          196.54004
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          1.2643972178522374,
+          47.928556241318645
+        ]
+      },
+      "properties": {
+        "name": "NULN",
+        "province_type": "Province",
+        "formal_title": "",
+        "part_of": "",
+        "inkscape_coordinates": [
+          500.78,
+          610.13147
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          3.745181969576799,
+          56.85876835558784
+        ]
+      },
+      "properties": {
+        "name": "NORTHERN MARCH",
+        "province_type": "Province",
+        "formal_title": "",
+        "part_of": "",
+        "inkscape_coordinates": [
+          642.64178,
+          99.967117
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          7.476389032381113,
+          49.40756395004454
+        ]
+      },
+      "properties": {
+        "name": "SYLVANIA",
+        "province_type": "Province",
+        "formal_title": "",
+        "part_of": "",
+        "inkscape_coordinates": [
+          855.70624,
+          525.68182
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          3.7092305873407776,
+          43.395707507315834
+        ]
+      },
+      "properties": {
+        "name": "VENNLAND",
+        "province_type": "Province",
+        "formal_title": "",
+        "part_of": "",
+        "inkscape_coordinates": [
+          640.39325,
+          869.11108
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          3.8138811026695008,
+          47.54532451821855
+        ]
+      },
+      "properties": {
+        "name": "AVERHEIM",
+        "province_type": "Province",
+        "formal_title": "",
+        "part_of": "",
+        "inkscape_coordinates": [
+          646.43213,
+          632.04437
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -1.015012988177797,
+          54.74629941702444
+        ]
+      },
+      "properties": {
+        "name": "WESTERMARK",
+        "province_type": "Province",
+        "formal_title": "",
+        "part_of": "",
+        "inkscape_coordinates": [
+          370.65076,
+          220.61714
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.6669527570407476,
+          51.71852381435757
+        ]
+      },
+      "properties": {
+        "name": "CARROBURG",
+        "province_type": "Province",
+        "formal_title": "",
+        "part_of": "",
+        "inkscape_coordinates": [
+          390.49246,
+          393.59644
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.00694331259698977,
+          53.64419231093434
+        ]
+      },
+      "properties": {
+        "name": "DRAKWALD",
+        "province_type": "Province",
+        "formal_title": "",
+        "part_of": "",
+        "inkscape_coordinates": [
+          428.22809,
+          283.58795
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.06786007093723256,
+          51.356345024596294
+        ]
+      },
+      "properties": {
+        "name": "ALTDORF",
+        "province_type": "Province",
+        "formal_title": "",
+        "part_of": "",
+        "inkscape_coordinates": [
+          424.71472,
+          414.29214
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          0.21711381813564223,
+          49.24221448357445
+        ]
+      },
+      "properties": {
+        "name": "UPPER TEUFEL",
+        "province_type": "Province",
+        "formal_title": "",
+        "part_of": "",
+        "inkscape_coordinates": [
+          440.96536,
+          535.07446
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.282187472481749,
+          53.20749184820697
+        ]
+      },
+      "properties": {
+        "name": "DUNKELKÜSTE",
+        "province_type": "Province",
+        "formal_title": "",
+        "part_of": "",
+        "inkscape_coordinates": [
+          730.40155,
+          308.57581
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          3.685106768917639,
+          49.88872259671183
+        ]
+      },
+      "properties": {
+        "name": "WURTBAD",
+        "province_type": "Province",
+        "formal_title": "",
+        "part_of": "",
+        "inkscape_coordinates": [
+          639.10883,
+          498.16516
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.35274415910709,
+          55.7982315258859
+        ]
+      },
+      "properties": {
+        "name": "KISLEV",
+        "province_type": "Nation-State",
+        "formal_title": "",
+        "part_of": "",
+        "inkscape_coordinates": [
+          905.8667,
+          160.58968
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.056442465760246,
+          51.901678238722155
+        ]
+      },
+      "properties": {
+        "name": "THE EMPIRE",
+        "province_type": "Nation-State",
+        "formal_title": "",
+        "part_of": "",
+        "inkscape_coordinates": [
+          660.35315,
+          383.16782
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          7.266464746783366,
+          41.80712544835558
+        ]
+      },
+      "properties": {
+        "name": "THE BORDER PRINCIPALITIES",
+        "province_type": "Nation-State",
+        "formal_title": "",
+        "part_of": "",
+        "inkscape_coordinates": [
+          843.60297,
+          959.89307
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -2.8098331567415844,
+          47.760119808547316
+        ]
+      },
+      "properties": {
+        "name": "BRETONNIA",
+        "province_type": "Nation-State",
+        "formal_title": "",
+        "part_of": "",
+        "inkscape_coordinates": [
+          268.00775,
+          619.72406
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -1.3147136451080614,
+          45.13507603453964
+        ]
+      },
+      "properties": {
+        "name": "ATHEL LOREN",
+        "province_type": "Nation-State",
+        "formal_title": "",
+        "part_of": "",
+        "inkscape_coordinates": [
+          353.38931,
+          769.7038
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -2.7987780655115477,
+          53.85044134816183
+        ]
+      },
+      "properties": {
+        "name": "WESTERLAND",
+        "province_type": "Nation-State",
+        "formal_title": "",
+        "part_of": "",
+        "inkscape_coordinates": [
+          268.72736,
+          271.78427
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          1.4857844334423662,
+          56.46303859426589
+        ]
+      },
+      "properties": {
+        "name": "NORDLAND",
+        "province_type": "Grand-Province",
+        "formal_title": "",
+        "part_of": "",
+        "inkscape_coordinates": [
+          513.5516700000001,
+          122.55841
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.646265744317037,
+          55.49796820129364
+        ]
+      },
+      "properties": {
+        "name": "OSTLAND",
+        "province_type": "Grand-Province",
+        "formal_title": "",
+        "part_of": "",
+        "inkscape_coordinates": [
+          694.10303,
+          177.71626
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          7.6967220258970555,
+          51.67305730806006
+        ]
+      },
+      "properties": {
+        "name": "OSTERMARK",
+        "province_type": "Grand-Province",
+        "formal_title": "",
+        "part_of": "",
+        "inkscape_coordinates": [
+          868.32709,
+          396.25589
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.909992038097795,
+          49.19105464843624
+        ]
+      },
+      "properties": {
+        "name": "STIRLAND",
+        "province_type": "Grand-Province",
+        "formal_title": "",
+        "part_of": "",
+        "inkscape_coordinates": [
+          709.07916,
+          538.03198
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          0.5876962214213366,
+          53.515808630636364
+        ]
+      },
+      "properties": {
+        "name": "MIDDENLAND",
+        "province_type": "Grand-Province",
+        "formal_title": "",
+        "part_of": "",
+        "inkscape_coordinates": [
+          462.19931,
+          290.92691
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          2.98035795036843,
+          53.757989802913364
+        ]
+      },
+      "properties": {
+        "name": "HOCHLAND",
+        "province_type": "Grand-Province",
+        "formal_title": "",
+        "part_of": "",
+        "inkscape_coordinates": [
+          598.90088,
+          277.10883
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          3.893530504964846,
+          51.64989310191894
+        ]
+      },
+      "properties": {
+        "name": "TALABECLAND",
+        "province_type": "Grand-Province",
+        "formal_title": "",
+        "part_of": "",
+        "inkscape_coordinates": [
+          651.04199,
+          397.55109
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.5698981953799391,
+          50.45681364342562
+        ]
+      },
+      "properties": {
+        "name": "REIKLAND",
+        "province_type": "Grand-Province",
+        "formal_title": "",
+        "part_of": "",
+        "inkscape_coordinates": [
+          396.01917,
+          465.67862
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          3.7928140721658066,
+          46.5817702154347
+        ]
+      },
+      "properties": {
+        "name": "AVERLAND",
+        "province_type": "Grand-Province",
+        "formal_title": "",
+        "part_of": "",
+        "inkscape_coordinates": [
+          645.2146,
+          687.09204
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          2.482523409614571,
+          44.972908013826185
+        ]
+      },
+      "properties": {
+        "name": "WISSENLAND",
+        "province_type": "Grand-Province",
+        "formal_title": "",
+        "part_of": "",
+        "inkscape_coordinates": [
+          570.33154,
+          778.99658
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.1111789658198985,
+          47.692467418569095
+        ]
+      },
+      "properties": {
+        "name": "MOOTLAND",
+        "province_type": "Grand-Province",
+        "formal_title": "",
+        "part_of": "",
+        "inkscape_coordinates": [
+          720.55176,
+          623.64771
+        ]
+      }
+    }
+  ]
+}
