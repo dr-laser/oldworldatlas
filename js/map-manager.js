@@ -63,7 +63,9 @@ class MapManager {
                 center: [3.832390, 49.796453],
                 resolution: 0.0159930693920000006,
                 maxResolution: 0.0370467098591999999,
-                minResolution: 0.000578854841549999999
+                minResolution: 0.000578854841549999999,
+                enableRotation: false,  // Disable rotation for better mobile performance
+                constrainRotation: false
             })
         });
 

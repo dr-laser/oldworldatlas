@@ -270,29 +270,37 @@ function createSettlementStyle(feature, currentResolution) {
         });
     }
     
-    // Create style with feature-specific text (not cached)
-    // Set zIndex based on settlement size for decluttering priority
-    // Higher population settlements get higher zIndex and won't be hidden
-    const style = new ol.style.Style({
-        image: imageStyle,
-        zIndex: config.zIndex || sizeCategory  // Use configured zIndex or fall back to size
-    });
+    // Return array of styles to separate marker from label for decluttering
+    // Marker is always shown, only label can be hidden by decluttering
+    const styles = [];
     
-    // Add text if visible (feature-specific, so not cached)
-    if (showLabel) {
-        style.setText(new ol.style.Text({
-            text: feature.get('name'),
-            offsetY: baseConfig.textOffsetY,
-            font: fontSize + 'px ' + baseConfig.textFont,
-            fill: new ol.style.Fill({ color: baseConfig.textFillColor }),
-            stroke: new ol.style.Stroke({ 
-                color: baseConfig.textStrokeColor, 
-                width: baseConfig.textStrokeWidth 
-            })
+    // Always add marker style (not decluttered)
+    if (showDotVisible) {
+        styles.push(new ol.style.Style({
+            image: imageStyle,
+            zIndex: config.zIndex || sizeCategory
         }));
     }
     
-    return style;
+    // Add text label style (can be decluttered)
+    // Higher zIndex = higher priority, won't be hidden
+    if (showLabel) {
+        styles.push(new ol.style.Style({
+            text: new ol.style.Text({
+                text: feature.get('name'),
+                offsetY: baseConfig.textOffsetY,
+                font: fontSize + 'px ' + baseConfig.textFont,
+                fill: new ol.style.Fill({ color: baseConfig.textFillColor }),
+                stroke: new ol.style.Stroke({ 
+                    color: baseConfig.textStrokeColor, 
+                    width: baseConfig.textStrokeWidth 
+                })
+            }),
+            zIndex: config.zIndex || sizeCategory  // Priority for decluttering
+        }));
+    }
+    
+    return styles.length > 0 ? styles : null;
 }
 
 /**
