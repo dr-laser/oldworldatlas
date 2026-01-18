@@ -4,6 +4,10 @@
 
 async function initializeApp() {
     try {
+        // Load styles configuration first
+        await loadStylesConfig();
+        console.log('Styles configuration loaded');
+        
         // Initialize map
         mapManager.initialize();
         mapManager.setupEventListeners();

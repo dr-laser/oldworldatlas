@@ -115,7 +115,7 @@ class MapManager {
         return new ol.layer.Vector({
             title: 'Points of Interest',
             source: this.poiSource,
-            style: (feature) => createPOIStyle(feature)
+            style: (feature) => createPOIStyle(feature, this.map.getView().getResolution())
         });
     }
 

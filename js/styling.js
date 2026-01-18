@@ -1,270 +1,162 @@
 /**
  * Settlement styling definitions for Old World Atlas
+ * 
+ * Configuration is loaded from styles-config.json
+ * This provides granular control over all visual aspects at different zoom levels.
  */
 
-const SETTLEMENT_STYLES = {
-    baseConfig: {
-        strokeColor: 'rgba(255, 255, 255, 0.9)',
-        strokeWidth: 1,
-        textOffsetY: -12,
-        textFont: 'Arial, sans-serif',
-        textFillColor: '#000',
-        textStrokeColor: '#fff',
-        textStrokeWidth: 2
-    },
+// Global variable to store loaded styles configuration
+let STYLES_CONFIG = null;
+
+/**
+ * Load styles configuration from JSON file
+ * @returns {Promise<Object>} Loaded configuration
+ */
+async function loadStylesConfig() {
+    if (STYLES_CONFIG) {
+        return STYLES_CONFIG;
+    }
     
-    sizeCategories: {
-        1: {
-            radius: 2,
-            color: 'rgba(100, 200, 100, 0.7)',
-            fontSize: 11,  // Increased from 8
-            minZoomLevel: 0.003,
-            minZoomLevelDot: 0.010,  // Dots appear when size 3 appears
-            placeholderDot: true,  // Show black placeholder dot at size 3 zoom
-            label: 'Village'
-        },
-        2: {
-            radius: 2.5,
-            color: 'rgba(50, 180, 150, 0.75)',
-            fontSize: 11,  // Increased from 8
-            minZoomLevel: 0.003,
-            minZoomLevelDot: 0.010,  // Dots appear when size 3 appears
-            placeholderDot: true,  // Show black placeholder dot at size 3 zoom
-            label: 'Large Village'
-        },
-        3: {
-            radius: 3,
-            color: 'rgba(0, 128, 255, 0.8)',
-            fontSize: 12,  // Increased from 9
-            minZoomLevel: 0.010,
-            label: 'Small Town'
-        },
-        4: {
-            radius: 4,
-            color: 'rgba(255, 128, 0, 0.8)',
-            fontSize: 13,  // Increased from 10
-            minZoomLevel: 1.0,
-            label: 'City'
-        },
-        5: {
-            radius: 5,
-            color: 'rgba(255, 0, 0, 0.8)',
-            fontSize: 14,  // Increased from 11
-            minZoomLevel: 1.0,
-            label: 'Large City'
-        },
-        6: {
-            radius: 6,
-            color: 'rgba(255, 0, 0, 0.8)',
-            fontSize: 15,  // Increased from 12
-            minZoomLevel: 1.0,
-            label: 'Major City'
-        }
+    try {
+        const response = await fetch('styles-config.json');
+        STYLES_CONFIG = await response.json();
+        return STYLES_CONFIG;
+    } catch (error) {
+        console.error('Error loading styles configuration:', error);
+        // Return empty config as fallback
+        return { settlements: {}, poi: {}, provinces: {}, water: {} };
     }
-};
+}
 
 /**
- * Province label styling definitions
+ * Linear interpolation helper
+ * @param {number} value - Current value
+ * @param {number} minIn - Minimum input value
+ * @param {number} maxIn - Maximum input value
+ * @param {number} minOut - Minimum output value
+ * @param {number} maxOut - Maximum output value
+ * @returns {number} Interpolated value
  */
-const PROVINCE_STYLES = {
-    'Nation-State': {
-        fontSize: 32,
-        maxZoomLevel: 0.003,  // Disappears when size 1/2 settlements pop in
-        textFont: 'bold Arial, sans-serif',
-        textFillColor: '#000',
-        textStrokeColor: '#fff',
-        textStrokeWidth: 3
-    },
-    'Grand-Province': {
-        fontSize: 24,
-        maxZoomLevel: 0.0015,  // Disappears a few zoom levels further in
-        textFont: 'bold Arial, sans-serif',
-        textFillColor: '#000',
-        textStrokeColor: '#fff',
-        textStrokeWidth: 2.5
-    },
-    'Province': {
-        fontSize: 18,
-        maxZoomLevel: 0.0015,  // Disappears at same time as Grand-Province
-        textFont: 'bold Arial, sans-serif',
-        textFillColor: '#000',
-        textStrokeColor: '#fff',
-        textStrokeWidth: 2
-    }
-};
+function lerp(value, minIn, maxIn, minOut, maxOut) {
+    // Clamp value between min and max
+    value = Math.max(minIn, Math.min(maxIn, value));
+    
+    // Linear interpolation
+    const t = (value - minIn) / (maxIn - minIn);
+    return minOut + t * (maxOut - minOut);
+}
 
 /**
- * Water label styling definitions
+ * Get interpolated font size based on zoom level
+ * @param {Object} config - Style configuration with min/max font settings
+ * @param {number} currentResolution - Current map resolution
+ * @returns {number} Interpolated font size
  */
-const WATER_STYLES = {
-    'Ocean': {
-        fontSize: 28,
-        textFont: 'italic Arial, sans-serif',
-        textFillColor: '#0066cc',
-        textStrokeColor: '#fff',
-        textStrokeWidth: 2.5,
-        maxZoomLevel: 0.010
-    },
-    'Major Sea': {
-        fontSize: 24,
-        textFont: 'italic Arial, sans-serif',
-        textFillColor: '#0066cc',
-        textStrokeColor: '#fff',
-        textStrokeWidth: 2.5,
-        maxZoomLevel: 0.006
-    },
-    'Large Sea': {
-        fontSize: 20,
-        textFont: 'italic Arial, sans-serif',
-        textFillColor: '#0066cc',
-        textStrokeColor: '#fff',
-        textStrokeWidth: 2,
-        maxZoomLevel: 0.004
-    },
-    'Medium Sea': {
-        fontSize: 16,
-        textFont: 'italic Arial, sans-serif',
-        textFillColor: '#0066cc',
-        textStrokeColor: '#fff',
-        textStrokeWidth: 2,
-        maxZoomLevel: 0.003
-    },
-    'Small Sea': {
-        fontSize: 14,
-        textFont: 'italic Arial, sans-serif',
-        textFillColor: '#0066cc',
-        textStrokeColor: '#fff',
-        textStrokeWidth: 2,
-        maxZoomLevel: 0.002
-    },
-    'Large Marsh': {
-        fontSize: 14,
-        textFont: 'italic Arial, sans-serif',
-        textFillColor: '#009999',  // Blue-green
-        textStrokeColor: '#fff',
-        textStrokeWidth: 2,
-        maxZoomLevel: 0.002
-    },
-    'Small Marsh': {
-        fontSize: 12,
-        textFont: 'italic Arial, sans-serif',
-        textFillColor: '#009999',  // Blue-green
-        textStrokeColor: '#fff',
-        textStrokeWidth: 2,
-        maxZoomLevel: 0.0015
-    }
-};
+function getInterpolatedFontSize(config, currentResolution) {
+    return Math.round(lerp(
+        currentResolution,
+        config.minFontZoom,
+        config.maxFontZoom,
+        config.minFontSize,
+        config.maxFontSize
+    ));
+}
 
 /**
- * Determine if a settlement should be visible at current zoom level
- * @param {number} sizeCategory - Settlement size category
+ * Get interpolated dot radius based on zoom level
+ * @param {Object} config - Style configuration with min/max radius settings
+ * @param {number} currentResolution - Current map resolution
+ * @returns {number} Interpolated radius
+ */
+function getInterpolatedRadius(config, currentResolution) {
+    return lerp(
+        currentResolution,
+        config.minDotRadiusZoom,
+        config.maxDotRadiusZoom,
+        config.minDotRadius,
+        config.maxDotRadius
+    );
+}
+
+/**
+ * Check if label should be visible at current zoom level
+ * @param {Object} config - Style configuration
  * @param {number} currentResolution - Current map resolution
  * @returns {boolean}
  */
-function shouldShowSettlement(sizeCategory, currentResolution) {
-    const config = SETTLEMENT_STYLES.sizeCategories[sizeCategory];
-    if (!config) return false;
-    
-    return currentResolution <= config.minZoomLevel;
+function shouldShowLabel(config, currentResolution) {
+    return currentResolution <= config.minZoomLevelLabel && 
+           currentResolution >= config.maxZoomLevelLabel;
 }
 
 /**
- * Determine if a settlement dot should be visible at current zoom level
- * @param {number} sizeCategory - Settlement size category
+ * Check if dot should be visible at current zoom level
+ * @param {Object} config - Style configuration
  * @param {number} currentResolution - Current map resolution
  * @returns {boolean}
  */
-function shouldShowSettlementDot(sizeCategory, currentResolution) {
-    const config = SETTLEMENT_STYLES.sizeCategories[sizeCategory];
-    if (!config) return false;
-    
-    // Use minZoomLevelDot if defined, otherwise use minZoomLevel
-    const dotZoomLevel = config.minZoomLevelDot || config.minZoomLevel;
-    return currentResolution <= dotZoomLevel;
+function shouldShowDot(config, currentResolution) {
+    return currentResolution <= config.minZoomLevelDot && 
+           currentResolution >= config.maxZoomLevelDot;
 }
 
-/**
- * Calculate dynamic font size for settlements based on zoom level
- * @param {number} baseFontSize - Base font size
- * @param {number} currentResolution - Current map resolution
- * @param {number} minZoomLevel - When label first appears
- * @param {number} sizeCategory - Settlement size category
- * @returns {number} Adjusted font size
- */
-function getDynamicSettlementFontSize(baseFontSize, currentResolution, minZoomLevel, sizeCategory) {
-    // Scale up font size as we zoom in further from initial appearance
-    // Scale from 1x to 2x over the first few zoom levels
-    const zoomRatio = minZoomLevel / currentResolution;
-    
-    if (zoomRatio <= 1) return baseFontSize;
-    
-    // For large settlements (4-6), minimal scaling to keep close to original at default zoom
-    if (sizeCategory >= 4) {
-        const scaleFactor = Math.min(1.3, 1 + Math.log2(zoomRatio) * 0.1);
-        return Math.round(baseFontSize * scaleFactor);
-    }
-    
-    // For smaller settlements (1-3), more aggressive scaling
-    // Scale gradually: at 2x zoom -> 1.3x font, at 4x zoom -> 1.6x font, at 8x zoom -> 2x font (capped)
-    const scaleFactor = Math.min(2.0, 1 + Math.log2(zoomRatio) * 0.3);
-    return Math.round(baseFontSize * scaleFactor);
-}
-
-/**
- * Calculate dynamic dot radius for settlements based on zoom level
- * @param {number} baseRadius - Base radius
- * @param {number} currentResolution - Current map resolution
- * @param {number} minZoomLevel - When label first appears
- * @param {number} sizeCategory - Settlement size category
- * @returns {number} Adjusted radius
- */
-function getDynamicSettlementRadius(baseRadius, currentResolution, minZoomLevel, sizeCategory) {
-    // Only scale dots for smaller settlements (1-3)
-    if (sizeCategory >= 4) return baseRadius;
-    
-    const zoomRatio = minZoomLevel / currentResolution;
-    if (zoomRatio <= 1) return baseRadius;
-    
-    // Scale radius proportionally to font scaling
-    const scaleFactor = Math.min(2.0, 1 + Math.log2(zoomRatio) * 0.3);
-    return baseRadius * scaleFactor;
-}
-
-/**
- * Get style configuration for a settlement
- * @param {number} sizeCategory - Settlement size category
- * @returns {object}
- */
-function getSettlementStyleConfig(sizeCategory) {
-    return SETTLEMENT_STYLES.sizeCategories[sizeCategory] || null;
-}
 
 /**
  * Create an OpenLayers Style object for a POI
  * @param {OL.Feature} feature - OpenLayers feature
+ * @param {number} currentResolution - Current map resolution
  * @returns {OL.style.Style}
  */
-function createPOIStyle(feature) {
-    return new ol.style.Style({
-        image: new ol.style.Circle({
-            radius: 4,
-            fill: new ol.style.Fill({ color: 'rgba(148, 0, 211, 0.7)' }),
-            stroke: new ol.style.Stroke({ 
-                color: 'rgba(255, 255, 255, 0.9)', 
-                width: 1 
-            })
-        }),
-        text: new ol.style.Text({
+function createPOIStyle(feature, currentResolution) {
+    if (!STYLES_CONFIG) {
+        console.warn('Styles configuration not loaded yet');
+        return new ol.style.Style({});
+    }
+    
+    const config = STYLES_CONFIG.poi.default;
+    const baseConfig = STYLES_CONFIG.poi.baseConfig;
+    
+    // Check visibility
+    const showLabel = shouldShowLabel(config, currentResolution);
+    const showDotVisible = shouldShowDot(config, currentResolution);
+    
+    if (!showLabel && !showDotVisible) {
+        return new ol.style.Style({});
+    }
+    
+    // Get interpolated values
+    const fontSize = getInterpolatedFontSize(config, currentResolution);
+    const radius = getInterpolatedRadius(config, currentResolution);
+    
+    const style = new ol.style.Style({});
+    
+    // Add text if visible
+    if (showLabel) {
+        style.setText(new ol.style.Text({
             text: feature.get('name'),
-            offsetY: -12,
-            font: '10px Arial, sans-serif',
-            fill: new ol.style.Fill({ color: '#000' }),
+            offsetY: baseConfig.textOffsetY,
+            font: fontSize + 'px ' + baseConfig.textFont,
+            fill: new ol.style.Fill({ color: baseConfig.textFillColor }),
             stroke: new ol.style.Stroke({ 
-                color: '#fff', 
-                width: 2 
+                color: baseConfig.textStrokeColor, 
+                width: baseConfig.textStrokeWidth 
             })
-        })
-    });
+        }));
+    }
+    
+    // Add dot if visible
+    if (showDotVisible) {
+        style.setImage(new ol.style.Circle({
+            radius: radius,
+            fill: new ol.style.Fill({ color: baseConfig.color }),
+            stroke: new ol.style.Stroke({ 
+                color: baseConfig.strokeColor, 
+                width: config.strokeWidth 
+            })
+        }));
+    }
+    
+    return style;
 }
 
 /**
@@ -274,68 +166,55 @@ function createPOIStyle(feature) {
  * @returns {OL.style.Style}
  */
 function createSettlementStyle(feature, currentResolution) {
-    const sizeCategory = feature.get('sizeCategory');
+    if (!STYLES_CONFIG) {
+        console.warn('Styles configuration not loaded yet');
+        return new ol.style.Style({});
+    }
     
-    const config = getSettlementStyleConfig(sizeCategory);
+    const sizeCategory = feature.get('sizeCategory');
+    const config = STYLES_CONFIG.settlements.sizeCategories[sizeCategory];
+    const baseConfig = STYLES_CONFIG.settlements.baseConfig;
+    
     if (!config) {
         return new ol.style.Style({});
     }
-
-    // Check if we should show a black placeholder dot (for size 1/2 at size 3 zoom level)
-    const showPlaceholder = config.placeholderDot && 
-                           currentResolution <= 0.010 && 
-                           currentResolution > config.minZoomLevel;
     
-    if (showPlaceholder) {
-        // Show only a small black dot, no label
-        return new ol.style.Style({
-            image: new ol.style.Circle({
-                radius: 1.5,
-                fill: new ol.style.Fill({ color: 'rgba(0, 0, 0, 0.8)' }),
-                stroke: new ol.style.Stroke({ 
-                    color: 'rgba(255, 255, 255, 0.6)', 
-                    width: 0.5 
-                })
-            })
-        });
-    }
+    // Check visibility
+    const showLabel = shouldShowLabel(config, currentResolution);
+    const showDotVisible = shouldShowDot(config, currentResolution);
     
-    // Check if should be visible
-    if (!shouldShowSettlement(sizeCategory, currentResolution)) {
+    if (!showLabel && !showDotVisible) {
         return new ol.style.Style({});
     }
-
-    // Determine if dot should be visible
-    const showDot = shouldShowSettlementDot(sizeCategory, currentResolution);
     
-    // Get dynamic font size and radius
-    const fontSize = getDynamicSettlementFontSize(config.fontSize, currentResolution, config.minZoomLevel, sizeCategory);
-    const radius = getDynamicSettlementRadius(config.radius, currentResolution, config.minZoomLevel, sizeCategory);
+    // Get interpolated values
+    const fontSize = getInterpolatedFontSize(config, currentResolution);
+    const radius = getInterpolatedRadius(config, currentResolution);
     
-    // Use base config textOffsetY for consistent spacing
-    const textOffsetY = SETTLEMENT_STYLES.baseConfig.textOffsetY;
+    const style = new ol.style.Style({});
     
-    const style = new ol.style.Style({
-        text: new ol.style.Text({
+    // Add text if visible
+    if (showLabel) {
+        style.setText(new ol.style.Text({
             text: feature.get('name'),
-            offsetY: textOffsetY,
-            font: fontSize + 'px ' + SETTLEMENT_STYLES.baseConfig.textFont,
-            fill: new ol.style.Fill({ color: SETTLEMENT_STYLES.baseConfig.textFillColor }),
+            offsetY: baseConfig.textOffsetY,
+            font: fontSize + 'px ' + baseConfig.textFont,
+            fill: new ol.style.Fill({ color: baseConfig.textFillColor }),
             stroke: new ol.style.Stroke({ 
-                color: SETTLEMENT_STYLES.baseConfig.textStrokeColor, 
-                width: SETTLEMENT_STYLES.baseConfig.textStrokeWidth 
+                color: baseConfig.textStrokeColor, 
+                width: baseConfig.textStrokeWidth 
             })
-        })
-    });
+        }));
+    }
     
-    // Only add image (dot) if it should be visible
-    if (showDot) {
+    // Add dot if visible
+    if (showDotVisible) {
         style.setImage(new ol.style.Circle({
             radius: radius,
             fill: new ol.style.Fill({ color: config.color }),
             stroke: new ol.style.Stroke({ 
-                color: SETTLEMENT_STYLES.baseConfig.strokeColor, 
-                width: SETTLEMENT_STYLES.baseConfig.strokeWidth 
+                color: config.strokeColor || baseConfig.strokeColor, 
+                width: config.strokeWidth 
             })
         }));
     }
@@ -350,22 +229,30 @@ function createSettlementStyle(feature, currentResolution) {
  * @returns {OL.style.Style}
  */
 function createProvinceStyle(feature, currentResolution) {
+    if (!STYLES_CONFIG) {
+        console.warn('Styles configuration not loaded yet');
+        return new ol.style.Style({});
+    }
+    
     const provinceType = feature.get('provinceType');
-    const config = PROVINCE_STYLES[provinceType];
+    const config = STYLES_CONFIG.provinces[provinceType];
     
     if (!config) {
         return new ol.style.Style({});
     }
     
-    // Check if should be visible (disappears when zoomed in too far)
-    if (currentResolution < config.maxZoomLevel) {
+    // Check if should be visible
+    if (!shouldShowLabel(config, currentResolution)) {
         return new ol.style.Style({});
     }
     
+    // Get interpolated font size
+    const fontSize = getInterpolatedFontSize(config, currentResolution);
+    
     return new ol.style.Style({
         text: new ol.style.Text({
-            text: feature.get('name'), // Already in uppercase in data
-            font: config.fontSize + 'px ' + config.textFont,
+            text: feature.get('name'),
+            font: fontSize + 'px ' + config.textFont,
             fill: new ol.style.Fill({ color: config.textFillColor }),
             stroke: new ol.style.Stroke({ 
                 color: config.textStrokeColor, 
@@ -382,22 +269,30 @@ function createProvinceStyle(feature, currentResolution) {
  * @returns {OL.style.Style}
  */
 function createWaterStyle(feature, currentResolution) {
+    if (!STYLES_CONFIG) {
+        console.warn('Styles configuration not loaded yet');
+        return new ol.style.Style({});
+    }
+    
     const waterbodyType = feature.get('waterbodyType');
-    const config = WATER_STYLES[waterbodyType];
+    const config = STYLES_CONFIG.water[waterbodyType];
     
     if (!config) {
         return new ol.style.Style({});
     }
     
-    // Check if should be visible (disappears when zoomed in too far)
-    if (currentResolution < config.maxZoomLevel) {
+    // Check if should be visible
+    if (!shouldShowLabel(config, currentResolution)) {
         return new ol.style.Style({});
     }
     
+    // Get interpolated font size
+    const fontSize = getInterpolatedFontSize(config, currentResolution);
+    
     return new ol.style.Style({
         text: new ol.style.Text({
-            text: feature.get('name'), // Already in uppercase in data
-            font: config.fontSize + 'px ' + config.textFont,
+            text: feature.get('name'),
+            font: fontSize + 'px ' + config.textFont,
             fill: new ol.style.Fill({ color: config.textFillColor }),
             stroke: new ol.style.Stroke({ 
                 color: config.textStrokeColor, 
