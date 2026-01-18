@@ -65,14 +65,17 @@ class SearchManager {
             settlements.forEach(feature => {
                 const name = feature.get('name');
                 const sizeCategory = feature.get('sizeCategory');
+                const province = feature.get('province');
                 const coord = feature.getGeometry().getCoordinates();
                 if (name) {
+                    const sizeLabel = getSizeCategoryLabel(sizeCategory);
+                    const details = province ? `${sizeLabel} (${province})` : sizeLabel;
                     this.allFeatures.push({
                         feature: feature,
                         name: name,
                         normalizedName: this.normalizeString(name),
                         type: 'Settlement',
-                        details: `Size ${sizeCategory}`,
+                        details: details,
                         coordinate: coord
                     });
                 }

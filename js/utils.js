@@ -88,11 +88,11 @@ function groupByProvince(settlements) {
 function getSizeCategoryLabel(sizeCategory) {
     const labels = {
         1: 'Village',
-        2: 'Town',
-        3: 'Small Town',
-        4: 'City',
-        5: 'Large City',
-        6: 'Major City'
+        2: 'Small Town',
+        3: 'Large Town',
+        4: 'Small City',
+        5: 'City',
+        6: 'Large City'
     };
     return labels[sizeCategory] || 'Unknown';
 }

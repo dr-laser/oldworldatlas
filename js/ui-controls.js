@@ -212,3 +212,4 @@ class UIControls {
 
 // Create global instance
 const uiControls = new UIControls();
+window.uiControls = uiControls;
