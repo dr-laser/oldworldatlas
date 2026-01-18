@@ -120,6 +120,106 @@
             cursor: pointer;
             margin: 0;
         }
+        
+        /* Search bar container */
+        .search-container {
+            position: absolute;
+            top: 60px;
+            left: 10px;
+            z-index: 10;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .search-input-wrapper {
+            position: relative;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 4px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            transition: all 0.2s ease;
+        }
+        
+        .search-input-wrapper:hover,
+        .search-input-wrapper:focus-within {
+            background: rgba(255, 255, 255, 1);
+            box-shadow: 0 3px 6px rgba(0,0,0,0.15);
+        }
+        
+        #search-input {
+            padding: 8px 12px;
+            border: none;
+            border-radius: 4px;
+            font-size: 13px;
+            width: 200px;
+            outline: none;
+            background: transparent;
+        }
+        
+        #clear-selection {
+            display: none;
+            position: absolute;
+            right: 8px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: #f44336;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            cursor: pointer;
+            font-size: 14px;
+            line-height: 18px;
+            padding: 0;
+            transition: background 0.2s;
+        }
+        
+        #clear-selection:hover {
+            background: #d32f2f;
+        }
+        
+        .autocomplete-dropdown {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            max-height: 300px;
+            overflow-y: auto;
+            background: white;
+            border: 1px solid #ddd;
+            border-top: none;
+            border-radius: 0 0 4px 4px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            display: none;
+            z-index: 1000;
+        }
+        
+        .autocomplete-item {
+            padding: 8px 12px;
+            cursor: pointer;
+            border-bottom: 1px solid #f0f0f0;
+            transition: background 0.15s;
+        }
+        
+        .autocomplete-item:hover {
+            background: #f5f5f5;
+        }
+        
+        .autocomplete-item:last-child {
+            border-bottom: none;
+        }
+        
+        .autocomplete-name {
+            font-weight: 500;
+            color: #333;
+        }
+        
+        .autocomplete-details {
+            font-size: 11px;
+            color: #666;
+            margin-top: 2px;
+        }
     </style>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@main/dist/en/v7.0.0/legacy/ol.css" type="text/css">
     <script src="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@main/dist/en/v7.0.0/legacy/ol.js"></script>
@@ -129,6 +229,15 @@
 <body>
     <div id="header"><h1>Old-World-Atlas</h1></div>
     <div id="map" class="map"></div>
+    
+    <!-- Search bar - top left -->
+    <div class="search-container">
+        <div class="search-input-wrapper">
+            <input type="text" id="search-input" placeholder="Search settlements and POIs..." autocomplete="off">
+            <button id="clear-selection" title="Clear selection">×</button>
+            <div class="autocomplete-dropdown" id="autocomplete-dropdown"></div>
+        </div>
+    </div>
     
     <!-- Layer toggle controls - top left, horizontal -->
     <div class="layer-toggles">
@@ -153,6 +262,7 @@
     <!-- Load scripts in order -->
     <script src="js/utils.js"></script>
     <script src="js/styling.js"></script>
+    <script src="js/search.js"></script>
     <script src="js/settlement-data.js"></script>
     <script src="js/poi-data.js"></script>
     <script src="js/province-data.js"></script>

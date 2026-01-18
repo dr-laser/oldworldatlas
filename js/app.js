@@ -49,6 +49,9 @@ async function initializeApp() {
 
         // Initialize UI controls
         uiControls.initialize(mapManager.getMap());
+        
+        // Initialize search functionality
+        searchManager.initialize();
 
         console.log('Old World Atlas initialized successfully');
     } catch (error) {

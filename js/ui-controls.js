@@ -8,6 +8,7 @@ class UIControls {
         this.popupOverlay = null;
         this.settlementCheckbox = null;
         this.poiCheckbox = null;
+        this.selectedFeature = null;  // Track currently selected/highlighted feature
     }
 
     /**
@@ -90,12 +91,34 @@ class UIControls {
         });
 
         if (feature && feature.get('name')) {
+            // Clear any previous selection when clicking a feature
+            if (window.searchManager) {
+                window.searchManager.clearSelection();
+            }
             this.showSettlementPopup(feature, evt.coordinate);
         } else {
             this.hidePopup();
         }
     }
 
+    /**
+     * Show feature from search (zoom, center, popup, and highlight)
+     * @param {ol.Feature} feature - Feature to show
+     * @param {array} coordinate - Map coordinate [lon, lat]
+     */
+    showFeatureFromSearch(feature, coordinate) {
+        // Zoom and center to feature
+        const view = mapManager.getMap().getView();
+        view.animate({
+            center: coordinate,
+            resolution: 0.0015,  // Target zoom level
+            duration: 500
+        });
+        
+        // Show popup
+        this.showSettlementPopup(feature, coordinate);
+    }
+    
     /**
      * Show settlement information popup
      * @param {ol.Feature} feature - Settlement feature

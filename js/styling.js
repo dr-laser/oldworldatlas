@@ -187,25 +187,41 @@ function createPOIStyle(feature, currentResolution) {
     const fontSize = getInterpolatedFontSize(config, currentResolution);
     const radius = getInterpolatedRadius(config, currentResolution);
     
-    // Cache the circle image (non-feature-specific)
+    // Check if this feature is highlighted (from search)
+    const isHighlighted = feature.get('highlighted') === true;
+    
+    // Cache the circle image (non-feature-specific) - unless highlighted
     let imageStyle = null;
     if (showDotVisible) {
-        const imageCacheKey = `poi_img_${currentResolution.toFixed(4)}`;
-        imageStyle = getCachedStyle(STYLE_CACHE.poi, imageCacheKey, () => {
-            return new ol.style.Circle({
-                radius: radius,
-                fill: new ol.style.Fill({ color: baseConfig.color }),
+        if (isHighlighted) {
+            // Don't cache highlighted styles - create fresh red circle
+            imageStyle = new ol.style.Circle({
+                radius: radius * 1.3,  // Slightly larger
+                fill: new ol.style.Fill({ color: '#f44336' }),  // Red
                 stroke: new ol.style.Stroke({ 
-                    color: baseConfig.strokeColor, 
-                    width: config.strokeWidth 
+                    color: '#d32f2f',
+                    width: config.strokeWidth * 1.5 
                 })
             });
-        });
+        } else {
+            const imageCacheKey = `poi_img_${currentResolution.toFixed(4)}`;
+            imageStyle = getCachedStyle(STYLE_CACHE.poi, imageCacheKey, () => {
+                return new ol.style.Circle({
+                    radius: radius,
+                    fill: new ol.style.Fill({ color: baseConfig.color }),
+                    stroke: new ol.style.Stroke({ 
+                        color: baseConfig.strokeColor, 
+                        width: config.strokeWidth 
+                    })
+                });
+            });
+        }
     }
     
     // Create style with feature-specific text (not cached)
     const style = new ol.style.Style({
-        image: imageStyle
+        image: imageStyle,
+        zIndex: isHighlighted ? 9999 : 0
     });
     
     // Add text if visible (feature-specific, so not cached)
@@ -213,11 +229,11 @@ function createPOIStyle(feature, currentResolution) {
         style.setText(new ol.style.Text({
             text: feature.get('name'),
             offsetY: baseConfig.textOffsetY,
-            font: fontSize + 'px ' + baseConfig.textFont,
-            fill: new ol.style.Fill({ color: baseConfig.textFillColor }),
+            font: (isHighlighted ? 'bold ' : '') + fontSize + 'px ' + baseConfig.textFont,
+            fill: new ol.style.Fill({ color: isHighlighted ? '#d32f2f' : baseConfig.textFillColor }),
             stroke: new ol.style.Stroke({ 
                 color: baseConfig.textStrokeColor, 
-                width: baseConfig.textStrokeWidth 
+                width: isHighlighted ? baseConfig.textStrokeWidth * 1.3 : baseConfig.textStrokeWidth 
             })
         }));
     }
@@ -262,28 +278,44 @@ function createSettlementStyle(feature, currentResolution) {
     const fontSize = getInterpolatedFontSize(config, currentResolution);
     const radius = getInterpolatedRadius(config, currentResolution);
     
-    // Cache the circle image (non-feature-specific)
+    // Check if this feature is highlighted (from search)
+    const isHighlighted = feature.get('highlighted') === true;
+    
+    // Cache the circle image (non-feature-specific) - unless highlighted
     let imageStyle = null;
     if (showDotVisible) {
-        const imageCacheKey = `settle_img_${sizeCategory}_${currentResolution.toFixed(4)}`;
-        imageStyle = getCachedStyle(STYLE_CACHE.settlements, imageCacheKey, () => {
-            return new ol.style.Circle({
-                radius: radius,
-                fill: new ol.style.Fill({ color: config.color }),
+        if (isHighlighted) {
+            // Don't cache highlighted styles - create fresh red circle
+            imageStyle = new ol.style.Circle({
+                radius: radius * 1.3,  // Slightly larger
+                fill: new ol.style.Fill({ color: '#f44336' }),  // Red
                 stroke: new ol.style.Stroke({ 
-                    color: config.strokeColor || baseConfig.strokeColor, 
-                    width: config.strokeWidth 
+                    color: '#d32f2f',
+                    width: config.strokeWidth * 1.5 
                 })
             });
-        });
+        } else {
+            const imageCacheKey = `settle_img_${sizeCategory}_${currentResolution.toFixed(4)}`;
+            imageStyle = getCachedStyle(STYLE_CACHE.settlements, imageCacheKey, () => {
+                return new ol.style.Circle({
+                    radius: radius,
+                    fill: new ol.style.Fill({ color: config.color }),
+                    stroke: new ol.style.Stroke({ 
+                        color: config.strokeColor || baseConfig.strokeColor, 
+                        width: config.strokeWidth 
+                    })
+                });
+            });
+        }
     }
     
     // Create style with feature-specific text (not cached)
     // Set zIndex based on settlement size for decluttering priority
     // Higher population settlements get higher zIndex and won't be hidden
+    // Highlighted features get maximum zIndex
     const style = new ol.style.Style({
         image: imageStyle,
-        zIndex: config.zIndex || sizeCategory  // Use configured zIndex or fall back to size
+        zIndex: isHighlighted ? 9999 : (config.zIndex || sizeCategory)
     });
     
     // Add text if visible (feature-specific, so not cached)
@@ -291,11 +323,11 @@ function createSettlementStyle(feature, currentResolution) {
         style.setText(new ol.style.Text({
             text: feature.get('name'),
             offsetY: baseConfig.textOffsetY,
-            font: fontSize + 'px ' + baseConfig.textFont,
-            fill: new ol.style.Fill({ color: baseConfig.textFillColor }),
+            font: (isHighlighted ? 'bold ' : '') + fontSize + 'px ' + baseConfig.textFont,
+            fill: new ol.style.Fill({ color: isHighlighted ? '#d32f2f' : baseConfig.textFillColor }),
             stroke: new ol.style.Stroke({ 
                 color: baseConfig.textStrokeColor, 
-                width: baseConfig.textStrokeWidth 
+                width: isHighlighted ? baseConfig.textStrokeWidth * 1.3 : baseConfig.textStrokeWidth 
             })
         }));
     }
@@ -338,22 +370,39 @@ function createSettlementMarkerOnlyStyle(feature, currentResolution) {
     // Get interpolated radius
     const radius = getInterpolatedRadius(config, currentResolution);
     
-    // Cache the circle image
-    const imageCacheKey = `settle_marker_${sizeCategory}_${currentResolution.toFixed(4)}`;
-    const imageStyle = getCachedStyle(STYLE_CACHE.settlements, imageCacheKey, () => {
-        return new ol.style.Circle({
-            radius: radius,
-            fill: new ol.style.Fill({ color: config.color }),
+    // Check if this feature is highlighted (from search)
+    const isHighlighted = feature.get('highlighted') === true;
+    
+    // Cache the circle image - unless highlighted
+    let imageStyle = null;
+    if (isHighlighted) {
+        // Don't cache highlighted styles - create fresh red circle
+        imageStyle = new ol.style.Circle({
+            radius: radius * 1.3,  // Slightly larger
+            fill: new ol.style.Fill({ color: '#f44336' }),  // Red
             stroke: new ol.style.Stroke({ 
-                color: config.strokeColor || baseConfig.strokeColor, 
-                width: config.strokeWidth 
+                color: '#d32f2f',
+                width: config.strokeWidth * 1.5 
             })
         });
-    });
+    } else {
+        const imageCacheKey = `settle_marker_${sizeCategory}_${currentResolution.toFixed(4)}`;
+        imageStyle = getCachedStyle(STYLE_CACHE.settlements, imageCacheKey, () => {
+            return new ol.style.Circle({
+                radius: radius,
+                fill: new ol.style.Fill({ color: config.color }),
+                stroke: new ol.style.Stroke({ 
+                    color: config.strokeColor || baseConfig.strokeColor, 
+                    width: config.strokeWidth 
+                })
+            });
+        });
+    }
     
     // Return style with only the marker (no text)
     return new ol.style.Style({
-        image: imageStyle
+        image: imageStyle,
+        zIndex: isHighlighted ? 9999 : 0
     });
 }
 

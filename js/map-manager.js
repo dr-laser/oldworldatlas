@@ -299,6 +299,14 @@ class MapManager {
     getPOILayer() {
         return this.poiVectorLayer;
     }
+    
+    /**
+     * Get settlement markers only layer (always visible, no decluttering)
+     * @returns {ol.layer.Vector}
+     */
+    getSettlementMarkersOnlyLayer() {
+        return this.settlementMarkersOnlyLayer;
+    }
 }
 
 // Create global instance
