@@ -114,6 +114,9 @@ class MapManager {
         return new ol.layer.Vector({
             title: 'Settlements (Size 3+)',
             source: this.settlementSource,
+            updateWhileAnimating: false,  // Performance: don't update during animation
+            updateWhileInteracting: false, // Performance: don't update while panning/zooming
+            renderBuffer: 100,             // Render features slightly outside viewport
             style: (feature) => createSettlementStyle(feature, this.map.getView().getResolution())
         });
     }
@@ -127,6 +130,9 @@ class MapManager {
         return new ol.layer.Vector({
             title: 'Points of Interest',
             source: this.poiSource,
+            updateWhileAnimating: false,  // Performance: don't update during animation
+            updateWhileInteracting: false, // Performance: don't update while panning/zooming
+            renderBuffer: 100,             // Render features slightly outside viewport
             style: (feature) => createPOIStyle(feature, this.map.getView().getResolution())
         });
     }
@@ -140,6 +146,8 @@ class MapManager {
         return new ol.layer.Vector({
             title: 'Province Labels',
             source: this.provinceSource,
+            updateWhileAnimating: false,  // Performance: don't update during animation
+            updateWhileInteracting: false, // Performance: don't update while panning/zooming
             style: (feature) => createProvinceStyle(feature, this.map.getView().getResolution())
         });
     }
@@ -153,6 +161,8 @@ class MapManager {
         return new ol.layer.Vector({
             title: 'Water Labels',
             source: this.waterSource,
+            updateWhileAnimating: false,  // Performance: don't update during animation
+            updateWhileInteracting: false, // Performance: don't update while panning/zooming
             style: (feature) => createWaterStyle(feature, this.map.getView().getResolution())
         });
     }
