@@ -84,6 +84,14 @@ async function loadStylesConfig() {
  * @returns {number} Interpolated value
  */
 function lerp(value, minIn, maxIn, minOut, maxOut) {
+    // Handle reversed ranges (e.g., resolution where higher value = zoomed out)
+    // Ensure minIn is actually less than maxIn for calculation
+    if (minIn > maxIn) {
+        // Swap the ranges
+        [minIn, maxIn] = [maxIn, minIn];
+        [minOut, maxOut] = [maxOut, minOut];
+    }
+    
     // Clamp value between min and max
     value = Math.max(minIn, Math.min(maxIn, value));
     
