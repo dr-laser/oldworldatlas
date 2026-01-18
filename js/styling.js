@@ -20,7 +20,7 @@ const SETTLEMENT_STYLES = {
             fontSize: 11,  // Increased from 8
             minZoomLevel: 0.003,
             minZoomLevelDot: 0.010,  // Dots appear when size 3 appears
-            textOffsetY: -8,  // Closer to dot
+            placeholderDot: true,  // Show black placeholder dot at size 3 zoom
             label: 'Village'
         },
         2: {
@@ -29,7 +29,7 @@ const SETTLEMENT_STYLES = {
             fontSize: 11,  // Increased from 8
             minZoomLevel: 0.003,
             minZoomLevelDot: 0.010,  // Dots appear when size 3 appears
-            textOffsetY: -9,  // Closer to dot
+            placeholderDot: true,  // Show black placeholder dot at size 3 zoom
             label: 'Large Village'
         },
         3: {
@@ -37,7 +37,6 @@ const SETTLEMENT_STYLES = {
             color: 'rgba(0, 128, 255, 0.8)',
             fontSize: 12,  // Increased from 9
             minZoomLevel: 0.010,
-            textOffsetY: -10,
             label: 'Small Town'
         },
         4: {
@@ -45,7 +44,6 @@ const SETTLEMENT_STYLES = {
             color: 'rgba(255, 128, 0, 0.8)',
             fontSize: 13,  // Increased from 10
             minZoomLevel: 1.0,
-            textOffsetY: -12,
             label: 'City'
         },
         5: {
@@ -53,7 +51,6 @@ const SETTLEMENT_STYLES = {
             color: 'rgba(255, 0, 0, 0.8)',
             fontSize: 14,  // Increased from 11
             minZoomLevel: 1.0,
-            textOffsetY: -13,
             label: 'Large City'
         },
         6: {
@@ -61,7 +58,6 @@ const SETTLEMENT_STYLES = {
             color: 'rgba(255, 0, 0, 0.8)',
             fontSize: 15,  // Increased from 12
             minZoomLevel: 1.0,
-            textOffsetY: -14,
             label: 'Major City'
         }
     }
@@ -192,18 +188,46 @@ function shouldShowSettlementDot(sizeCategory, currentResolution) {
  * @param {number} baseFontSize - Base font size
  * @param {number} currentResolution - Current map resolution
  * @param {number} minZoomLevel - When label first appears
+ * @param {number} sizeCategory - Settlement size category
  * @returns {number} Adjusted font size
  */
-function getDynamicSettlementFontSize(baseFontSize, currentResolution, minZoomLevel) {
+function getDynamicSettlementFontSize(baseFontSize, currentResolution, minZoomLevel, sizeCategory) {
     // Scale up font size as we zoom in further from initial appearance
     // Scale from 1x to 2x over the first few zoom levels
     const zoomRatio = minZoomLevel / currentResolution;
     
     if (zoomRatio <= 1) return baseFontSize;
     
+    // For large settlements (4-6), minimal scaling to keep close to original at default zoom
+    if (sizeCategory >= 4) {
+        const scaleFactor = Math.min(1.3, 1 + Math.log2(zoomRatio) * 0.1);
+        return Math.round(baseFontSize * scaleFactor);
+    }
+    
+    // For smaller settlements (1-3), more aggressive scaling
     // Scale gradually: at 2x zoom -> 1.3x font, at 4x zoom -> 1.6x font, at 8x zoom -> 2x font (capped)
     const scaleFactor = Math.min(2.0, 1 + Math.log2(zoomRatio) * 0.3);
     return Math.round(baseFontSize * scaleFactor);
+}
+
+/**
+ * Calculate dynamic dot radius for settlements based on zoom level
+ * @param {number} baseRadius - Base radius
+ * @param {number} currentResolution - Current map resolution
+ * @param {number} minZoomLevel - When label first appears
+ * @param {number} sizeCategory - Settlement size category
+ * @returns {number} Adjusted radius
+ */
+function getDynamicSettlementRadius(baseRadius, currentResolution, minZoomLevel, sizeCategory) {
+    // Only scale dots for smaller settlements (1-3)
+    if (sizeCategory >= 4) return baseRadius;
+    
+    const zoomRatio = minZoomLevel / currentResolution;
+    if (zoomRatio <= 1) return baseRadius;
+    
+    // Scale radius proportionally to font scaling
+    const scaleFactor = Math.min(2.0, 1 + Math.log2(zoomRatio) * 0.3);
+    return baseRadius * scaleFactor;
 }
 
 /**
@@ -252,24 +276,44 @@ function createPOIStyle(feature) {
 function createSettlementStyle(feature, currentResolution) {
     const sizeCategory = feature.get('sizeCategory');
     
-    // Check if should be visible
-    if (!shouldShowSettlement(sizeCategory, currentResolution)) {
-        return new ol.style.Style({});
-    }
-    
     const config = getSettlementStyleConfig(sizeCategory);
     if (!config) {
+        return new ol.style.Style({});
+    }
+
+    // Check if we should show a black placeholder dot (for size 1/2 at size 3 zoom level)
+    const showPlaceholder = config.placeholderDot && 
+                           currentResolution <= 0.010 && 
+                           currentResolution > config.minZoomLevel;
+    
+    if (showPlaceholder) {
+        // Show only a small black dot, no label
+        return new ol.style.Style({
+            image: new ol.style.Circle({
+                radius: 1.5,
+                fill: new ol.style.Fill({ color: 'rgba(0, 0, 0, 0.8)' }),
+                stroke: new ol.style.Stroke({ 
+                    color: 'rgba(255, 255, 255, 0.6)', 
+                    width: 0.5 
+                })
+            })
+        });
+    }
+    
+    // Check if should be visible
+    if (!shouldShowSettlement(sizeCategory, currentResolution)) {
         return new ol.style.Style({});
     }
 
     // Determine if dot should be visible
     const showDot = shouldShowSettlementDot(sizeCategory, currentResolution);
     
-    // Get dynamic font size
-    const fontSize = getDynamicSettlementFontSize(config.fontSize, currentResolution, config.minZoomLevel);
+    // Get dynamic font size and radius
+    const fontSize = getDynamicSettlementFontSize(config.fontSize, currentResolution, config.minZoomLevel, sizeCategory);
+    const radius = getDynamicSettlementRadius(config.radius, currentResolution, config.minZoomLevel, sizeCategory);
     
-    // Use custom textOffsetY if defined, otherwise use base config
-    const textOffsetY = config.textOffsetY || SETTLEMENT_STYLES.baseConfig.textOffsetY;
+    // Use base config textOffsetY for consistent spacing
+    const textOffsetY = SETTLEMENT_STYLES.baseConfig.textOffsetY;
     
     const style = new ol.style.Style({
         text: new ol.style.Text({
@@ -287,7 +331,7 @@ function createSettlementStyle(feature, currentResolution) {
     // Only add image (dot) if it should be visible
     if (showDot) {
         style.setImage(new ol.style.Circle({
-            radius: config.radius,
+            radius: radius,
             fill: new ol.style.Fill({ color: config.color }),
             stroke: new ol.style.Stroke({ 
                 color: SETTLEMENT_STYLES.baseConfig.strokeColor, 
