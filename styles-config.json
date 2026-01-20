@@ -62,7 +62,7 @@
         "maxDotRadiusZoom": 0.0005,
         "minZoomLevelLabel": 0.020,
         "maxZoomLevelLabel": 0.00001,
-        "minZoomLevelDot": 0.010,
+        "minZoomLevelDot": 0.020,
         "maxZoomLevelDot": 0.00001,
         "strokeWidth": 1,
         "strokeColor": "rgba(255, 255, 255, 1)"
