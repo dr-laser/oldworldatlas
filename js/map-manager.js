@@ -103,7 +103,7 @@ class MapManager {
                     tileSize: [256, 256]
                 }),
                 tileUrlFunction: function(tileCoord) {
-                    return ('https://raw.githubusercontent.com/dr-laser/oldworldatlas-repository/main/{z}/{x}/{y}.png'
+                    return ('https://raw.githubusercontent.com/toddkozlowski/oldworldatlas-repository/main/base-map-tiles/{z}/{x}/{y}.png'
                         .replace('{z}', String(tileCoord[0]))
                         .replace('{x}', String(tileCoord[1]))
                         .replace('{y}', String(-1 - tileCoord[2])));
