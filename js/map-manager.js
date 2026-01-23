@@ -92,6 +92,8 @@ class MapManager {
      * @returns {ol.layer.Tile}
      */
     createTileLayer() {
+        const TILE_VERSION = '1'; // Increment this when you update the base map tiles
+        
         return new ol.layer.Tile({
             title: 'Map Tiles',
             source: new ol.source.TileImage({
@@ -103,10 +105,10 @@ class MapManager {
                     tileSize: [256, 256]
                 }),
                 tileUrlFunction: function(tileCoord) {
-                    return ('https://raw.githubusercontent.com/dr-laser/oldworldatlas-repository/main/{z}/{x}/{y}.png'
+                    return ('https://raw.githubusercontent.com/toddkozlowski/oldworldatlas-repository/main/base-map-tiles/{z}/{x}/{y}.png?v=' + TILE_VERSION)
                         .replace('{z}', String(tileCoord[0]))
                         .replace('{x}', String(tileCoord[1]))
-                        .replace('{y}', String(-1 - tileCoord[2])));
+                        .replace('{y}', String(-1 - tileCoord[2]));
                 },
             })
         });
