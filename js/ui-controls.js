@@ -30,8 +30,12 @@ class UIControls {
         if (this.settlementCheckbox) {
             this.settlementCheckbox.addEventListener('change', (e) => {
                 const layer = mapManager.getSettlementLayer();
+                const markerLayer = mapManager.getSettlementMarkersOnlyLayer();
                 if (layer) {
                     layer.setVisible(e.target.checked);
+                }
+                if (markerLayer) {
+                    markerLayer.setVisible(e.target.checked);
                 }
             });
         }
