@@ -123,12 +123,13 @@ function getInterpolatedFontSize(config, currentResolution) {
  * @returns {number} Interpolated radius
  */
 function getInterpolatedRadius(config, currentResolution) {
+    const marker = config.marker || {};
     return lerp(
         currentResolution,
-        config.minDotRadiusZoom,
-        config.maxDotRadiusZoom,
-        config.minDotRadius,
-        config.maxDotRadius
+        marker.minRadiusZoom || 0,
+        marker.maxRadiusZoom || 0,
+        marker.minRadius || 0,
+        marker.maxRadius || 0
     );
 }
 
@@ -139,8 +140,8 @@ function getInterpolatedRadius(config, currentResolution) {
  * @returns {boolean}
  */
 function shouldShowLabel(config, currentResolution) {
-    return currentResolution <= config.minZoomLevelLabel && 
-           currentResolution >= config.maxZoomLevelLabel;
+    return currentResolution <= config.minZoomLevel && 
+           currentResolution >= config.maxZoomLevel;
 }
 
 /**
@@ -150,8 +151,8 @@ function shouldShowLabel(config, currentResolution) {
  * @returns {boolean}
  */
 function shouldShowDot(config, currentResolution) {
-    return currentResolution <= config.minZoomLevelDot && 
-           currentResolution >= config.maxZoomLevelDot;
+    return currentResolution <= config.minZoomLevel && 
+           currentResolution >= config.maxZoomLevel;
 }
 
 
@@ -168,10 +169,9 @@ function createPOIStyle(feature, currentResolution) {
     }
     
     const config = STYLES_CONFIG.poi.default;
-    const baseConfig = STYLES_CONFIG.poi.baseConfig;
     
     // Early exit for performance - don't even check visibility if way out of range
-    if (currentResolution > config.minZoomLevelLabel * 2) {
+    if (currentResolution > config.minZoomLevel * 2) {
         return null;
     }
     
@@ -208,9 +208,9 @@ function createPOIStyle(feature, currentResolution) {
             imageStyle = getCachedStyle(STYLE_CACHE.poi, imageCacheKey, () => {
                 return new ol.style.Circle({
                     radius: radius,
-                    fill: new ol.style.Fill({ color: baseConfig.color }),
+                    fill: new ol.style.Fill({ color: config.color }),
                     stroke: new ol.style.Stroke({ 
-                        color: baseConfig.strokeColor, 
+                        color: config.strokeColor, 
                         width: config.strokeWidth 
                     })
                 });
@@ -228,12 +228,12 @@ function createPOIStyle(feature, currentResolution) {
     if (showLabel) {
         style.setText(new ol.style.Text({
             text: feature.get('name'),
-            offsetY: baseConfig.textOffsetY,
-            font: (isHighlighted ? 'bold ' : '') + fontSize + 'px ' + baseConfig.textFont,
-            fill: new ol.style.Fill({ color: isHighlighted ? '#d32f2f' : baseConfig.textFillColor }),
+            offsetY: config.textOffsetY,
+            font: (isHighlighted ? 'bold ' : '') + fontSize + 'px ' + config.textFont,
+            fill: new ol.style.Fill({ color: isHighlighted ? '#d32f2f' : config.textFillColor }),
             stroke: new ol.style.Stroke({ 
-                color: baseConfig.textStrokeColor, 
-                width: isHighlighted ? baseConfig.textStrokeWidth * 1.3 : baseConfig.textStrokeWidth 
+                color: config.textStrokeColor, 
+                width: isHighlighted ? config.textStrokeWidth * 1.3 : config.textStrokeWidth 
             })
         }));
     }
@@ -255,14 +255,13 @@ function createSettlementStyle(feature, currentResolution) {
     
     const sizeCategory = feature.get('sizeCategory');
     const config = STYLES_CONFIG.settlements.sizeCategories[sizeCategory];
-    const baseConfig = STYLES_CONFIG.settlements.baseConfig;
     
     if (!config) {
         return null;
     }
     
     // Early exit for performance - don't even check if way out of range
-    if (currentResolution > config.minZoomLevelLabel * 2) {
+    if (currentResolution > config.minZoomLevel * 2) {
         return null;
     }
     
@@ -301,7 +300,7 @@ function createSettlementStyle(feature, currentResolution) {
                     radius: radius,
                     fill: new ol.style.Fill({ color: config.color }),
                     stroke: new ol.style.Stroke({ 
-                        color: config.strokeColor || baseConfig.strokeColor, 
+                        color: config.strokeColor, 
                         width: config.strokeWidth 
                     })
                 });
@@ -322,12 +321,12 @@ function createSettlementStyle(feature, currentResolution) {
     if (showLabel) {
         style.setText(new ol.style.Text({
             text: feature.get('name'),
-            offsetY: baseConfig.textOffsetY,
-            font: (isHighlighted ? 'bold ' : '') + fontSize + 'px ' + baseConfig.textFont,
-            fill: new ol.style.Fill({ color: isHighlighted ? '#d32f2f' : baseConfig.textFillColor }),
+            offsetY: config.textOffsetY,
+            font: (isHighlighted ? 'bold ' : '') + fontSize + 'px ' + config.textFont,
+            fill: new ol.style.Fill({ color: isHighlighted ? '#d32f2f' : config.textFillColor }),
             stroke: new ol.style.Stroke({ 
-                color: baseConfig.textStrokeColor, 
-                width: isHighlighted ? baseConfig.textStrokeWidth * 1.3 : baseConfig.textStrokeWidth 
+                color: config.textStrokeColor, 
+                width: isHighlighted ? config.textStrokeWidth * 1.3 : config.textStrokeWidth 
             })
         }));
     }
@@ -349,14 +348,13 @@ function createSettlementMarkerOnlyStyle(feature, currentResolution) {
     
     const sizeCategory = feature.get('sizeCategory');
     const config = STYLES_CONFIG.settlements.sizeCategories[sizeCategory];
-    const baseConfig = STYLES_CONFIG.settlements.baseConfig;
     
     if (!config) {
         return null;
     }
     
     // Early exit for performance
-    if (currentResolution > config.minZoomLevelDot * 2) {
+    if (currentResolution > config.minZoomLevel * 2) {
         return null;
     }
     
@@ -392,7 +390,7 @@ function createSettlementMarkerOnlyStyle(feature, currentResolution) {
                 radius: radius,
                 fill: new ol.style.Fill({ color: config.color }),
                 stroke: new ol.style.Stroke({ 
-                    color: config.strokeColor || baseConfig.strokeColor, 
+                    color: config.strokeColor, 
                     width: config.strokeWidth 
                 })
             });
