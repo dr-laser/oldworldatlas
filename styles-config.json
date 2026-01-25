@@ -155,37 +155,37 @@
   "provinces": {
     "Nation-State": {
       "minFontSize": 16,
-      "maxFontSize": 36,
+      "maxFontSize": 48,
       "minFontZoom": 0.03,
       "maxFontZoom": 0.015,
       "minZoomLevelLabel": 100.0,
-      "maxZoomLevelLabel": 0.008,
+      "maxZoomLevelLabel": 0.01,
       "textFont": "bold Arial, sans-serif",
-      "textFillColor": "#0000004a",
+      "textFillColor": "rgba(0, 0, 0, 0.2)",
       "textStrokeColor": "#ffffff00",
       "textStrokeWidth": 0
     },
     "Grand-Province": {
       "minFontSize": 12,
-      "maxFontSize": 36,
-      "minFontZoom": 0.02,
+      "maxFontSize": 72,
+      "minFontZoom": 0.015,
       "maxFontZoom": 0.005,
       "minZoomLevelLabel": 100.0,
       "maxZoomLevelLabel": 0.0015,
       "textFont": "bold Arial, sans-serif",
-      "textFillColor": "#0000004a",
+      "textFillColor": "rgba(0, 0, 0, 0.2)",
       "textStrokeColor": "#ffffff00",
       "textStrokeWidth": 0
     },
     "Province": {
       "minFontSize": 10,
-      "maxFontSize": 24,
+      "maxFontSize": 48,
       "minFontZoom": 0.015,
       "maxFontZoom": 0.003,
       "minZoomLevelLabel": 100.0,
       "maxZoomLevelLabel": 0.0015,
       "textFont": "bold Arial, sans-serif",
-      "textFillColor": "#0000004a",
+      "textFillColor": "rgba(0, 0, 0, 0.2)",
       "textStrokeColor": "#ffffff00",
       "textStrokeWidth": 0
     }

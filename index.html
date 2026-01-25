@@ -224,6 +224,166 @@
             .about-content h2 {
                 font-size: 18px;
             }
+        }    
+        /* Feedback modal overlay - uses same styles as about modal */
+        #feedback-modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0);
+            z-index: 9998;
+            z-index: 99998;
+            transition: background 0.3s ease;
+        }
+
+        #feedback-modal-overlay.active {
+            background: rgba(0, 0, 0, 0.7);
+        }
+
+        /* Feedback modal dialog */
+        #feedback-modal {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0.9);
+            width: 60%;
+            max-height: 80%;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+            z-index: 99999;
+            overflow: hidden;
+            opacity: 0;
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+
+        #feedback-modal.active {
+            opacity: 1;
+            transform: translate(-50%, -50%) scale(1);
+        }
+
+        #feedback-modal-close {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: none;
+            border: none;
+            font-size: 28px;
+            line-height: 1;
+            color: #666;
+            cursor: pointer;
+            padding: 0;
+            width: 30px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: color 0.2s ease;
+        }
+
+        #feedback-modal-close:hover {
+            color: #333;
+        }
+
+        .feedback-content {
+            line-height: 1.6;
+            color: #333;
+        }
+
+        .feedback-content h1 {
+            margin: 0 0 20px 0;
+            font-size: 28px;
+            color: #34495e;
+            border: none;
+        }
+
+        .feedback-content h2 {
+            margin: 25px 0 15px 0;
+            font-size: 20px;
+            color: #34495e;
+            border-bottom: 2px solid #e0e0e0;
+            padding-bottom: 8px;
+        }
+
+        .feedback-content p {
+            margin: 0 0 15px 0;
+        }
+
+        .feedback-content ul {
+            margin: 0 0 15px 0;
+            padding-left: 25px;
+        }
+
+        .feedback-content li {
+            margin: 8px 0;
+        }
+
+        .feedback-content em {
+            color: #666;
+        }
+
+        .feedback-content strong {
+            color: #34495e;
+        }
+
+        .feedback-content form {
+            margin: 25px 0;
+            padding: 20px;
+            background: rgba(52, 73, 94, 0.03);
+            border-radius: 6px;
+            border: 1px solid #e0e0e0;
+        }
+
+        .feedback-content textarea {
+            width: 100%;
+            min-height: 150px;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-family: inherit;
+            font-size: 14px;
+            line-height: 1.5;
+            resize: vertical;
+            box-sizing: border-box;
+            transition: border-color 0.2s ease;
+        }
+
+        .feedback-content textarea:focus {
+            outline: none;
+            border-color: #34495e;
+            box-shadow: 0 0 0 2px rgba(52, 73, 94, 0.1);
+        }
+
+        .feedback-content button[type="submit"] {
+            display: block;
+            margin: 15px auto 0;
+            padding: 10px 30px;
+            background: #34495e;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-size: 15px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background 0.2s ease;
+        }
+
+        .feedback-content button[type="submit"]:hover {
+            background: #2c3e50;
+        }
+
+        .feedback-content button[type="submit"]:active {
+            transform: translateY(1px);
+        }
+
+        @media (max-width: 768px) {
+            #feedback-modal {
+                width: 90%;
+            }
         }
         
         .settlement-popup { 
@@ -410,9 +570,28 @@
         <h1>Atlas of the Old World</h1>
         <p class="title-subheader">An unofficial, fan-made map of the Warhammer world. Alpha version, 24.01.2026 @toddkoz</p>
         <button id="about-button" class="about-button">About</button>
+        <button id="feedback-button" class="about-button">Provide feedback / suggest a correction</button>
     </div>
     
     <div id="mouse-position"></div>
+
+    <!-- Feedback modal overlay -->
+    <div id="feedback-modal-overlay"></div>
+
+    <!-- Feedback modal -->
+    <div id="feedback-modal">
+        <div class="modal-header">
+            <button id="feedback-modal-close" title="Close">&times;</button>
+        </div>
+        <div class="modal-body">
+            <div id="feedback-modal-content">
+                <div class="feedback-content">
+                    <h1>Loading</h1>
+                    <p>Please wait while the content loads.</p>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- Modal overlay -->
     <div id="modal-overlay"></div>
@@ -425,7 +604,7 @@
         <div class="modal-body">
             <div id="about-modal-content">
                 <div class="about-content">
-                    <h1>Loading...</h1>
+                    <h1>Loading</h1>
                     <p>Please wait while the content loads.</p>
                 </div>
             </div>
@@ -443,9 +622,18 @@
     <script src="js/map-manager.js?v=2"></script>
     <script src="js/ui-controls.js?v=2"></script>
     <script src="js/about-modal.js"></script>
+    <script src="js/feedback-modal.js"></script>
     <script src="js/app.js?v=2"></script>
 </body>
 </html>
+
+
+
+
+
+
+
+
 
 
 
