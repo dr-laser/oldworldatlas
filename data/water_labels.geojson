@@ -6,16 +6,16 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -0.33302039792234694,
-          54.95051275793368
+          -0.3716981129109955,
+          54.88502197178747
         ]
       },
       "properties": {
         "name": "SCHADENSUMPF",
         "waterbody_type": "Large Marsh",
         "inkscape_coordinates": [
-          409.61746,
-          208.95549
+          407.40677,
+          212.69669
         ]
       }
     },
@@ -42,16 +42,16 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -1.1509192533022983,
-          51.92122557920642
+          -1.206692846667785,
+          51.917008998541114
         ]
       },
       "properties": {
         "name": "MIDDEN MARSHES",
         "waterbody_type": "Large Marsh",
         "inkscape_coordinates": [
-          362.84531,
-          382.01251
+          359.65878,
+          382.25299
         ]
       }
     },
@@ -60,16 +60,16 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          6.36044559848749,
-          48.08394170630943
+          6.36340980643769,
+          48.131568233559186
         ]
       },
       "properties": {
         "name": "BYLORHOF MARSH",
         "waterbody_type": "Large Marsh",
         "inkscape_coordinates": [
-          791.93079,
-          601.29205
+          792.10083,
+          598.57117
         ]
       }
     },
@@ -114,16 +114,16 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          7.37684689344744,
-          49.14896609069463
+          7.379809017895133,
+          49.2055220818756
         ]
       },
       "properties": {
         "name": "GRIMMOOR",
         "waterbody_type": "Small Marsh",
         "inkscape_coordinates": [
-          850.01544,
-          540.45477
+          850.18549,
+          537.22375
         ]
       }
     },
@@ -150,16 +150,16 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          6.409254858980137,
-          49.64988958583544
+          6.35567339282058,
+          49.66774226743946
         ]
       },
       "properties": {
         "name": "MORRSFENN",
         "waterbody_type": "Small Marsh",
         "inkscape_coordinates": [
-          794.742,
-          511.82986
+          791.68103,
+          510.80954
         ]
       }
     },
@@ -168,16 +168,16 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          6.662253563018429,
-          50.27291398964847
+          6.703900931141194,
+          50.365194953736726
         ]
       },
       "properties": {
         "name": "TOTENSÜMPFE",
         "waterbody_type": "Small Marsh",
         "inkscape_coordinates": [
-          809.20538,
-          476.23837
+          811.58612,
+          470.96667
         ]
       }
     },
@@ -186,16 +186,16 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          7.705815983305276,
-          50.1971243386048
+          7.741527984535602,
+          50.22094204021221
         ]
       },
       "properties": {
         "name": "HEL FENN",
         "waterbody_type": "Small Marsh",
         "inkscape_coordinates": [
-          868.82532,
-          480.57596
+          870.86597,
+          479.21552
         ]
       }
     },
@@ -204,16 +204,16 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          6.451505256151839,
-          47.3413945398583
+          6.44257810528019,
+          47.3294866716604
         ]
       },
       "properties": {
         "name": "ALBENMOOR",
         "waterbody_type": "Small Marsh",
         "inkscape_coordinates": [
-          797.1225,
-          643.71442
+          796.6123,
+          644.39465
         ]
       }
     },
@@ -258,16 +258,16 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -0.5382453499253765,
-          51.59814169344219
+          -0.5629718859822024,
+          51.58235237675026
         ]
       },
       "properties": {
         "name": "THE FURDIENST",
         "waterbody_type": "Small Marsh",
         "inkscape_coordinates": [
-          397.84406,
-          400.47482
+          396.43115,
+          401.37668
         ]
       }
     },
@@ -276,16 +276,16 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          0.02387531555203637,
-          51.46318876613952
+          -0.02505329689243041,
+          51.438977087486904
         ]
       },
       "properties": {
         "name": "ALTDORF FLATS",
         "waterbody_type": "Small Marsh",
         "inkscape_coordinates": [
-          429.95731,
-          408.18884
+          427.16156,
+          409.57169
         ]
       }
     },
@@ -402,8 +402,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          0.408,
-          57.514
+          0.30083043096652506,
+          57.38479478068612
         ]
       },
       "properties": {
@@ -438,12 +438,12 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          4.066,
-          57.415
+          3.908927550981713,
+          60.93626533109761
         ]
       },
       "properties": {
-        "name": "STARIVODA BAY (ALTWASSER)",
+        "name": "STARIVODA BAY \n (Altwasser)",
         "waterbody_type": "Small Sea",
         "inkscape_coordinates": [
           652.05585,
@@ -492,8 +492,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -3.311,
-          55.100
+          -2.6214434332120566,
+          61.46812226481964
         ]
       },
       "properties": {
@@ -533,7 +533,7 @@
         ]
       },
       "properties": {
-        "name": "BLACK WATER \n (VARN DRAZH)",
+        "name": "VARN DRAZH \n (Black Water)",
         "waterbody_type": "Medium Sea",
         "inkscape_coordinates": [
           911.05066,
@@ -582,8 +582,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -1.700,
-          58.340
+          14.11623443768342,
+          40.782801506251474
         ]
       },
       "properties": {
