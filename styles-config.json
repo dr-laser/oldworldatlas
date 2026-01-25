@@ -30,7 +30,7 @@
         "strokeColor": "rgba(0, 0, 0, 1)"
       },
       "2": {
-        "label": "Large Village",
+        "label": "Small Town",
         "color": "rgba(0, 0, 0, 1)",
         "zIndex": 2,
         "minFontSize": 3,
@@ -49,7 +49,7 @@
         "strokeColor": "rgba(0, 0, 0, 1)"
       },
       "3": {
-        "label": "Small Town",
+        "label": "Town",
         "color": "rgba(0, 0, 0, 1)",
         "zIndex": 3,
         "minFontSize": 6,
@@ -68,7 +68,7 @@
         "strokeColor": "rgba(255, 255, 255, 1)"
       },
       "4": {
-        "label": "City",
+        "label": "Large Town",
         "color": "rgba(255, 255, 255, 1)",
         "zIndex": 4,
         "minFontSize": 9,
@@ -87,7 +87,7 @@
         "strokeColor": "rgba(0, 0, 0, 1)"
       },
       "5": {
-        "label": "Large City",
+        "label": "City",
         "color": "rgba(255, 255, 255, 1)",
         "zIndex": 5,
         "minFontSize": 12,
