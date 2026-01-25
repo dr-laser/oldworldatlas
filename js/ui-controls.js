@@ -107,13 +107,17 @@ class UIControls {
      * @param {array} coordinate - Map coordinate [lon, lat]
      */
     showFeatureFromSearch(feature, coordinate) {
-        // Zoom and center to feature
-        const view = mapManager.getMap().getView();
-        view.animate({
-            center: coordinate,
-            resolution: 0.0015,  // Target zoom level
-            duration: 500
-        });
+        // Debug logging
+        console.log('showFeatureFromSearch called', { feature, coordinate });
+        console.log('mapManager exists:', typeof mapManager !== 'undefined');
+        
+        // Zoom and center to feature using mapManager
+        if (typeof mapManager !== 'undefined' && mapManager.zoomToFeature) {
+            console.log('Calling mapManager.zoomToFeature');
+            mapManager.zoomToFeature(feature, 0.0015);
+        } else {
+            console.error('mapManager or zoomToFeature not available');
+        }
         
         // Show popup
         this.showSettlementPopup(feature, coordinate);
@@ -212,3 +216,4 @@ class UIControls {
 
 // Create global instance
 const uiControls = new UIControls();
+window.uiControls = uiControls;
