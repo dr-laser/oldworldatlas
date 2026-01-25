@@ -65,14 +65,17 @@ class SearchManager {
             settlements.forEach(feature => {
                 const name = feature.get('name');
                 const sizeCategory = feature.get('sizeCategory');
+                const province = feature.get('province');
                 const coord = feature.getGeometry().getCoordinates();
                 if (name) {
+                    const categoryLabel = getSizeCategoryLabel(sizeCategory);
+                    const details = province ? `${categoryLabel} (${province})` : categoryLabel;
                     this.allFeatures.push({
                         feature: feature,
                         name: name,
                         normalizedName: this.normalizeString(name),
                         type: 'Settlement',
-                        details: `Size ${sizeCategory}`,
+                        details: details,
                         coordinate: coord
                     });
                 }
@@ -167,9 +170,12 @@ class SearchManager {
         matches.forEach(item => {
             const div = document.createElement('div');
             div.className = 'autocomplete-item';
+            // For settlements, just show the details (category + province)
+            // For POIs, show type prefix
+            const detailsText = item.type === 'Settlement' ? item.details : `${item.type} - ${item.details}`;
             div.innerHTML = `
                 <div class="autocomplete-name">${this.highlightMatch(item.name, this.searchInput.value)}</div>
-                <div class="autocomplete-details">${item.type} - ${item.details}</div>
+                <div class="autocomplete-details">${detailsText}</div>
             `;
             div.addEventListener('click', () => this.selectFeature(item));
             this.dropdown.appendChild(div);
