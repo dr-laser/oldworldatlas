@@ -101,6 +101,45 @@ function lerp(value, minIn, maxIn, minOut, maxOut) {
 }
 
 /**
+ * Parse font configuration and construct proper CSS font string
+ * OpenLayers requires: [font-style] [font-variant] [font-weight] [font-size] [font-family]
+ * @param {string} fontConfig - Font configuration string (e.g., "bold Arial, sans-serif" or "italic Arial")
+ * @param {number} fontSize - Font size in pixels
+ * @returns {string} Properly formatted CSS font string
+ */
+function constructFontString(fontConfig, fontSize) {
+    // Parse the font config to extract style, weight, and family
+    const parts = fontConfig.trim().split(/\s+/);
+    let fontStyle = 'normal';
+    let fontWeight = 'normal';
+    let fontFamily = fontConfig;
+    
+    // Check for font-style keywords
+    if (parts[0] === 'italic' || parts[0] === 'oblique') {
+        fontStyle = parts[0];
+        parts.shift();
+    }
+    
+    // Check for font-weight keywords
+    if (parts.length > 0 && (parts[0] === 'bold' || parts[0] === 'bolder' || parts[0] === 'lighter' || /^[1-9]00$/.test(parts[0]))) {
+        fontWeight = parts[0];
+        parts.shift();
+    }
+    
+    // Remaining parts are the font family
+    fontFamily = parts.join(' ');
+    
+    // Construct proper CSS font string
+    let result = '';
+    if (fontStyle !== 'normal') result += fontStyle + ' ';
+    if (fontWeight !== 'normal') result += fontWeight + ' ';
+    result += fontSize + 'px ';
+    result += fontFamily;
+    
+    return result;
+}
+
+/**
  * Get interpolated font size based on zoom level
  * @param {Object} config - Style configuration with min/max font settings
  * @param {number} currentResolution - Current map resolution
@@ -226,10 +265,11 @@ function createPOIStyle(feature, currentResolution) {
     
     // Add text if visible (feature-specific, so not cached)
     if (showLabel) {
+        const fontConfig = isHighlighted ? 'bold ' + config.textFont : config.textFont;
         style.setText(new ol.style.Text({
             text: feature.get('name'),
             offsetY: config.textOffsetY,
-            font: (isHighlighted ? 'bold ' : '') + fontSize + 'px ' + config.textFont,
+            font: constructFontString(fontConfig, fontSize),
             fill: new ol.style.Fill({ color: isHighlighted ? '#d32f2f' : config.textFillColor }),
             stroke: new ol.style.Stroke({ 
                 color: config.textStrokeColor, 
@@ -319,10 +359,11 @@ function createSettlementStyle(feature, currentResolution) {
     
     // Add text if visible (feature-specific, so not cached)
     if (showLabel) {
+        const fontConfig = isHighlighted ? 'bold ' + config.textFont : config.textFont;
         style.setText(new ol.style.Text({
             text: feature.get('name'),
             offsetY: config.textOffsetY,
-            font: (isHighlighted ? 'bold ' : '') + fontSize + 'px ' + config.textFont,
+            font: constructFontString(fontConfig, fontSize),
             fill: new ol.style.Fill({ color: isHighlighted ? '#d32f2f' : config.textFillColor }),
             stroke: new ol.style.Stroke({ 
                 color: config.textStrokeColor, 
@@ -436,7 +477,7 @@ function createProvinceStyle(feature, currentResolution) {
     return new ol.style.Style({
         text: new ol.style.Text({
             text: feature.get('name'),
-            font: fontSize + 'px ' + config.textFont,
+            font: constructFontString(config.textFont, fontSize),
             fill: new ol.style.Fill({ color: config.textFillColor }),
             stroke: new ol.style.Stroke({ 
                 color: config.textStrokeColor, 
@@ -478,7 +519,7 @@ function createWaterStyle(feature, currentResolution) {
     return new ol.style.Style({
         text: new ol.style.Text({
             text: feature.get('name'),
-            font: fontSize + 'px ' + config.textFont,
+            font: constructFontString(config.textFont, fontSize),
             fill: new ol.style.Fill({ color: config.textFillColor }),
             stroke: new ol.style.Stroke({ 
                 color: config.textStrokeColor, 
