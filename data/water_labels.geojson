@@ -515,7 +515,7 @@
         ]
       },
       "properties": {
-        "name": "CZARNEBŁOTA (The Blight)",
+        "name": "CZARNEBŁOTA\n(The Blight)",
         "waterbody_type": "Large Marsh",
         "inkscape_coordinates": [
           748.27795,
@@ -875,7 +875,7 @@
         ]
       },
       "properties": {
-        "name": "STARIVODA BAY (Altwasser)",
+        "name": "STARIVODA BAY\n(Altwasser)",
         "waterbody_type": "Small Sea",
         "inkscape_coordinates": [
           649.05585,
@@ -961,11 +961,11 @@
         "type": "Point",
         "coordinates": [
           8.393253743681694,
-          46.77138130835148
+          46.7713813083514
         ]
       },
       "properties": {
-        "name": "VARN DRAZH (",
+        "name": "VARN DRAZH\n(Black Water)",
         "waterbody_type": "Medium Sea",
         "inkscape_coordinates": [
           908.05066,

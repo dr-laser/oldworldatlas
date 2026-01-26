@@ -92,7 +92,7 @@ class MapManager {
      * @returns {ol.layer.Tile}
      */
     createTileLayer() {
-        const TILE_VERSION = '1'; // Increment this when you update the base map tiles
+        const TILE_VERSION = '4'; // Increment this when you update the base map tiles
         
         return new ol.layer.Tile({
             title: 'Map Tiles',

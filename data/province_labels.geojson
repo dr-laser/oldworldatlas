@@ -331,7 +331,7 @@
         ]
       },
       "properties": {
-        "name": "THE BORDER PRINCIPALITIES",
+        "name": "THE BORDER\nPRINCIPALITIES",
         "province_type": "Nation-State",
         "formal_title": "",
         "part_of": "",
@@ -371,12 +371,12 @@
         ]
       },
       "properties": {
-        "name": "ATHEL LOREN",
+        "name": "ATHEL\nLOREN",
         "province_type": "Nation-State",
         "formal_title": "",
         "part_of": "",
         "inkscape_coordinates": [
-          350.38931,
+          350.3893,
           765.7038
         ]
       }
