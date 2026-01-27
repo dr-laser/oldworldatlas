@@ -19,6 +19,15 @@ class MapManager {
     }
 
     /**
+     * Check if device is in mobile portrait mode
+     * @private
+     * @returns {boolean}
+     */
+    isMobilePortrait() {
+        return window.innerWidth <= 768 && window.innerHeight > window.innerWidth;
+    }
+
+    /**
      * Initialize the map
      * @returns {ol.Map}
      */
@@ -64,8 +73,8 @@ class MapManager {
                 this.createPOILayer()
             ],
             view: new ol.View({
-                center: [3.832390, 49.796453],
-                resolution: 0.0159930693920000006,
+                center: this.isMobilePortrait() ? [0.008, 51.46] : [3.832390, 49.796453],
+                resolution: this.isMobilePortrait() ? 0.013 : 0.0159930693920000006,
                 maxResolution: 0.0370467098591999999,
                 minResolution: 0.000578854841549999999,
                 enableRotation: false,  // Disable rotation for better mobile performance
@@ -258,7 +267,7 @@ class MapManager {
         this.map.getView().animate({
             center: coordinates,
             resolution: zoomLevel,
-            duration: 500
+            duration: 1000  // Increased from 500ms to 1500ms to ensure animation completes
         });
     }
 
