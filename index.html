@@ -4,19 +4,20 @@
     <title>Old-World-Atlas</title>
     <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
     <meta http-equiv='imagetoolbar' content='no'/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     
     <!-- Open Graph Protocol meta tags -->
     <meta property="og:title" content="Old World Atlas" />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://toddkozlowski.github.io/oldworldatlas-web/" />
     <meta property="og:image" content="https://toddkozlowski.github.io/oldworldatlas-web/images/page_preview.png" />
-    <meta property="og:description" content="Interactive atlas of the Old World with detailed maps, settlements, and points of interest." />
+    <meta property="og:description" content="An interactive map of the Empire." />
     <meta property="og:site_name" content="Old World Atlas" />
     
     <!-- Twitter Card meta tags -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Old World Atlas" />
-    <meta name="twitter:description" content="Interactive atlas of the Old World with detailed maps, settlements, and points of interest." />
+    <meta name="twitter:description" content="An interactive map of the Empire." />
     <meta name="twitter:image" content="https://toddkozlowski.github.io/oldworldatlas-web/images/page_preview.png" />
     
     <link rel="icon" type="image/x-icon" href="images/favicon/favicon.ico">
@@ -555,6 +556,181 @@
             color: #666;
             margin-top: 2px;
         }
+        
+        /* Mobile menu button - hidden by default */
+        .mobile-menu-button {
+            display: none;
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            z-index: 10001;
+            background: rgba(255, 255, 255, 0.95);
+            border: none;
+            border-radius: 4px;
+            width: 40px;
+            height: 40px;
+            cursor: pointer;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            transition: all 0.2s ease;
+        }
+        
+        .mobile-menu-button:hover {
+            background: rgba(255, 255, 255, 1);
+            box-shadow: 0 3px 6px rgba(0,0,0,0.15);
+        }
+        
+        .mobile-menu-button span {
+            display: block;
+            width: 20px;
+            height: 2px;
+            background: #333;
+            margin: 4px auto;
+            transition: all 0.3s ease;
+        }
+        
+        .mobile-menu-button.active span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+        
+        .mobile-menu-button.active span:nth-child(2) {
+            opacity: 0;
+        }
+        
+        .mobile-menu-button.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(6px, -6px);
+        }
+        
+        /* Mobile title - hidden by default */
+        .mobile-title {
+            display: none;
+            position: absolute;
+            top: 10px;
+            left: 60px;
+            right: 10px;
+            z-index: 10000;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 8px 12px;
+            border-radius: 4px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        
+        .mobile-title h1 {
+            margin: 0;
+            font-size: 16px;
+            color: #333;
+        }
+        
+        /* Mobile dropdown menu */
+        .mobile-dropdown {
+            display: none;
+            position: absolute;
+            top: 60px;
+            left: 10px;
+            right: 10px;
+            z-index: 10002;
+            background: rgba(255, 255, 255, 0.98);
+            border-radius: 4px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+        
+        .mobile-dropdown.active {
+            max-height: 400px;
+        }
+        
+        .mobile-dropdown-item {
+            padding: 12px 16px;
+            border-bottom: 1px solid #e0e0e0;
+            cursor: pointer;
+            transition: background 0.2s ease;
+        }
+        
+        .mobile-dropdown-item:last-child {
+            border-bottom: none;
+        }
+        
+        .mobile-dropdown-item:hover {
+            background: rgba(52, 73, 94, 0.05);
+        }
+        
+        .mobile-dropdown-item button {
+            width: 100%;
+            padding: 8px;
+            background: rgba(52, 73, 94, 0.9);
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-size: 14px;
+            cursor: pointer;
+        }
+        
+        .mobile-dropdown-item .toggle-item {
+            justify-content: flex-start;
+            font-size: 14px;
+        }
+        
+        /* Mobile styles - only for portrait orientation */
+        @media (max-width: 768px) and (orientation: portrait) {
+            /* Hide OpenLayers zoom controls on mobile */
+            .ol-zoom {
+                display: none !important;
+            }
+            
+            /* Hide desktop UI elements */
+            .title-container {
+                display: none;
+            }
+            
+            .layer-toggles {
+                display: none;
+            }
+            
+            /* Show mobile menu button */
+            .mobile-menu-button {
+                display: block;
+            }
+            
+            /* Show mobile title */
+            .mobile-title {
+                display: block;
+            }
+            
+            /* Show mobile dropdown */
+            .mobile-dropdown {
+                display: block;
+            }
+            
+            /* Reposition search bar for mobile */
+            .search-container {
+                top: 110px;
+                left: 10px;
+                right: 10px;
+                width: auto;
+            }
+            
+            .search-input-wrapper {
+                width: 100%;
+            }
+            
+            #search-input {
+                width: 100%;
+            }
+            
+            /* Adjust modal sizing for mobile */
+            #about-modal,
+            #feedback-modal {
+                width: 95%;
+                max-height: 90%;
+            }
+            
+            .modal-body {
+                padding: 15px;
+                max-height: calc(90vh - 60px);
+            }
+        }
     </style>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@main/dist/en/v7.0.0/legacy/ol.css" type="text/css">
     <script src="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@main/dist/en/v7.0.0/legacy/ol.js"></script>
@@ -564,6 +740,40 @@
 <body>
     <div id="header"><h1>Old-World-Atlas</h1></div>
     <div id="map" class="map"></div>
+    
+    <!-- Mobile menu button -->
+    <button class="mobile-menu-button" id="mobile-menu-button">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+    
+    <!-- Mobile title -->
+    <div class="mobile-title">
+        <h1>Atlas of the Old World</h1>
+    </div>
+    
+    <!-- Mobile dropdown menu -->
+    <div class="mobile-dropdown" id="mobile-dropdown">
+        <div class="mobile-dropdown-item">
+            <div class="toggle-item">
+                <input type="checkbox" id="mobile-settlement-checkbox" checked>
+                <label for="mobile-settlement-checkbox">Settlements</label>
+            </div>
+        </div>
+        <div class="mobile-dropdown-item">
+            <div class="toggle-item">
+                <input type="checkbox" id="mobile-poi-checkbox">
+                <label for="mobile-poi-checkbox">Points of Interest</label>
+            </div>
+        </div>
+        <div class="mobile-dropdown-item">
+            <button id="mobile-about-button">About</button>
+        </div>
+        <div class="mobile-dropdown-item">
+            <button id="mobile-feedback-button">Feedback / Suggest</button>
+        </div>
+    </div>
     
     <!-- Search bar - top left -->
     <div class="search-container">
@@ -589,7 +799,7 @@
     <!-- Title box - top right -->
     <div class="title-container">
         <h1>Atlas of the Old World</h1>
-        <p class="title-subheader">An unofficial, fan-made map of the Warhammer world. Alpha version, 26.01.2026 @toddkoz</p>
+        <p class="title-subheader">An unofficial, fan-made map of the Warhammer world. Alpha version, 27.01.2026 @toddkoz</p>
         <button id="about-button" class="about-button">About</button>
         <button id="feedback-button" class="about-button">Provide feedback / suggest a correction</button>
     </div>
@@ -645,6 +855,74 @@
     <script src="js/about-modal.js?v=5"></script>
     <script src="js/feedback-modal.js?v=5"></script>
     <script src="js/app.js?v=5"></script>
+    
+    <!-- Mobile menu functionality -->
+    <script>
+        // Mobile menu toggle
+        document.addEventListener('DOMContentLoaded', function() {
+            const menuButton = document.getElementById('mobile-menu-button');
+            const dropdown = document.getElementById('mobile-dropdown');
+            
+            if (menuButton && dropdown) {
+                menuButton.addEventListener('click', function() {
+                    menuButton.classList.toggle('active');
+                    dropdown.classList.toggle('active');
+                });
+                
+                // Sync mobile checkboxes with desktop checkboxes
+                const desktopSettlement = document.getElementById('settlement-checkbox');
+                const desktopPoi = document.getElementById('poi-checkbox');
+                const mobileSettlement = document.getElementById('mobile-settlement-checkbox');
+                const mobilePoi = document.getElementById('mobile-poi-checkbox');
+                
+                if (mobileSettlement && desktopSettlement) {
+                    mobileSettlement.addEventListener('change', function() {
+                        desktopSettlement.checked = this.checked;
+                        desktopSettlement.dispatchEvent(new Event('change'));
+                    });
+                    
+                    desktopSettlement.addEventListener('change', function() {
+                        mobileSettlement.checked = this.checked;
+                    });
+                }
+                
+                if (mobilePoi && desktopPoi) {
+                    mobilePoi.addEventListener('change', function() {
+                        desktopPoi.checked = this.checked;
+                        desktopPoi.dispatchEvent(new Event('change'));
+                    });
+                    
+                    desktopPoi.addEventListener('change', function() {
+                        mobilePoi.checked = this.checked;
+                    });
+                }
+                
+                // Wire up mobile about button
+                const mobileAboutButton = document.getElementById('mobile-about-button');
+                const desktopAboutButton = document.getElementById('about-button');
+                if (mobileAboutButton && desktopAboutButton) {
+                    mobileAboutButton.addEventListener('click', function() {
+                        desktopAboutButton.click();
+                        // Close mobile menu
+                        menuButton.classList.remove('active');
+                        dropdown.classList.remove('active');
+                    });
+                }
+                
+                // Wire up mobile feedback button
+                const mobileFeedbackButton = document.getElementById('mobile-feedback-button');
+                const desktopFeedbackButton = document.getElementById('feedback-button');
+                if (mobileFeedbackButton && desktopFeedbackButton) {
+                    mobileFeedbackButton.addEventListener('click', function() {
+                        desktopFeedbackButton.click();
+                        // Close mobile menu
+                        menuButton.classList.remove('active');
+                        dropdown.classList.remove('active');
+                    });
+                }
+            }
+        });
+    </script>
 </body>
 </html>
 
