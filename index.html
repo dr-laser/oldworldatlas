@@ -782,6 +782,18 @@
             </div>
         </div>
         <div class="mobile-dropdown-item">
+            <div class="toggle-item">
+                <input type="checkbox" id="mobile-region-checkbox" checked>
+                <label for="mobile-region-checkbox">Regions</label>
+            </div>
+        </div>
+        <div class="mobile-dropdown-item">
+            <div class="toggle-item">
+                <input type="checkbox" id="mobile-water-checkbox" checked>
+                <label for="mobile-water-checkbox">Water</label>
+            </div>
+        </div>
+        <div class="mobile-dropdown-item">
             <button id="mobile-about-button">About</button>
         </div>
         <div class="mobile-dropdown-item">
@@ -807,6 +819,14 @@
         <div class="toggle-item">
             <input type="checkbox" id="poi-checkbox">
             <label for="poi-checkbox">Points of Interest</label>
+        </div>
+        <div class="toggle-item">
+            <input type="checkbox" id="region-checkbox" checked>
+            <label for="region-checkbox">Regions</label>
+        </div>
+        <div class="toggle-item">
+            <input type="checkbox" id="water-checkbox" checked>
+            <label for="water-checkbox">Water</label>
         </div>
     </div>
     
@@ -908,6 +928,36 @@
                     
                     desktopPoi.addEventListener('change', function() {
                         mobilePoi.checked = this.checked;
+                    });
+                }
+                
+                // Sync region checkboxes
+                const desktopRegion = document.getElementById('region-checkbox');
+                const mobileRegion = document.getElementById('mobile-region-checkbox');
+                
+                if (mobileRegion && desktopRegion) {
+                    mobileRegion.addEventListener('change', function() {
+                        desktopRegion.checked = this.checked;
+                        desktopRegion.dispatchEvent(new Event('change'));
+                    });
+                    
+                    desktopRegion.addEventListener('change', function() {
+                        mobileRegion.checked = this.checked;
+                    });
+                }
+                
+                // Sync water checkboxes
+                const desktopWater = document.getElementById('water-checkbox');
+                const mobileWater = document.getElementById('mobile-water-checkbox');
+                
+                if (mobileWater && desktopWater) {
+                    mobileWater.addEventListener('change', function() {
+                        desktopWater.checked = this.checked;
+                        desktopWater.dispatchEvent(new Event('change'));
+                    });
+                    
+                    desktopWater.addEventListener('change', function() {
+                        mobileWater.checked = this.checked;
                     });
                 }
                 

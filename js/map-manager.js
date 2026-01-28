@@ -318,6 +318,22 @@ class MapManager {
     getSettlementMarkersOnlyLayer() {
         return this.settlementMarkersOnlyLayer;
     }
+    
+    /**
+     * Get province layer
+     * @returns {ol.layer.Vector}
+     */
+    getProvinceLayer() {
+        return this.provinceVectorLayer;
+    }
+    
+    /**
+     * Get water layer
+     * @returns {ol.layer.Vector}
+     */
+    getWaterLayer() {
+        return this.waterVectorLayer;
+    }
 }
 
 // Create global instance

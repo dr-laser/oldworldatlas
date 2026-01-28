@@ -8,6 +8,8 @@ class UIControls {
         this.popupOverlay = null;
         this.settlementCheckbox = null;
         this.poiCheckbox = null;
+        this.regionCheckbox = null;
+        this.waterCheckbox = null;
         this.selectedFeature = null;  // Track currently selected/highlighted feature
     }
 
@@ -18,6 +20,8 @@ class UIControls {
     initialize(map) {
         this.initializeSettlementToggle();
         this.initializePOIToggle();
+        this.initializeRegionToggle();
+        this.initializeWaterToggle();
         this.initializePopup(map);
     }
 
@@ -50,6 +54,38 @@ class UIControls {
         if (this.poiCheckbox) {
             this.poiCheckbox.addEventListener('change', (e) => {
                 const layer = mapManager.getPOILayer();
+                if (layer) {
+                    layer.setVisible(e.target.checked);
+                }
+            });
+        }
+    }
+
+    /**
+     * Initialize region toggle checkbox
+     * @private
+     */
+    initializeRegionToggle() {
+        this.regionCheckbox = document.getElementById('region-checkbox');
+        if (this.regionCheckbox) {
+            this.regionCheckbox.addEventListener('change', (e) => {
+                const layer = mapManager.getProvinceLayer();
+                if (layer) {
+                    layer.setVisible(e.target.checked);
+                }
+            });
+        }
+    }
+
+    /**
+     * Initialize water toggle checkbox
+     * @private
+     */
+    initializeWaterToggle() {
+        this.waterCheckbox = document.getElementById('water-checkbox');
+        if (this.waterCheckbox) {
+            this.waterCheckbox.addEventListener('change', (e) => {
+                const layer = mapManager.getWaterLayer();
                 if (layer) {
                     layer.setVisible(e.target.checked);
                 }
