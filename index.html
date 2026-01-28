@@ -113,6 +113,115 @@
         .about-button:hover {
             background: rgba(52, 73, 94, 1);
         }
+        
+        /* Changelog button with chevron */
+        .changelog-button {
+            margin-top: 10px;
+            padding: 6px 12px;
+            background: rgba(52, 73, 94, 0.9);
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 12px;
+            font-weight: 500;
+            transition: background 0.2s ease;
+            width: 100%;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+        }
+        
+        .changelog-button:hover {
+            background: rgba(52, 73, 94, 1);
+        }
+        
+        .changelog-button .chevron {
+            display: inline-block;
+            width: 0;
+            height: 0;
+            border-left: 4px solid transparent;
+            border-right: 4px solid transparent;
+            border-top: 5px solid white;
+            transition: transform 0.3s ease;
+        }
+        
+        .changelog-button.active .chevron {
+            transform: rotate(180deg);
+        }
+        
+        /* Changelog dropdown panel */
+        .changelog-dropdown {
+            position: absolute;
+            top: 100%;
+            right: 0;
+            margin-top: 5px;
+            width: 100%;
+            max-height: 0;
+            overflow: hidden;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 4px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+            transition: max-height 0.3s ease, opacity 0.3s ease;
+            opacity: 0;
+            z-index: 15;
+        }
+        
+        .changelog-dropdown.active {
+            max-height: calc(100vh - 200px);
+            opacity: 1;
+        }
+        
+        .changelog-dropdown-body {
+            padding: 20px;
+            overflow-y: auto;
+            max-height: calc(100vh - 220px);
+        }
+        
+        .changelog-content {
+            line-height: 1.6;
+            color: #333;
+        }
+        
+        .changelog-content h1 {
+            margin: 0 0 20px 0;
+            font-size: 24px;
+            color: #34495e;
+            border: none;
+        }
+        
+        .changelog-content h2 {
+            margin: 25px 0 15px 0;
+            font-size: 18px;
+            color: #34495e;
+            border-bottom: 2px solid #e0e0e0;
+            padding-bottom: 8px;
+        }
+        
+        .changelog-content h3 {
+            margin: 20px 0 10px 0;
+            font-size: 16px;
+            color: #34495e;
+        }
+        
+        .changelog-content p {
+            margin: 0 0 15px 0;
+        }
+        
+        .changelog-content ul {
+            margin: 0 0 15px 0;
+            padding-left: 25px;
+        }
+        
+        .changelog-content li {
+            margin: 8px 0;
+        }
+        
+        .changelog-content em {
+            color: #666;
+        }
 
         /* Modal overlay */
         #modal-overlay {
@@ -743,6 +852,35 @@
                 padding: 15px;
                 max-height: calc(75vh - 60px);
             }
+            
+            /* Mobile changelog dropdown */
+            .mobile-changelog-dropdown {
+                display: block;
+                position: fixed;
+                bottom: -100%;
+                left: 0;
+                right: 0;
+                max-height: 70vh;
+                background: rgba(255, 255, 255, 0.98);
+                border-radius: 8px 8px 0 0;
+                box-shadow: 0 -4px 12px rgba(0,0,0,0.2);
+                transition: bottom 0.3s ease;
+                z-index: 10003;
+            }
+            
+            .mobile-changelog-dropdown.active {
+                bottom: 0;
+            }
+            
+            .mobile-changelog-dropdown .changelog-dropdown-body {
+                padding: 15px;
+                max-height: 65vh;
+                overflow-y: auto;
+            }
+            
+            .changelog-dropdown {
+                display: none;
+            }
         }
     </style>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@main/dist/en/v7.0.0/legacy/ol.css" type="text/css">
@@ -799,6 +937,24 @@
         <div class="mobile-dropdown-item">
             <button id="mobile-feedback-button">Feedback / Suggest</button>
         </div>
+        <div class="mobile-dropdown-item">
+            <button id="mobile-changelog-button" class="changelog-button">
+                Feature Requests / Changelog
+                <span class="chevron"></span>
+            </button>
+        </div>
+    </div>
+    
+    <!-- Mobile changelog dropdown -->
+    <div class="mobile-changelog-dropdown" id="mobile-changelog-dropdown">
+        <div class="changelog-dropdown-body">
+            <div id="mobile-changelog-dropdown-content">
+                <div class="changelog-content">
+                    <h1>Loading...</h1>
+                    <p>Please wait while the content loads.</p>
+                </div>
+            </div>
+        </div>
     </div>
     
     <!-- Search bar - top left -->
@@ -833,9 +989,24 @@
     <!-- Title box - top right -->
     <div class="title-container">
         <h1>Atlas of the Old World</h1>
-        <p class="title-subheader">An unofficial, fan-made map of the Warhammer world. Alpha version, 27.01.2026 @toddkoz</p>
+        <p class="title-subheader">An unofficial, fan-made map of the Warhammer world. Alpha version, 28.01.2026 @toddkoz</p>
         <button id="about-button" class="about-button">About</button>
         <button id="feedback-button" class="about-button">Provide feedback / suggest a correction</button>
+        <button id="changelog-button" class="changelog-button">
+            Feature Requests / Changelog
+            <span class="chevron"></span>
+        </button>
+        <!-- Changelog dropdown panel -->
+        <div class="changelog-dropdown" id="changelog-dropdown">
+            <div class="changelog-dropdown-body">
+                <div id="changelog-dropdown-content">
+                    <div class="changelog-content">
+                        <h1>Loading...</h1>
+                        <p>Please wait while the content loads.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
     
     <div id="mouse-position"></div>
@@ -888,6 +1059,7 @@
     <script src="js/ui-controls.js?v=5"></script>
     <script src="js/about-modal.js?v=5"></script>
     <script src="js/feedback-modal.js?v=5"></script>
+    <script src="js/changelog-dropdown.js?v=5"></script>
     <script src="js/app.js?v=5"></script>
     
     <!-- Mobile menu functionality -->
@@ -982,6 +1154,40 @@
                         // Close mobile menu
                         menuButton.classList.remove('active');
                         dropdown.classList.remove('active');
+                    });
+                }
+                
+                // Wire up mobile changelog button (separate handling)
+                const mobileChangelogButton = document.getElementById('mobile-changelog-button');
+                const mobileChangelogDropdown = document.getElementById('mobile-changelog-dropdown');
+                if (mobileChangelogButton && mobileChangelogDropdown) {
+                    mobileChangelogButton.addEventListener('click', function() {
+                        mobileChangelogButton.classList.toggle('active');
+                        mobileChangelogDropdown.classList.toggle('active');
+                        // Close main mobile menu
+                        menuButton.classList.remove('active');
+                        dropdown.classList.remove('active');
+                    });
+                    
+                    // Load content for mobile dropdown
+                    fetch('changelog-content.html')
+                        .then(response => response.text())
+                        .then(html => {
+                            const contentDiv = document.getElementById('mobile-changelog-dropdown-content');
+                            if (contentDiv) {
+                                contentDiv.innerHTML = html;
+                            }
+                        })
+                        .catch(error => console.error('Error loading mobile changelog:', error));
+                    
+                    // Close mobile changelog when clicking outside
+                    document.addEventListener('click', function(e) {
+                        if (mobileChangelogDropdown.classList.contains('active') &&
+                            !mobileChangelogButton.contains(e.target) &&
+                            !mobileChangelogDropdown.contains(e.target)) {
+                            mobileChangelogButton.classList.remove('active');
+                            mobileChangelogDropdown.classList.remove('active');
+                        }
                     });
                 }
             }

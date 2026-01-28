@@ -52,6 +52,9 @@ async function initializeApp() {
         
         // Initialize search functionality
         searchManager.initialize();
+        
+        // Initialize changelog dropdown
+        changelogDropdown.initialize();
 
         console.log('Old World Atlas initialized successfully');
     } catch (error) {
