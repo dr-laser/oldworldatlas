@@ -2,11 +2,31 @@
  * Settlement data management for Old World Atlas
  */
 
+// Source tag mapping
+const SOURCE_TAG_MAP = {
+    '2eSH': 'WFRP2e Sigmar\'s Heirs',
+    '4eAotE1': 'WFRP4e Archives of the Empire Vol. 1',
+    '4eEiS': 'WFRP4e Enemy in Shadows',
+    '4ePBtTC': 'WFRP4e Power Behind the Throne Companion',
+    '4eSCoSaS': 'WFRP4e Salzenmund: City of Salt and Silver',
+    '4eCRB': 'WFRP4e Core Rulebook',
+    '4eDotRC': 'WFRP4e Death on the Reik Companion',
+    'NCC': 'WFB Nemesis Crown Campaign',
+    'WFB8e': 'WFB 8th Edition',
+    'AmbChron': 'The Ambassor Chronicles (Black Library)',
+    'G&FT': 'Gotrek & Felix (Black Library)',
+    'TOW': 'Warhammer: The Old World',
+    '1eMSDtR': 'WFRP1e Marienburg: Sold Down the River',
+    'AndyLaw': 'Andy Law (LawHammer)',
+    'MA': 'MadAlfred'
+};
+
 class SettlementDataManager {
     constructor() {
         this.rawFeatures = [];
         this.filteredFeatures = [];
         this.settlementMap = new Map(); // For quick lookup by name
+        this.publishedCanonOnly = false;
     }
 
     /**
@@ -80,7 +100,63 @@ class SettlementDataManager {
             return false;
         }
 
+        // Check Published Canon Only filter
+        if (this.publishedCanonOnly) {
+            const source = this.getSourceFromTags(props.tags);
+            // Hide settlements without a source tag, or with 'AndyLaw' source
+            if (!source || source === 'AndyLaw') {
+                return false;
+            }
+        }
+
         return true;
+    }
+
+    /**
+     * Extract source tag from tags array
+     * @private
+     * @param {array} tags - Array of tags
+     * @returns {string|null} - Source shorthand or null
+     */
+    getSourceFromTags(tags) {
+        if (!tags || !Array.isArray(tags)) {
+            return null;
+        }
+
+        for (const tag of tags) {
+            if (tag.startsWith('source:')) {
+                return tag.substring(7); // Remove 'source:' prefix
+            }
+        }
+        return null;
+    }
+
+    /**
+     * Get full source name from shorthand
+     * @param {string} sourceShorthand - Source shorthand
+     * @returns {string} - Full source name or original if not found
+     */
+    getFullSourceName(sourceShorthand) {
+        return SOURCE_TAG_MAP[sourceShorthand] || sourceShorthand;
+    }
+
+    /**
+     * Set Published Canon Only filter state
+     * @param {boolean} enabled
+     */
+    setPublishedCanonOnly(enabled) {
+        if (this.publishedCanonOnly !== enabled) {
+            this.publishedCanonOnly = enabled;
+            this.filterAndIndexSettlements();
+        }
+    }
+
+    /**
+     * Get Published Canon Only filter state
+     * @returns {boolean}
+     */
+    getPublishedCanonOnly() {
+        return this.publishedCanonOnly;
     }
 
     /**
@@ -153,12 +229,19 @@ class SettlementDataManager {
     getOLFeatures() {
         return this.filteredFeatures.map(feature => {
             const coords = feature.geometry.coordinates;
+            const sourceTag = this.getSourceFromTags(feature.properties.tags);
+            const wiki = feature.properties.wiki || {};
             return new ol.Feature({
                 geometry: new ol.geom.Point(coords),
                 name: feature.properties.name,
                 sizeCategory: feature.properties.size_category,
                 population: feature.properties.population,
-                province: feature.properties.province
+                province: feature.properties.province,
+                sourceTag: sourceTag,
+                wikiTitle: wiki.title,
+                wikiUrl: wiki.url,
+                wikiDescription: wiki.description,
+                wikiImage: wiki.image
             });
         });
     }

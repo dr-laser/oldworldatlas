@@ -517,11 +517,107 @@
         }
         
         .settlement-popup { 
-            padding: 10px; 
-            font-size: 12px; 
+            padding: 0;
+            margin: 0;
+            font-size: 13px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            min-width: 280px;
+            max-width: 380px;
         }
-        .settlement-popup p { 
-            margin: 5px 0; 
+        
+        .settlement-popup-header {
+            margin-bottom: 12px;
+            padding: 15px 15px 0 15px;
+        }
+        
+        .settlement-popup-title {
+            font-size: 20px;
+            font-weight: 600;
+            margin: 0 0 4px 0;
+            color: #1a1a1a;
+        }
+        
+        .settlement-popup-subtitle {
+            font-size: 12px;
+            font-style: italic;
+            color: #555;
+            margin: 0;
+        }
+        
+        .settlement-popup-field {
+            display: flex;
+            margin: 8px 0;
+            padding: 0 15px;
+            line-height: 1.4;
+        }
+        
+        .settlement-popup-label {
+            font-weight: 600;
+            margin-right: 8px;
+            min-width: 75px;
+            color: #333;
+        }
+        
+        .settlement-popup-value {
+            color: #333;
+            flex: 1;
+            word-break: break-word;
+        }
+        
+        .settlement-popup-wiki {
+            border-top: 1px solid #ddd;
+            margin-top: 12px;
+            padding: 12px 15px 15px 15px;
+        }
+        
+        .settlement-popup-wiki-image {
+            max-width: 100%;
+            height: auto;
+            border-radius: 4px;
+            margin-bottom: 10px;
+        }
+        
+        .settlement-popup-wiki-title {
+            font-size: 14px;
+            font-weight: 600;
+            margin: 8px 0;
+            color: #1a5a96;
+        }
+        
+        .settlement-popup-wiki-description {
+            font-size: 12px;
+            line-height: 1.5;
+            color: #333;
+            max-height: 150px;
+            overflow-y: auto;
+            padding-right: 5px;
+            margin: 8px 0;
+        }
+        
+        .settlement-popup-wiki-link {
+            display: inline-block;
+            margin-top: 8px;
+            padding: 6px 12px;
+            background-color: #1a5a96;
+            color: white;
+            text-decoration: none;
+            border-radius: 3px;
+            font-size: 12px;
+            text-align: center;
+            transition: background-color 0.2s;
+        }
+        
+        .settlement-popup-wiki-link:hover {
+            background-color: #0d3d66;
+        }
+        
+        .settlement-popup-source {
+            font-size: 10px;
+            font-style: italic;
+            color: #666;
+            margin-top: 12px;
+            padding: 8px 15px 0 15px;
+            border-top: 1px solid #eee;
         }
         
         /* Toggle controls container - top left, horizontal */
@@ -932,6 +1028,12 @@
             </div>
         </div>
         <div class="mobile-dropdown-item">
+            <div class="toggle-item">
+                <input type="checkbox" id="mobile-published-canon-only-checkbox">
+                <label for="mobile-published-canon-only-checkbox">Published Canon Only</label>
+            </div>
+        </div>
+        <div class="mobile-dropdown-item">
             <button id="mobile-about-button">About</button>
         </div>
         <div class="mobile-dropdown-item">
@@ -983,6 +1085,10 @@
         <div class="toggle-item">
             <input type="checkbox" id="water-checkbox" checked>
             <label for="water-checkbox">Water</label>
+        </div>
+        <div class="toggle-item">
+            <input type="checkbox" id="published-canon-only-checkbox">
+            <label for="published-canon-only-checkbox">Published Canon Only</label>
         </div>
     </div>
     

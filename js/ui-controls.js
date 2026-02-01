@@ -10,6 +10,7 @@ class UIControls {
         this.poiCheckbox = null;
         this.regionCheckbox = null;
         this.waterCheckbox = null;
+        this.publishedCanonOnlyCheckbox = null;
         this.selectedFeature = null;  // Track currently selected/highlighted feature
     }
 
@@ -22,6 +23,7 @@ class UIControls {
         this.initializePOIToggle();
         this.initializeRegionToggle();
         this.initializeWaterToggle();
+        this.initializePublishedCanonOnlyToggle();
         this.initializePopup(map);
     }
 
@@ -94,6 +96,45 @@ class UIControls {
     }
 
     /**
+     * Initialize Published Canon Only toggle checkbox
+     * @private
+     */
+    initializePublishedCanonOnlyToggle() {
+        const desktopCheckbox = document.getElementById('published-canon-only-checkbox');
+        const mobileCheckbox = document.getElementById('mobile-published-canon-only-checkbox');
+        
+        const handleToggle = (e) => {
+            const enabled = e.target.checked;
+            settlementData.setPublishedCanonOnly(enabled);
+            
+            // Update both checkboxes to stay in sync
+            if (desktopCheckbox) desktopCheckbox.checked = enabled;
+            if (mobileCheckbox) mobileCheckbox.checked = enabled;
+            
+            // Reload settlement features with new filter
+            const olFeatures = settlementData.getOLFeatures();
+            const layer = mapManager.getSettlementLayer();
+            const markerLayer = mapManager.getSettlementMarkersOnlyLayer();
+            
+            if (layer) {
+                layer.getSource().clear();
+                layer.getSource().addFeatures(olFeatures);
+            }
+            if (markerLayer) {
+                markerLayer.getSource().clear();
+                markerLayer.getSource().addFeatures(olFeatures);
+            }
+        };
+        
+        if (desktopCheckbox) {
+            desktopCheckbox.addEventListener('change', handleToggle);
+        }
+        if (mobileCheckbox) {
+            mobileCheckbox.addEventListener('change', handleToggle);
+        }
+    }
+
+    /**
      * Initialize popup overlay
      * @private
      * @param {ol.Map} map - OpenLayers map instance
@@ -102,7 +143,7 @@ class UIControls {
         this.popupElement = document.createElement('div');
         this.popupElement.id = 'popup';
         this.popupElement.className = 'ol-popup';
-        this.popupElement.style.cssText = 'position: absolute; background-color: white; border: 1px solid #ccc; border-radius: 4px; box-shadow: 0 0 10px rgba(0,0,0,0.2); padding: 10px; display: none; max-width: 250px; font-size: 12px; z-index: 100;';
+        this.popupElement.style.cssText = 'position: absolute; background-color: white; border: 1px solid #ccc; border-radius: 4px; box-shadow: 0 0 10px rgba(0,0,0,0.2); display: none; z-index: 100;';
         document.body.appendChild(this.popupElement);
 
         this.popupOverlay = new ol.Overlay({
@@ -176,8 +217,13 @@ class UIControls {
         if (featureType === 'poi') {
             const poiType = feature.get('type');
             let html = `<div class="settlement-popup">
-                <p><strong>${this.escapeHtml(name)}</strong></p>
-                <p>Type: ${this.escapeHtml(poiType)}</p>
+                <div class="settlement-popup-header">
+                    <h2 class="settlement-popup-title">${this.escapeHtml(name)}</h2>
+                </div>
+                <div class="settlement-popup-field">
+                    <span class="settlement-popup-label">Type:</span>
+                    <span class="settlement-popup-value">${this.escapeHtml(poiType)}</span>
+                </div>
             </div>`;
             
             this.popupElement.innerHTML = html;
@@ -190,18 +236,56 @@ class UIControls {
         const sizeCategory = feature.get('sizeCategory');
         const population = feature.get('population');
         const province = feature.get('province');
+        const sourceTag = feature.get('sourceTag');
+        const wikiTitle = feature.get('wikiTitle');
+        const wikiUrl = feature.get('wikiUrl');
+        const wikiDescription = feature.get('wikiDescription');
+        const wikiImage = feature.get('wikiImage');
         const sizeLabel = getSizeCategoryLabel(sizeCategory);
 
-        let html = `<div class="settlement-popup">
-            <p><strong>${this.escapeHtml(name)}</strong></p>
-            <p>Type: ${sizeLabel}</p>`;
+        // Check if settlement has wiki data
+        const hasWiki = wikiTitle && wikiTitle.trim() !== '';
 
+        // Build header with title and subtitle
+        const subtitle = province ? `${sizeLabel} in ${province}` : sizeLabel;
+        let html = `<div class="settlement-popup">
+            <div class="settlement-popup-header">
+                <h2 class="settlement-popup-title">${this.escapeHtml(name)}</h2>
+                <p class="settlement-popup-subtitle">${this.escapeHtml(subtitle)}</p>
+            </div>`;
+
+        // Add population field if present
         if (population && population > 0) {
-            html += `<p>Population: ${population.toLocaleString()}</p>`;
+            html += `<div class="settlement-popup-field">
+                <span class="settlement-popup-label">Population:</span>
+                <span class="settlement-popup-value">${population.toLocaleString()}</span>
+            </div>`;
         }
 
-        if (province) {
-            html += `<p>Province: ${this.escapeHtml(province)}</p>`;
+        // Add wiki section if available
+        if (hasWiki) {
+            html += `<div class="settlement-popup-wiki">`;
+            
+            // Add wiki title
+            html += `<div class="settlement-popup-wiki-title">${this.escapeHtml(wikiTitle)}</div>`;
+            
+            // Add wiki description if available
+            if (wikiDescription && wikiDescription.trim() !== '') {
+                html += `<div class="settlement-popup-wiki-description">${this.escapeHtml(wikiDescription)}</div>`;
+            }
+            
+            // Add wiki link if available
+            if (wikiUrl && wikiUrl.trim() !== '') {
+                html += `<a href="${this.escapeHtml(wikiUrl)}" target="_blank" class="settlement-popup-wiki-link">Read on Wiki</a>`;
+            }
+            
+            html += `</div>`;
+        }
+
+        // Add source field at bottom as footnote if present
+        if (sourceTag) {
+            const fullSourceName = settlementData.getFullSourceName(sourceTag);
+            html += `<div class="settlement-popup-source">Source: ${this.escapeHtml(fullSourceName)}</div>`;
         }
 
         html += '</div>';
