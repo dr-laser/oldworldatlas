@@ -133,28 +133,28 @@
       },
       "6": {
         "label": "Major City",
-        "color": "rgba(255, 0, 0, 0.8)",
-        "strokeColor": "rgba(255, 255, 255, 1.0)",
-        "strokeWidth": 3,
+        "color": "rgba(255, 255, 255, 1)",
+        "strokeColor": "rgba(0, 0, 0, 1)",
+        "strokeWidth": 2.5,
         "zIndex": 6,
         "textFont": "bold Arial, sans-serif",
         "textFillColor": "#000",
         "textStrokeColor": "#fff",
-        "textStrokeWidth": 2,
-        "textOffsetY": -12,
+        "textStrokeWidth": 5,
+        "textOffsetY": -15,
         "enableDecluttering": true,
         "minFontSize": 15,
-        "maxFontSize": 15,
-        "minFontZoom": 1.0,
+        "maxFontSize": 24,
+        "minFontZoom": 0.030,
         "maxFontZoom": 0.0005,
-        "minZoomLevel": 1.0,
-        "maxZoomLevel": 0.00001,
+        "minZoomLevel": 0.030,
+        "maxZoomLevel": 0.0007,
         "marker": {
           "type": "circle",
-          "minRadius": 6,
-          "maxRadius": 12,
-          "minRadiusZoom": 1.0,
-          "maxRadiusZoom": 0.0005
+          "minRadius": 3,
+          "maxRadius": 8,
+          "minRadiusZoom": 0.050,
+          "maxRadiusZoom": 0.0007
         }
       }
     }
