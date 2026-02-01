@@ -24,15 +24,24 @@ class ProvinceData {
             this.provinces = data.features.map(feature => ({
                 name: feature.properties.name,
                 provinceType: feature.properties.province_type,
+                formalTitle: feature.properties.formal_title,
+                population: feature.properties.population,
+                info: feature.properties.info || {},
                 coordinates: feature.geometry.coordinates
             }));
 
             // Create OpenLayers features
             this.olFeatures = this.provinces.map(province => {
+                const info = province.info || {};
                 const feature = new ol.Feature({
                     geometry: new ol.geom.Point(province.coordinates),
                     name: province.name,
-                    provinceType: province.provinceType
+                    provinceType: province.provinceType,
+                    formalTitle: province.formalTitle,
+                    population: province.population,
+                    wikiUrl: info.wiki_url,
+                    wikiDescription: info.description,
+                    featureType: 'province'
                 });
                 return feature;
             });

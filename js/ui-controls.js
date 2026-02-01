@@ -232,6 +232,63 @@ class UIControls {
             return;
         }
         
+        // Handle province features
+        if (featureType === 'province') {
+            const provinceType = feature.get('provinceType');
+            const formalTitle = feature.get('formalTitle');
+            const population = feature.get('population');
+            const wikiUrl = feature.get('wikiUrl');
+            const wikiDescription = feature.get('wikiDescription');
+            
+            // Use formal title as the main title, fall back to name if formal title is empty
+            const displayTitle = (formalTitle && formalTitle !== null && formalTitle.trim() !== '') 
+                ? formalTitle 
+                : name;
+            
+            // Build header with title and subtitle
+            const subtitle = provinceType || 'Region';
+            let html = `<div class="settlement-popup">
+                <div class="settlement-popup-header">
+                    <h2 class="settlement-popup-title">${this.escapeHtml(displayTitle)}</h2>
+                    <p class="settlement-popup-subtitle">${this.escapeHtml(subtitle)}</p>
+                </div>`;
+            
+            // Add population if present
+            if (population && population > 0) {
+                html += `<div class="settlement-popup-field">
+                    <span class="settlement-popup-label">Population:</span>
+                    <span class="settlement-popup-value">${population.toLocaleString()}</span>
+                </div>`;
+            }
+            
+            // Add wiki section if available
+            const hasWikiDescription = wikiDescription && wikiDescription !== null && wikiDescription.trim() !== '';
+            const hasWikiUrl = wikiUrl && wikiUrl !== null && wikiUrl.trim() !== '';
+            
+            if (hasWikiDescription || hasWikiUrl) {
+                html += `<div class="settlement-popup-wiki">`;
+                
+                // Add wiki description if available
+                if (hasWikiDescription) {
+                    html += `<div class="settlement-popup-wiki-description">${this.escapeHtml(wikiDescription)}</div>`;
+                }
+                
+                // Add wiki link if available
+                if (hasWikiUrl) {
+                    html += `<a href="${this.escapeHtml(wikiUrl)}" target="_blank" class="settlement-popup-wiki-link">Read on Wiki</a>`;
+                }
+                
+                html += `</div>`;
+            }
+            
+            html += '</div>';
+            
+            this.popupElement.innerHTML = html;
+            this.popupOverlay.setPosition(coordinate);
+            this.popupElement.style.display = 'block';
+            return;
+        }
+        
         // Handle settlement features
         const sizeCategory = feature.get('sizeCategory');
         const population = feature.get('population');
