@@ -73,10 +73,10 @@ class MapManager {
                 this.createPOILayer()
             ],
             view: new ol.View({
-                center: this.isMobilePortrait() ? [0.008, 51.46] : [3.832390, 49.796453],
-                resolution: this.isMobilePortrait() ? 0.013 : 0.0159930693920000006,
-                maxResolution: 0.0370467098591999999,
-                minResolution: 0.000578854841549999999,
+                center: this.isMobilePortrait() ? [-0.2965, 50.7] : [2.7, 50.7], // Centered on Altdorf on Mobile
+                resolution: this.isMobilePortrait() ? 0.0075 : 0.018, // Resolution for desktop: 0.075015, for mobile portrait: 0.020
+                maxResolution: 0.0375075,
+                minResolution: 0.00029302734375,
                 enableRotation: false,  // Disable rotation for better mobile performance
                 constrainRotation: false
             })
@@ -101,20 +101,25 @@ class MapManager {
      * @returns {ol.layer.Tile}
      */
     createTileLayer() {
-        const TILE_VERSION = '4'; // Increment this when you update the base map tiles
+        const TILE_VERSION = '5'; // Increment this when you update the base map tiles
         
         return new ol.layer.Tile({
             title: 'Map Tiles',
             source: new ol.source.TileImage({
                 attributions: '',
                 tileGrid: new ol.tilegrid.TileGrid({
-                    extent: [-4.7926911472531506, 40.3006238607187441, 13.7306637823468485, 58.8239787903187477],
-                    origin: [-4.7926911472531506, 40.3006238607187441],
-                    resolutions: [0.0740934197183999999, 0.0370467098591999999, 0.0185233549296, 0.00926167746479999998, 0.00463083873239999999, 0.0023154193662, 0.0011577096831, 0.000578854841549999999],
+                    //For the Empire-only map tiles:
+                    //extent: [-4.7926911472531506, 40.3006238607187441, 13.7306637823468485, 58.8239787903187477],
+                    //origin: [-4.7926911472531506, 40.3006238607187441],
+                    //resolutions: [0.0740934197183999999, 0.0370467098591999999, 0.0185233549296, 0.00926167746479999998, 0.00463083873239999999, 0.0023154193662, 0.0011577096831, 0.000578854841549999999],
+                    //For the full Old World map tiles:
+                    extent: [-19.05, 31.95, 18.457, 69.4505],
+                    origin: [-19.05, 31.95],
+                    resolutions: [0.15003, 0.075015, 0.0375075, 0.01875375, 0.009376875, 0.0046884375, 0.00234421875, 0.001172109375, 0.0005860546875, 0.00029302734375],
                     tileSize: [256, 256]
                 }),
                 tileUrlFunction: function(tileCoord) {
-                    return ('https://raw.githubusercontent.com/toddkozlowski/oldworldatlas-repository/main/base-map-tiles/{z}/{x}/{y}.png?v=' + TILE_VERSION)
+                    return ('https://raw.githubusercontent.com/toddkozlowski/oldworldatlas-repository/main/old-world-tiles/{z}/{x}/{y}.png?v=' + TILE_VERSION)
                         .replace('{z}', String(tileCoord[0]))
                         .replace('{x}', String(tileCoord[1]))
                         .replace('{y}', String(-1 - tileCoord[2]));
