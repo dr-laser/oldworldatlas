@@ -50,6 +50,9 @@ async function initializeApp() {
         // Initialize UI controls
         uiControls.initialize(mapManager.getMap());
         
+        // Initialize measurement tool
+        measurementTool.initialize(mapManager.getMap());
+        
         // Initialize search functionality
         searchManager.initialize();
         

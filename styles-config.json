@@ -69,7 +69,7 @@
         "maxFontSize": 14,
         "minFontZoom": 0.020,
         "maxFontZoom": 0.0005,
-        "minZoomLevel": 0.020,
+        "minZoomLevel": 0.017,
         "maxZoomLevel": 0.00001,
         "marker": {
           "type": "circle",

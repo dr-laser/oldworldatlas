@@ -25,6 +25,7 @@ class UIControls {
         this.initializeWaterToggle();
         this.initializePublishedCanonOnlyToggle();
         this.initializePopup(map);
+        this.initializeMeasurementButton();
     }
 
     /**
@@ -90,6 +91,49 @@ class UIControls {
                 const layer = mapManager.getWaterLayer();
                 if (layer) {
                     layer.setVisible(e.target.checked);
+                }
+            });
+        }
+    }
+
+    /**
+     * Initialize measurement button
+     * @private
+     */
+    initializeMeasurementButton() {
+        const button = document.getElementById('measure-button');
+        const mobileButton = document.getElementById('mobile-measure-button');
+        const clearButton = document.getElementById('clear-measure-button');
+        const mobileClearButton = document.getElementById('mobile-clear-measure-button');
+        
+        if (button) {
+            button.addEventListener('click', () => {
+                if (typeof measurementTool !== 'undefined') {
+                    measurementTool.toggle();
+                }
+            });
+        }
+        
+        if (mobileButton) {
+            mobileButton.addEventListener('click', () => {
+                if (typeof measurementTool !== 'undefined') {
+                    measurementTool.toggle();
+                }
+            });
+        }
+        
+        if (clearButton) {
+            clearButton.addEventListener('click', () => {
+                if (typeof measurementTool !== 'undefined') {
+                    measurementTool.clearMeasurements();
+                }
+            });
+        }
+        
+        if (mobileClearButton) {
+            mobileClearButton.addEventListener('click', () => {
+                if (typeof measurementTool !== 'undefined') {
+                    measurementTool.clearMeasurements();
                 }
             });
         }
@@ -165,6 +209,11 @@ class UIControls {
      * @param {ol.MapBrowserEvent} evt
      */
     handleMapClick(evt) {
+        // Don't show popups if measurement tool is active
+        if (typeof measurementTool !== 'undefined' && measurementTool.isToolActive()) {
+            return;
+        }
+        
         let feature = null;
         mapManager.getMap().forEachFeatureAtPixel(evt.pixel, (f) => {
             feature = f;

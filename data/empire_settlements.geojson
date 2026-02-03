@@ -1321,7 +1321,7 @@
         ]
       },
       "properties": {
-        "name": "Nuln",
+        "name": "NULN",
         "province": "Wissenland",
         "population": 157952,
         "tags": [
@@ -3987,7 +3987,7 @@
       "properties": {
         "name": "Kroppenleben",
         "province": "Wissenland",
-        "population": 995,
+        "population": 1995,
         "tags": [
           "source:2eSH"
         ],
@@ -14114,7 +14114,7 @@
         ]
       },
       "properties": {
-        "name": "Talabheim",
+        "name": "TALABHEIM",
         "province": "Talabecland",
         "population": 129550,
         "tags": [
@@ -45451,7 +45451,7 @@
         ]
       },
       "properties": {
-        "name": "Altdorf",
+        "name": "ALTDORF",
         "province": "Reikland",
         "population": 253627,
         "tags": [
@@ -74549,7 +74549,7 @@
         ]
       },
       "properties": {
-        "name": "Middenheim",
+        "name": "MIDDENHEIM",
         "province": "Middenland",
         "population": 63705,
         "tags": [
@@ -82623,7 +82623,7 @@
       "properties": {
         "name": "Hergig",
         "province": "Hochland",
-        "population": 12541,
+        "population": 16541,
         "tags": [
           "source:2eSH"
         ],
@@ -82857,7 +82857,7 @@
       "properties": {
         "name": "Barwedel",
         "province": "Hochland",
-        "population": 3732,
+        "population": 1732,
         "tags": [
           "source:2eSH"
         ],
