@@ -170,6 +170,7 @@ class MapManager {
         return new ol.layer.Vector({
             title: 'Points of Interest',
             source: this.poiSource,
+            declutter: true,               // Enable label decluttering to prevent POI label overlaps
             updateWhileAnimating: false,  // Performance: don't update during animation
             updateWhileInteracting: false, // Performance: don't update while panning/zooming
             renderBuffer: 100,             // Render features slightly outside viewport

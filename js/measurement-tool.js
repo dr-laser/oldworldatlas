@@ -45,7 +45,7 @@ class MeasurementTool {
         // Label style for total measurement
         this.labelStyle = new ol.style.Style({
             text: new ol.style.Text({
-                font: '14px Calibri,sans-serif',
+                font: '18px Calibri,sans-serif',
                 fill: new ol.style.Fill({
                     color: 'rgba(255, 255, 255, 1)',
                 }),
@@ -65,7 +65,7 @@ class MeasurementTool {
                     color: 'rgba(0, 0, 0, 0.8)',
                 }),
             }),
-            zIndex: 10001,
+            zIndex: 10002, // Higher than segments to prioritize in decluttering
         });
 
         // Tip style for instructions
@@ -226,7 +226,10 @@ class MeasurementTool {
             style: (feature) => {
                 return this.styleFunction.call(this, feature, true, null, null);
             },
-            declutter: false, // Disable decluttering to ensure labels always show
+            // CRITICAL: Must use declutter: true to render in same pass as settlement labels
+            // Settlement layer has declutter enabled, which creates a special overlay layer
+            // that renders AFTER non-decluttered layers. To appear on top, we must also declutter.
+            declutter: true,
             updateWhileAnimating: true,
             updateWhileInteracting: true,
             renderOrder: null, // Render in the order features are added

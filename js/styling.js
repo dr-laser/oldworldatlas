@@ -258,9 +258,11 @@ function createPOIStyle(feature, currentResolution) {
     }
     
     // Create style with feature-specific text (not cached)
+    // POI z-index set to 50 to render above settlements but below measurements
+    // Highlighted POIs get z-index 9999 to appear above everything except measurements
     const style = new ol.style.Style({
         image: imageStyle,
-        zIndex: isHighlighted ? 9999 : 0
+        zIndex: isHighlighted ? 9999 : 50
     });
     
     // Add text if visible (feature-specific, so not cached)
