@@ -806,6 +806,386 @@
         },
         "population": 412000
       }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -5.19020762382875,
+          55.18490992732623
+        ]
+      },
+      "properties": {
+        "name": "COURONNE",
+        "province_type": "Grand-Province",
+        "formal_title": "Duchy of Couronne",
+        "part_of": "Bretonnia",
+        "inkscape_coordinates": [
+          132.11897,
+          195.52841
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -7.213659029183216,
+          52.92241507008562
+        ]
+      },
+      "properties": {
+        "name": "ARTOIS",
+        "province_type": "Grand-Province",
+        "formal_title": "Duchy of Artois",
+        "part_of": "Bretonnia",
+        "inkscape_coordinates": [
+          16.48201,
+          324.76968
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -9.51163889952317,
+          53.386470100038125
+        ]
+      },
+      "properties": {
+        "name": "LYONESSE",
+        "province_type": "Grand-Province",
+        "formal_title": "Duchy of Lyonesse",
+        "part_of": "Bretonnia",
+        "inkscape_coordinates": [
+          -114.79997,
+          298.24121
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -7.2974241040071846,
+          54.58931203581356
+        ]
+      },
+      "properties": {
+        "name": "L'ANGUILLE",
+        "province_type": "Grand-Province",
+        "formal_title": "Duchy of L'Anguille",
+        "part_of": "Bretonnia",
+        "inkscape_coordinates": [
+          11.720413,
+          229.53929
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -7.737042096938963,
+          51.017308321499904
+        ]
+      },
+      "properties": {
+        "name": "MOUSILLON",
+        "province_type": "Grand-Province",
+        "formal_title": "Duchy of Mousillon",
+        "part_of": "Bretonnia",
+        "inkscape_coordinates": [
+          -13.447555,
+          433.60449
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -5.486690641507694,
+          50.56515330207161
+        ]
+      },
+      "properties": {
+        "name": "BASTONNE",
+        "province_type": "Grand-Province",
+        "formal_title": "Duchy of Bastonne",
+        "part_of": "Bretonnia",
+        "inkscape_coordinates": [
+          115.11348,
+          459.45276
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -7.045967498715271,
+          48.933761344137345
+        ]
+      },
+      "properties": {
+        "name": "BORDELEAUX",
+        "province_type": "Grand-Province",
+        "formal_title": "Duchy of Bordeleaux",
+        "part_of": "Bretonnia",
+        "inkscape_coordinates": [
+          26.004961,
+          552.64258
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -6.771734197210829,
+          47.374047019442976
+        ]
+      },
+      "properties": {
+        "name": "AQUITAINE",
+        "province_type": "Grand-Province",
+        "formal_title": "Duchy of Aquitaine",
+        "part_of": "Bretonnia",
+        "inkscape_coordinates": [
+          41.649979,
+          641.75104
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -6.818947951531288,
+          45.7547579896749
+        ]
+      },
+      "properties": {
+        "name": "BRIONNE",
+        "province_type": "Grand-Province",
+        "formal_title": "Duchy of Brionne",
+        "part_of": "Bretonnia",
+        "inkscape_coordinates": [
+          38.929153,
+          734.26062
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -4.830214624685077,
+          44.06429406066552
+        ]
+      },
+      "properties": {
+        "name": "CARCASSONE",
+        "province_type": "Grand-Province",
+        "formal_title": "Duchy of Carcassone",
+        "part_of": "Bretonnia",
+        "inkscape_coordinates": [
+          152.52547,
+          830.8515
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -3.93778627113155,
+          46.13613945690528
+        ]
+      },
+      "properties": {
+        "name": "QUENELLES",
+        "province_type": "Grand-Province",
+        "formal_title": "Duchy of Quenelles",
+        "part_of": "Bretonnia",
+        "inkscape_coordinates": [
+          203.54182,
+          712.49365
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.5210869356691781,
+          47.43438940831106
+        ]
+      },
+      "properties": {
+        "name": "PARRAVON",
+        "province_type": "Grand-Province",
+        "formal_title": "Duchy of Parravon",
+        "part_of": "Bretonnia",
+        "inkscape_coordinates": [
+          398.76419,
+          638.34998
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -5.106122364573681,
+          52.24401823066404
+        ]
+      },
+      "properties": {
+        "name": "GISOREUX",
+        "province_type": "Grand-Province",
+        "formal_title": "Duchy of Gisoreux",
+        "part_of": "Bretonnia",
+        "inkscape_coordinates": [
+          136.88045,
+          363.54208
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -3.2481962807360114,
+          49.92249339888658
+        ]
+      },
+      "properties": {
+        "name": "MONTFORT",
+        "province_type": "Grand-Province",
+        "formal_title": "Duchy of Montfort",
+        "part_of": "Bretonnia",
+        "inkscape_coordinates": [
+          242.99434,
+          496.18448
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.453420397472143,
+          58.2912840297409
+        ]
+      },
+      "properties": {
+        "name": "PRIMORYE OBLAST\n(Western Oblast)",
+        "province_type": "Grand-Province",
+        "formal_title": "Primorye Oblast",
+        "part_of": "Kislev",
+        "inkscape_coordinates": [
+          740.25793,
+          18.140196
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.37294675503086,
+          54.77272262261919
+        ]
+      },
+      "properties": {
+        "name": "POLYANYA OBLAST\n(Southern Oblast)",
+        "province_type": "Grand-Province",
+        "formal_title": "Polyania Oblast",
+        "part_of": "Kislev",
+        "inkscape_coordinates": [
+          907.0061,
+          219.17712
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          9.686624183709462,
+          57.84634779687781
+        ]
+      },
+      "properties": {
+        "name": "UNGOLSK OBLAST\n(Eastern Oblast)",
+        "province_type": "Grand-Province",
+        "formal_title": "Ungolsk Oblast",
+        "part_of": "Kislev",
+        "inkscape_coordinates": [
+          982.10382,
+          43.590744
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.607396322402308,
+          60.72175468196761
+        ]
+      },
+      "properties": {
+        "name": "KAMENNAYA ZIMA\n(Troll Country)",
+        "province_type": "Grand-Province",
+        "formal_title": "Kamennaya Zima",
+        "part_of": "Kislev",
+        "inkscape_coordinates": [
+          691.95782,
+          -120.71878
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.935960085484972,
+          60.023059532559266
+        ]
+      },
+      "properties": {
+        "name": "SEVERYNA OBLAST\n(Northern Oblast)",
+        "province_type": "Grand-Province",
+        "formal_title": "Severyna Oblast",
+        "part_of": "Kislev",
+        "inkscape_coordinates": [
+          939.24817,
+          -80.770287
+        ]
+      }
     }
   ]
 }
