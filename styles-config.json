@@ -227,7 +227,7 @@
     "Ocean": {
       "minFontSize": 28,
       "maxFontSize": 40,
-      "minFontZoom": 100.0,
+      "minFontZoom": 0.0375,
       "maxFontZoom": 0.010,
       "minZoomLevel": 100.0,
       "maxZoomLevel": 0.010,
@@ -237,7 +237,7 @@
       "textStrokeWidth": 2.5
     },
     "Major Sea": {
-      "minFontSize": 16,
+      "minFontSize": 20,
       "maxFontSize": 30,
       "minFontZoom": 0.02,
       "maxFontZoom": 0.01,
@@ -249,7 +249,7 @@
       "textStrokeWidth": 2.5
     },
     "Large Sea": {
-      "minFontSize": 14,
+      "minFontSize": 18,
       "maxFontSize": 32,
       "minFontZoom": 0.010,
       "maxFontZoom": 0.005,
@@ -261,7 +261,7 @@
       "textStrokeWidth": 2
     },
     "Medium Sea": {
-      "minFontSize": 12,
+      "minFontSize": 14,
       "maxFontSize": 24,
       "minFontZoom": 0.01,
       "maxFontZoom": 0.005,
