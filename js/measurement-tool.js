@@ -150,7 +150,7 @@ class MeasurementTool {
     formatLength(line) {
         const length = line.getLength();
         // Using map units directly as miles (no scaling)
-        let output = Math.round(length * 10000) / 100 + ' miles';
+        let output = Math.round(length * 100 * 83.5) / 100 + ' miles';
         return output;
     }
 
