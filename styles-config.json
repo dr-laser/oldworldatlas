@@ -200,7 +200,7 @@
     },
     "Grand-Province": {
       "minFontSize": 12,
-      "maxFontSize": 72,
+      "maxFontSize": 48,
       "minFontZoom": 0.015,
       "maxFontZoom": 0.005,
       "minZoomLevel": 100.0,
@@ -211,8 +211,8 @@
       "textStrokeWidth": 0
     },
     "Province": {
-      "minFontSize": 10,
-      "maxFontSize": 48,
+      "minFontSize": 8,
+      "maxFontSize": 24,
       "minFontZoom": 0.015,
       "maxFontZoom": 0.003,
       "minZoomLevel": 100.0,
