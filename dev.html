@@ -1,0 +1,1071 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Old-World-Atlas - Developer Mode</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <meta http-equiv='imagetoolbar' content='no'/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    
+    <link rel="icon" type="image/x-icon" href="images/favicon/favicon.ico">
+    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon/favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon/favicon-32x32.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="images/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="images/favicon/android-chrome-192x192.png">
+    <link rel="icon" type="image/png" sizes="512x512" href="images/favicon/android-chrome-512x512.png">
+    
+    <style type="text/css">
+        v\:* { behavior: url(#default#VML); }
+        html, body { 
+            overflow: hidden; 
+            padding: 0; 
+            height: 100%; 
+            width: 100%; 
+            font-family: 'Lucida Grande', Geneva, Arial, Verdana, sans-serif; 
+        }
+        body { margin: 0; background: #262626; }
+        #header { display: none; }
+        #subheader { display: none; }
+        #map { height: 100%; border: none; }
+        #mouse-position { 
+            position: absolute; 
+            bottom: 10px; 
+            right: 10px; 
+            background: rgba(255, 255, 255, 0.8); 
+            padding: 5px; 
+            z-index: 10; 
+            font-size: 12px; 
+        }
+        
+        /* Title box */
+        .title-container { 
+            position: absolute; 
+            top: 10px; 
+            right: 10px; 
+            z-index: 10;
+            background: rgba(255, 255, 255, 0.8); 
+            padding: 10px 15px;
+            border-radius: 4px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .title-container h1 { 
+            margin: 0; 
+            padding: 0; 
+            border: 0; 
+            font-size: 20pt; 
+            text-align: right;
+            line-height: 1.2;
+        }
+        
+        @media (min-width: 768px) {
+            .title-container h1 {
+                font-size: 24pt;
+                max-width: 400px;
+            }
+        }
+        
+        @media (min-width: 1024px) {
+            .title-container h1 {
+                font-size: 28pt;
+                max-width: 500px;
+            }
+        }
+        
+        .title-subheader { 
+            margin: 5px 0 0 0; 
+            padding: 0; 
+            font-size: 10px; 
+            color: #666; 
+            font-weight: normal;
+            text-align: right;
+        }
+
+        .dev-badge {
+            display: inline-block;
+            background: #ff6b6b;
+            color: white;
+            padding: 4px 16px;
+            border-radius: 3px;
+            font-size: 20px;
+            font-weight: bold;
+            margin-left: 8px;
+        }
+
+        /* About button */
+        .about-button {
+            margin-top: 10px;
+            padding: 6px 12px;
+            background: rgba(52, 73, 94, 0.9);
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 12px;
+            font-weight: 500;
+            transition: background 0.2s ease;
+            width: 100%;
+            text-align: center;
+        }
+
+        .about-button:hover {
+            background: rgba(52, 73, 94, 1);
+        }
+
+        /* Dev mode username modal overlay */
+        #dev-username-modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0);
+            z-index: 30000;
+            transition: background 0.3s ease;
+        }
+
+        #dev-username-modal-overlay.active {
+            background: rgba(0, 0, 0, 0.7);
+        }
+
+        /* Dev mode username modal dialog */
+        #dev-username-modal {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0.9);
+            width: 500px;
+            max-width: 90%;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+            z-index: 30001;
+            overflow: hidden;
+            opacity: 0;
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+
+        #dev-username-modal.active {
+            opacity: 1;
+            transform: translate(-50%, -50%) scale(1);
+        }
+
+        .dev-modal-header {
+            position: relative;
+            padding: 20px;
+            background: rgba(255, 107, 107, 0.1);
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .dev-modal-header h1 {
+            margin: 0;
+            font-size: 24px;
+            color: #333;
+            font-weight: 600;
+        }
+
+        .dev-modal-header .subtitle {
+            margin-top: 5px;
+            font-size: 14px;
+            color: #666;
+        }
+
+        .dev-modal-body {
+            padding: 30px;
+            overflow-y: auto;
+            max-height: 70vh;
+        }
+
+        .dev-modal-body p {
+            margin: 0 0 15px 0;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .dev-modal-body strong {
+            font-weight: 600;
+        }
+
+        .username-input-group {
+            margin: 20px 0;
+        }
+
+        .username-input-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #333;
+        }
+
+        .username-input-group input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 16px;
+            box-sizing: border-box;
+            transition: border-color 0.2s;
+        }
+
+        .username-input-group input:focus {
+            outline: none;
+            border-color: #ff6b6b;
+        }
+
+        .dev-modal-footer {
+            padding: 20px 30px;
+            background: #f5f5f5;
+            border-top: 1px solid #e0e0e0;
+            display: flex;
+            gap: 10px;
+            justify-content: flex-end;
+        }
+
+        .dev-modal-footer button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .dev-modal-footer .btn-continue {
+            background: #ff6b6b;
+            color: white;
+        }
+
+        .dev-modal-footer .btn-continue:hover:not(:disabled) {
+            background: #ff5252;
+        }
+
+        .dev-modal-footer .btn-continue:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+        }
+
+        .dev-modal-footer-text {
+            padding: 0 30px 20px 30px;
+            font-size: 11px;
+            color: #999;
+            line-height: 1.5;
+        }
+
+        .dev-modal-footer-text strong {
+            color: #666;
+        }
+
+        .dev-rclick-popup {
+            position: fixed;
+            background: white;
+            border: 2px solid #333;
+            border-radius: 6px;
+            padding: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+            z-index: 25000;
+            font-size: 12px;
+            pointer-events: auto;
+            display: none;
+            min-width: 250px;
+        }
+
+        .dev-rclick-popup::before {
+            content: '';
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background: white;
+            border: 2px solid #333;
+            border-right: none;
+            border-bottom: none;
+            transform: rotate(45deg);
+            left: calc(var(--arrow-left, 15px));
+            top: calc(var(--arrow-top, -7px));
+        }
+
+        .dev-rclick-popup.visible {
+            display: block;
+        }
+
+        .dev-popup-field {
+            margin-bottom: 10px;
+        }
+
+        .dev-popup-field label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 4px;
+            color: #333;
+        }
+
+        .dev-popup-field input[type="text"],
+        .dev-popup-field textarea {
+            width: 100%;
+            padding: 6px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            font-family: inherit;
+            font-size: 11px;
+            box-sizing: border-box;
+            resize: none;
+        }
+
+        .dev-popup-field input[type="text"] {
+            height: 24px;
+        }
+
+        .dev-popup-field textarea {
+            height: 50px;
+        }
+
+        .dev-popup-field input[type="text"]:focus,
+        .dev-popup-field textarea:focus {
+            outline: none;
+            border-color: #333;
+        }
+
+        .dev-popup-coordinates {
+            margin: 8px 0;
+            padding: 6px;
+            background: #f0f0f0;
+            border-radius: 3px;
+            font-size: 10px;
+            color: #666;
+            font-family: monospace;
+        }
+
+        .dev-popup-buttons {
+            display: flex;
+            gap: 8px;
+            margin-top: 10px;
+        }
+
+        .dev-popup-buttons button {
+            flex: 1;
+            padding: 6px;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+            font-size: 11px;
+            font-weight: 600;
+            transition: all 0.2s;
+        }
+
+        .dev-popup-buttons .btn-save {
+            background: #ff69b4;
+            color: white;
+        }
+
+        .dev-popup-buttons .btn-save:hover {
+            background: #ff1493;
+        }
+
+        .dev-popup-buttons .btn-send {
+            background: #ffd700;
+            color: #333;
+        }
+
+        .dev-popup-buttons .btn-send:hover {
+            background: #ffed4e;
+        }
+
+        /* Saved entries button */
+        .dev-send-saved-button {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            padding: 12px 16px;
+            background: #ff6b6b;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 600;
+            z-index: 15000;
+            transition: all 0.2s;
+            opacity: 1;
+            pointer-events: auto;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+        }
+
+        .dev-send-saved-button.active {
+            opacity: 1;
+            pointer-events: auto;
+            background: #ff6b6b;
+        }
+
+        .dev-send-saved-button:not(.active) {
+            opacity: 0.4;
+            pointer-events: none;
+            background: #ccc;
+        }
+
+        .dev-send-saved-button:hover:not(:disabled) {
+            background: #ff5252;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+        }
+
+        /* Settlement popup styles - matching root map */
+        .settlement-popup { 
+            padding: 0;
+            margin: 0;
+            font-size: 13px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            min-width: 280px;
+            max-width: 380px;
+        }
+        
+        .settlement-popup-header {
+            margin-bottom: 12px;
+            padding: 15px 15px 0 15px;
+        }
+        
+        .settlement-popup-title {
+            font-size: 20px;
+            font-weight: 600;
+            margin: 0 0 4px 0;
+            color: #1a1a1a;
+        }
+        
+        .settlement-popup-subtitle {
+            font-size: 12px;
+            font-style: italic;
+            color: #555;
+            margin: 0;
+        }
+        
+        .settlement-popup-field {
+            display: flex;
+            margin: 8px 0;
+            padding: 0 15px;
+            line-height: 1.4;
+        }
+        
+        .settlement-popup-label {
+            font-weight: 600;
+            margin-right: 8px;
+            min-width: 90px;
+            color: #333;
+        }
+        
+        .settlement-popup-value {
+            color: #333;
+            flex: 1;
+            word-break: break-word;
+        }
+        
+        .settlement-popup-source {
+            font-size: 10px;
+            font-style: italic;
+            color: #666;
+            margin-top: 12px;
+            padding: 8px 15px 0 15px;
+            border-top: 1px solid #eee;
+        }
+
+        /* Layer toggles - same as index */
+        .layer-toggles {
+            position: absolute;
+            top: 10px;
+            left: 60px;
+            z-index: 10;
+            display: flex;
+            gap: 15px;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 8px 12px;
+            border-radius: 4px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            transition: all 0.2s ease;
+        }
+        
+        .layer-toggles:hover {
+            background: rgba(255, 255, 255, 1);
+            box-shadow: 0 3px 6px rgba(0,0,0,0.15);
+        }
+        
+        .toggle-item {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 13px;
+            cursor: pointer;
+            user-select: none;
+        }
+        
+        .toggle-item input[type="checkbox"] {
+            cursor: pointer;
+            width: 16px;
+            height: 16px;
+            margin: 0;
+        }
+        
+        .toggle-item label {
+            cursor: pointer;
+            margin: 0;
+        }
+
+        /* Search bar container */
+        .search-container {
+            position: absolute;
+            top: 60px;
+            left: 10px;
+            z-index: 10000;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .search-input-wrapper {
+            position: relative;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 4px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            transition: all 0.2s ease;
+        }
+        
+        .search-input-wrapper:hover,
+        .search-input-wrapper:focus-within {
+            background: rgba(255, 255, 255, 1);
+            box-shadow: 0 3px 6px rgba(0,0,0,0.15);
+        }
+        
+        #search-input {
+            padding: 10px 16px;
+            border: none;
+            border-radius: 4px;
+            font-size: 17px;
+            width: 365px;
+            outline: none;
+            background: transparent;
+        }
+        
+        #clear-selection {
+            display: none;
+            position: absolute;
+            right: 8px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: #f44336;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            cursor: pointer;
+            font-size: 14px;
+            line-height: 18px;
+            padding: 0;
+            transition: background 0.2s;
+        }
+        
+        #clear-selection:hover {
+            background: #d32f2f;
+        }
+        
+        .autocomplete-dropdown {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            max-height: 300px;
+            overflow-y: auto;
+            background: white;
+            border: 1px solid #ddd;
+            border-top: none;
+            border-radius: 0 0 4px 4px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            display: none;
+            z-index: 10001;
+        }
+        
+        .autocomplete-item {
+            padding: 8px 12px;
+            cursor: pointer;
+            border-bottom: 1px solid #f0f0f0;
+            transition: background 0.15s;
+        }
+        
+        .autocomplete-item:hover {
+            background: #f5f5f5;
+        }
+        
+        .autocomplete-item:last-child {
+            border-bottom: none;
+        }
+        
+        .autocomplete-name {
+            font-weight: 500;
+            color: #333;
+        }
+        
+        .autocomplete-details {
+            font-size: 11px;
+            color: #666;
+            margin-top: 2px;
+        }
+
+        /* Measurement buttons */
+        .measurement-controls {
+            position: absolute;
+            top: 60px;
+            left: 420px;
+            z-index: 10000;
+            display: flex;
+            gap: 5px;
+        }
+        
+        .measure-button,
+        .clear-measure-button {
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.9);
+            border: none;
+            border-radius: 4px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            transition: all 0.2s ease;
+        }
+        
+        .measure-button:hover,
+        .clear-measure-button:hover {
+            background: rgba(255, 255, 255, 1);
+            box-shadow: 0 3px 6px rgba(0,0,0,0.15);
+        }
+        
+        .measure-button.active {
+            background: rgba(24, 19, 150, 0.9);
+            color: white;
+        }
+        
+        .measure-button.active:hover {
+            background: rgba(24, 19, 150, 1);
+        }
+        
+        .clear-measure-button {
+            display: none;
+        }
+        
+        .clear-measure-button.visible {
+            display: flex;
+        }
+
+        /* Modal overlay */
+        #modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0);
+            z-index: 20000;
+            transition: background 0.3s ease;
+        }
+
+        #modal-overlay.active {
+            background: rgba(0, 0, 0, 0.7);
+        }
+
+        /* Modal dialog */
+        #about-modal {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0.9);
+            width: 60%;
+            max-height: 80%;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+            z-index: 20001;
+            overflow: hidden;
+            opacity: 0;
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+
+        #about-modal.active {
+            opacity: 1;
+            transform: translate(-50%, -50%) scale(1);
+        }
+
+        /* Modal header */
+        .modal-header {
+            position: relative;
+            padding: 20px;
+            background: rgba(52, 73, 94, 0.05);
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        #about-modal-close {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: none;
+            border: none;
+            font-size: 28px;
+            line-height: 1;
+            color: #666;
+            cursor: pointer;
+            padding: 0;
+            width: 30px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: color 0.2s ease;
+        }
+
+        #about-modal-close:hover {
+            color: #333;
+        }
+
+        /* Modal content */
+        .modal-body {
+            padding: 30px;
+            overflow-y: auto;
+            max-height: calc(80vh - 80px);
+        }
+
+        .about-content {
+            line-height: 1.6;
+            color: #333;
+        }
+
+        .about-content h1 {
+            margin: 0 0 20px 0;
+            font-size: 28px;
+            color: #34495e;
+            border: none;
+        }
+
+        .about-content h2 {
+            margin: 25px 0 15px 0;
+            font-size: 20px;
+            color: #34495e;
+            border-bottom: 2px solid #e0e0e0;
+            padding-bottom: 8px;
+        }
+
+        .about-content p {
+            margin: 0 0 15px 0;
+        }
+
+        .about-content ul {
+            margin: 0 0 15px 0;
+            padding-left: 25px;
+        }
+
+        .about-content li {
+            margin: 8px 0;
+        }
+
+        .about-content em {
+            color: #666;
+        }
+
+        /* Feedback modal overlay */
+        #feedback-modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0);
+            z-index: 20000;
+            transition: background 0.3s ease;
+        }
+
+        #feedback-modal-overlay.active {
+            background: rgba(0, 0, 0, 0.7);
+        }
+
+        /* Feedback modal dialog */
+        #feedback-modal {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0.9);
+            width: 60%;
+            max-height: 80%;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+            z-index: 20001;
+            overflow: hidden;
+            opacity: 0;
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+
+        #feedback-modal.active {
+            opacity: 1;
+            transform: translate(-50%, -50%) scale(1);
+        }
+
+        #feedback-modal-close {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: none;
+            border: none;
+            font-size: 28px;
+            line-height: 1;
+            color: #666;
+            cursor: pointer;
+            padding: 0;
+            width: 30px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: color 0.2s ease;
+        }
+
+        #feedback-modal-close:hover {
+            color: #333;
+        }
+
+        .feedback-content {
+            line-height: 1.6;
+            color: #333;
+        }
+
+        .feedback-content h1 {
+            margin: 0 0 20px 0;
+            font-size: 28px;
+            color: #34495e;
+            border: none;
+        }
+
+        .feedback-content h2 {
+            margin: 25px 0 15px 0;
+            font-size: 20px;
+            color: #34495e;
+            border-bottom: 2px solid #e0e0e0;
+            padding-bottom: 8px;
+        }
+
+        .feedback-content p {
+            margin: 0 0 15px 0;
+        }
+
+        .feedback-content ul {
+            margin: 0 0 15px 0;
+            padding-left: 25px;
+        }
+
+        .feedback-content li {
+            margin: 8px 0;
+        }
+
+        .feedback-content em {
+            color: #666;
+        }
+
+        /* Mobile responsive */
+        @media (max-width: 768px) {
+            #about-modal {
+                width: 90%;
+            }
+
+            .modal-body {
+                padding: 20px;
+            }
+
+            .about-content h1 {
+                font-size: 24px;
+            }
+
+            .about-content h2 {
+                font-size: 18px;
+            }
+
+            #dev-username-modal {
+                width: 90%;
+            }
+
+            .dev-modal-body {
+                padding: 20px;
+            }
+
+            .search-input-wrapper {
+                width: calc(100% - 10px);
+            }
+
+            #search-input {
+                width: 100%;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@main/dist/en/v7.0.0/legacy/ol.css" type="text/css">
+    <script src="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@main/dist/en/v7.0.0/legacy/ol.js"></script>
+    <script src="https://unpkg.com/ol-layerswitcher@4.1.1"></script>
+    <link rel="stylesheet" href="https://unpkg.com/ol-layerswitcher@4.1.1/src/ol-layerswitcher.css" />
+</head>
+<body>
+    <div id="header"><h1>Old-World-Atlas</h1></div>
+    <div id="map" class="map"></div>
+    
+    <!-- Measurement controls -->
+    <div class="measurement-controls">
+        <button id="measure-button" class="measure-button" title="Measure distances">
+            📏
+        </button>
+        <button id="clear-measure-button" class="clear-measure-button" title="Clear all measurements">
+            🗑️
+        </button>
+    </div>
+    
+    <!-- Search bar -->
+    <div class="search-container">
+        <div class="search-input-wrapper">
+            <input type="text" id="search-input" placeholder="Search settlements and POIs..." autocomplete="off">
+            <button id="clear-selection" title="Clear selection">×</button>
+            <div class="autocomplete-dropdown" id="autocomplete-dropdown"></div>
+        </div>
+    </div>
+    
+    <!-- Layer toggle controls -->
+    <div class="layer-toggles">
+        <div class="toggle-item">
+            <input type="checkbox" id="settlement-checkbox" checked>
+            <label for="settlement-checkbox">Settlements</label>
+        </div>
+        <div class="toggle-item">
+            <input type="checkbox" id="poi-checkbox">
+            <label for="poi-checkbox">Points of Interest</label>
+        </div>
+        <div class="toggle-item">
+            <input type="checkbox" id="region-checkbox" checked>
+            <label for="region-checkbox">Regions</label>
+        </div>
+        <div class="toggle-item">
+            <input type="checkbox" id="water-checkbox" checked>
+            <label for="water-checkbox">Water</label>
+        </div>
+    </div>
+    
+    <!-- Title box -->
+    <div class="title-container">
+        <h1>Atlas of the Old World <span class="dev-badge">DEV</span></h1>
+        <p class="title-subheader">An unofficial, fan-made map of the Warhammer world. Beta version, 07.02.2026 @toddkozlowski</p>
+        <p class="title-subheader" style="margin-top: 8px; font-size: 12px;">Developer Mode - Community Contributions</p>
+        <button id="about-button" class="about-button">About</button>
+    </div>
+    
+    <div id="mouse-position"></div>
+
+    <!-- Dev Mode Username Modal -->
+    <div id="dev-username-modal-overlay"></div>
+    <div id="dev-username-modal">
+        <div class="dev-modal-header">
+            <h1>Developer Mode</h1>
+            <p class="subtitle">Community Contributions to the Atlas</p>
+        </div>
+        <div class="dev-modal-body">
+            <p>Welcome to the developer mode! This is a special version of the Old World Atlas that allows members of the community to contribute by making suggestions and additions directly on the map.</p>
+            
+            <p><strong>How it works:</strong></p>
+            <ul style="margin: 0 0 15px 0; padding-left: 20px;">
+                <li>Right-click on the map to add a new location or point of interest</li>
+                <li>You can save multiple entries locally before submitting them</li>
+                <li>Your username will be associated with your suggestions</li>
+            </ul>
+
+            <p>Please enter a username to get started:</p>
+            
+            <div class="username-input-group">
+                <label for="dev-username-input">Editor Username:</label>
+                <input type="text" id="dev-username-input" placeholder="Enter your username..." autocomplete="off">
+            </div>
+        </div>
+        <div class="dev-modal-footer">
+            <button class="btn-continue" id="dev-continue-button" disabled>Continue</button>
+        </div>
+        <div class="dev-modal-footer-text">
+            <strong>Important:</strong> Your contributions are stored locally on your device. The data will persist across page refreshes, but will be lost if you clear your browser cache. No data is private - anyone with your username can view or edit your contributions. <strong>Please save multiple locations before sending</strong> to reduce spam. Thank you for helping improve the atlas!
+        </div>
+    </div>
+
+    <!-- Right-click popup for adding entries -->
+    <div class="dev-rclick-popup" id="dev-rclick-popup">
+        <div class="dev-popup-field">
+            <label for="dev-popup-name">Name</label>
+            <input type="text" id="dev-popup-name" placeholder="Settlement or POI name">
+        </div>
+        <div class="dev-popup-field">
+            <label for="dev-popup-tags">Tags</label>
+            <textarea id="dev-popup-tags" placeholder="e.g. province:Middenland, source:SigmarsHeirs"></textarea>
+        </div>
+        <div class="dev-popup-coordinates" id="dev-popup-coordinates"></div>
+        <div class="dev-popup-buttons">
+            <button class="btn-save" id="dev-popup-save">Save</button>
+            <button class="btn-send" id="dev-popup-send">Send Now</button>
+        </div>
+    </div>
+
+    <!-- Send Saved Entries Button -->
+    <button class="dev-send-saved-button" id="dev-send-saved-button">Send Saved Entries</button>
+
+    <!-- Modal overlay -->
+    <div id="modal-overlay"></div>
+
+    <!-- About modal -->
+    <div id="about-modal">
+        <div class="modal-header">
+            <button id="about-modal-close" title="Close">&times;</button>
+        </div>
+        <div class="modal-body">
+            <div id="about-modal-content">
+                <div class="about-content">
+                    <h1>Loading</h1>
+                    <p>Please wait while the content loads.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Feedback modal overlay -->
+    <div id="feedback-modal-overlay"></div>
+
+    <!-- Feedback modal -->
+    <div id="feedback-modal">
+        <div class="modal-header">
+            <button id="feedback-modal-close" title="Close">&times;</button>
+        </div>
+        <div class="modal-body">
+            <div id="feedback-modal-content">
+                <div class="feedback-content">
+                    <h1>Loading</h1>
+                    <p>Please wait while the content loads.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Load scripts in order -->
+    <script src="js/utils.js?v=7"></script>
+    <script src="js/styling.js?v=7"></script>
+    <script src="js/search.js?v=7"></script>
+    <script src="js/settlement-data.js?v=7"></script>
+    <script src="js/poi-data.js?v=7"></script>
+    <script src="js/province-data.js?v=7"></script>
+    <script src="js/water-data.js?v=7"></script>
+    <script src="js/map-manager.js?v=7"></script>
+    <script src="js/measurement-tool.js?v=7"></script>
+    <script src="js/ui-controls.js?v=7"></script>
+    <script src="js/about-modal.js?v=7"></script>
+    <script src="js/feedback-modal.js?v=7"></script>
+    <script src="js/dev-mode.js?v=7"></script>
+    <script src="js/app.js?v=7"></script>
+</body>
+</html>
