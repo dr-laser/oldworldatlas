@@ -458,6 +458,24 @@ Tags: ${entry.tags || '(none)'}`;
     }
 
     /**
+     * Handle sending a single saved entry
+     */
+    handleSendSingleEntry(entry) {
+        if (!entry || entry.state !== 'saved') {
+            return;
+        }
+
+        this.submitEntry(entry, () => {
+            // Update the entry state to sent
+            entry.state = 'sent';
+            this.saveTolocalStorage();
+            this.renderEntries();
+            this.updateSendSavedButton();
+            alert(`Successfully sent contribution: ${entry.name}`);
+        });
+    }
+
+    /**
      * Handle Send Saved Entries button
      */
     handleSendSavedEntries() {
@@ -574,7 +592,7 @@ Tags: ${entry.tags || '(none)'}`;
      */
     deleteEntry(entry) {
         this.savedEntries = this.savedEntries.filter(e => e.id !== entry.id);
-        this.saveToLocalStorage();
+        this.saveTolocalStorage();
         this.renderEntries();
         this.updateSendSavedButton();
     }
@@ -617,6 +635,7 @@ Tags: ${entry.tags || '(none)'}`;
         const nameField = document.getElementById('dev-popup-name');
         const tagsField = document.getElementById('dev-popup-tags');
         const coordField = document.getElementById('dev-popup-coordinates');
+        const statusDiv = document.getElementById('dev-popup-status');
         const buttons = popup.querySelector('.dev-popup-buttons');
 
         nameField.value = entry.name;
@@ -625,12 +644,23 @@ Tags: ${entry.tags || '(none)'}`;
         tagsField.disabled = true;
         coordField.textContent = `X=${entry.coords[0].toFixed(3)}, Y=${entry.coords[1].toFixed(3)}`;
 
-        // Replace buttons with status badge and delete button if saved
+        // Show status message at top and update buttons
         if (entry.state === 'saved') {
+            statusDiv.textContent = '⏳ Saved!';
+            statusDiv.style.display = 'block';
+            
             buttons.innerHTML = `
-                <div style="width: 100%; padding: 8px; background: #ffb3d9; border-radius: 3px; text-align: center; font-weight: 600; color: #333; font-size: 12px;">⏳ Saved</div>
-                <button class="btn-delete" id="dev-popup-delete" style="width: 100%; margin-top: 8px; padding: 8px; background: #ff6b6b; color: white; border: none; border-radius: 3px; cursor: pointer; font-weight: 600; font-size: 12px;">Delete</button>
+                <button class="btn-send" id="dev-popup-send-now" style="background: #4CAF50; color: white;">Send</button>
+                <button class="btn-delete" id="dev-popup-delete" style="background: #ff6b6b; color: white;">Delete</button>
             `;
+            
+            const sendBtn = buttons.querySelector('#dev-popup-send-now');
+            sendBtn.addEventListener('click', () => {
+                this.handleSendSingleEntry(entry);
+                popup.classList.remove('visible');
+                closePopup();
+            });
+            
             const deleteBtn = buttons.querySelector('#dev-popup-delete');
             deleteBtn.addEventListener('click', () => {
                 this.deleteEntry(entry);
@@ -638,7 +668,11 @@ Tags: ${entry.tags || '(none)'}`;
                 closePopup();
             });
         } else {
-            buttons.innerHTML = `<div style="width: 100%; padding: 8px; background: #ffffcc; border-radius: 3px; text-align: center; font-weight: 600; color: #333; font-size: 12px;">✓ Sent</div>`;
+            statusDiv.textContent = '✓ Sent';
+            statusDiv.style.display = 'block';
+            statusDiv.style.background = '#ffffcc';
+            statusDiv.style.borderBottom = '2px solid #ffd700';
+            buttons.innerHTML = '';
         }
 
         // Position in center of screen
@@ -651,6 +685,9 @@ Tags: ${entry.tags || '(none)'}`;
         const closePopup = () => {
             nameField.disabled = false;
             tagsField.disabled = false;
+            statusDiv.style.display = 'none';
+            statusDiv.style.background = '#ffb3d9';
+            statusDiv.style.borderBottom = '2px solid #ff8ac9';
             buttons.innerHTML = `
                 <button class="btn-save" id="dev-popup-save">Save</button>
                 <button class="btn-send" id="dev-popup-send">Send Now</button>
