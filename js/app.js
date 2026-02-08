@@ -53,6 +53,10 @@ async function initializeApp() {
         // Initialize measurement tool
         measurementTool.initialize(mapManager.getMap());
         
+        // Initialize scale control
+        const scaleControl = new ScaleControl();
+        scaleControl.initialize(mapManager.getMap());
+        
         // Initialize search functionality
         searchManager.initialize();
         

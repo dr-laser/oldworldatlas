@@ -39,7 +39,7 @@ class MapManager {
             }
             const lon = coordinate[0].toFixed(3);
             const lat = coordinate[1].toFixed(3);
-            const zoom = this.map.getView().getResolution().toFixed(6);
+            const zoom = (this.map.getView().getResolution() * 100).toFixed(3);
             return `X=${lon}, Y=${lat}, Z=${zoom}`;
         };
 

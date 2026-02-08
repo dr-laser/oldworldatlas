@@ -142,16 +142,24 @@ class MeasurementTool {
     }
 
     /**
-     * Format length in miles
+     * Format length in miles or kilometers based on user preference
      * @private
      * @param {ol.geom.LineString} line - Line geometry
      * @returns {string} Formatted length
      */
     formatLength(line) {
         const length = line.getLength();
-        // Using map units directly as miles (no scaling)
-        let output = Math.round(length * 100 * 83.5) / 100 + ' miles';
-        return output;
+        const miles = Math.round(length * 100 * 83.5) / 100;
+        
+        // Get current units preference
+        const units = window.getCurrentUnits ? window.getCurrentUnits() : 'miles';
+        
+        if (units === 'kilometers') {
+            const km = miles * 1.60934;
+            return Math.round(km * 100) / 100 + ' km';
+        } else {
+            return miles + ' miles';
+        }
     }
 
     /**
@@ -258,6 +266,12 @@ class MeasurementTool {
         });
         
         // Don't add modify interaction yet - only when measurement tool is active
+        
+        // Listen for units changes and refresh measurements
+        window.addEventListener('unitsChanged', () => {
+            // Force redraw of all measurement features
+            this.measurementSource.changed();
+        });
     }
 
     /**
