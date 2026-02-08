@@ -103,6 +103,17 @@ class MapManager {
     createTileLayer() {
         const TILE_VERSION = '7'; // Increment this when you update the base map tiles
         
+        // Scale adjustment factor for fine-tuning map/vector alignment
+        // Values > 1.0 make map smaller (increase resolution), < 1.0 make map larger
+        // Adjust this value to align map features with vector labels
+        const SCALE_ADJUSTMENT = 0.9997; // Current adjustment: +0.03%
+        
+        // Base resolutions (before scaling adjustment)
+        const baseResolutions = [0.15003, 0.075015, 0.0375075, 0.01875375, 0.009376875, 0.0046884375, 0.00234421875, 0.001172109375, 0.0005860546875, 0.00029302734375];
+        
+        // Apply scale adjustment to all resolutions
+        const adjustedResolutions = baseResolutions.map(r => r * SCALE_ADJUSTMENT);
+        
         return new ol.layer.Tile({
             title: 'Map Tiles',
             source: new ol.source.TileImage({
@@ -115,7 +126,7 @@ class MapManager {
                     //For the full Old World map tiles:
                     extent: [-19.045, 31.949, 18.457, 69.451],
                     origin: [-19.045, 31.949],
-                    resolutions: [0.15003, 0.075015, 0.0375075, 0.01875375, 0.009376875, 0.0046884375, 0.00234421875, 0.001172109375, 0.0005860546875, 0.00029302734375],
+                    resolutions: adjustedResolutions,
                     tileSize: [256, 256]
                 }),
                 tileUrlFunction: function(tileCoord) {

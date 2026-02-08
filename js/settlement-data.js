@@ -17,8 +17,14 @@ const SOURCE_TAG_MAP = {
     'G&FT': 'Gotrek & Felix (Black Library)',
     'TOW': 'Warhammer: The Old World',
     '1eMSDtR': 'WFRP1e Marienburg: Sold Down the River',
+    '4eLoSaS': 'WFRP4e Lords of Stone and Steel',
+    '4eTHRC': 'WFRP4e The Horned Rat Companion',
+    '4eMCotWW': 'WFRP4e Middenheim: City of the White Wolf',
+    '1eDSaS': 'WFRP1e Dwarfs: Stone and Steel',
+    'TWW3': 'Total War: Warhammer 3',
+    '2eKAAotDC': 'WFRP2e Karaz Azgal: Adventures of the Dragon Crag',
     'AndyLaw': 'Andy Law (LawHammer)',
-    'MA': 'MadAlfred'
+    'MA': 'MadAlfred',
 };
 
 class SettlementDataManager {
