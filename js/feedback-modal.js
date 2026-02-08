@@ -47,7 +47,7 @@ class FeedbackModal {
      */
     async loadContent() {
         try {
-            const response = await fetch('feedback-content.html');
+            const response = await fetch('feedback-content.html?v=7');
             if (!response.ok) {
                 throw new Error('Failed to load feedback content');
             }

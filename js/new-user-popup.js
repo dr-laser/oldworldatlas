@@ -20,7 +20,7 @@
         
         if (!hasVisited) {
             // Load content
-            fetch('page_content/new-user-popup.html')
+            fetch('page_content/new-user-popup.html?v=7')
                 .then(response => response.text())
                 .then(html => {
                     contentContainer.innerHTML = html;

@@ -45,7 +45,7 @@ class ChangelogDropdown {
      */
     async loadContent() {
         try {
-            const response = await fetch('changelog-content.html');
+            const response = await fetch('changelog-content.html?v=7');
             if (!response.ok) {
                 throw new Error('Failed to load changelog content');
             }
