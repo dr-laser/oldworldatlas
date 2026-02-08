@@ -530,3 +530,166 @@ function createWaterStyle(feature, currentResolution) {
         })
     });
 }
+
+/**
+ * Create an OpenLayers Style object for a dwarf settlement
+ * @param {OL.Feature} feature - OpenLayers feature
+ * @param {number} currentResolution - Current map resolution
+ * @returns {OL.style.Style}
+ */
+function createDwarfSettlementStyle(feature, currentResolution) {
+    if (!STYLES_CONFIG) {
+        console.warn('Styles configuration not loaded yet');
+        return null;
+    }
+    
+    const dwarfType = feature.get('dwarfType');
+    const config = STYLES_CONFIG.dwarfSettlements[dwarfType];
+    
+    if (!config) {
+        return null;
+    }
+    
+    // Early exit for performance - don't even check if way out of range
+    if (currentResolution > config.minZoomLevel * 2) {
+        return null;
+    }
+    
+    // Check visibility
+    const showLabel = shouldShowLabel(config, currentResolution);
+    const showDotVisible = shouldShowDot(config, currentResolution);
+    
+    if (!showLabel && !showDotVisible) {
+        return null;
+    }
+    
+    // Get interpolated values
+    const fontSize = getInterpolatedFontSize(config, currentResolution);
+    const radius = getInterpolatedRadius(config, currentResolution);
+    
+    // Check if this feature is highlighted (from search)
+    const isHighlighted = feature.get('highlighted') === true;
+    
+    // Cache the circle image (non-feature-specific) - unless highlighted
+    let imageStyle = null;
+    if (showDotVisible) {
+        if (isHighlighted) {
+            // Don't cache highlighted styles - create fresh red circle
+            imageStyle = new ol.style.Circle({
+                radius: radius * 1.3,  // Slightly larger
+                fill: new ol.style.Fill({ color: '#f44336' }),  // Red
+                stroke: new ol.style.Stroke({ 
+                    color: '#d32f2f',
+                    width: config.strokeWidth * 1.5 
+                })
+            });
+        } else {
+            const imageCacheKey = `dwarf_img_${dwarfType}_${currentResolution.toFixed(4)}`;
+            imageStyle = getCachedStyle(STYLE_CACHE.settlements, imageCacheKey, () => {
+                return new ol.style.Circle({
+                    radius: radius,
+                    fill: new ol.style.Fill({ color: config.color }),
+                    stroke: new ol.style.Stroke({ 
+                        color: config.strokeColor, 
+                        width: config.strokeWidth 
+                    })
+                });
+            });
+        }
+    }
+    
+    // Create style with feature-specific text (not cached)
+    // Set zIndex based on settlement type for decluttering priority
+    // Highlighted features get maximum zIndex
+    const style = new ol.style.Style({
+        image: imageStyle,
+        zIndex: isHighlighted ? 9999 : (config.zIndex || 2)
+    });
+    
+    // Add text if visible (feature-specific, so not cached)
+    if (showLabel) {
+        const fontConfig = isHighlighted ? 'bold ' + config.textFont : config.textFont;
+        style.setText(new ol.style.Text({
+            text: feature.get('name'),
+            offsetY: config.textOffsetY,
+            font: constructFontString(fontConfig, fontSize),
+            fill: new ol.style.Fill({ color: isHighlighted ? '#d32f2f' : config.textFillColor }),
+            stroke: new ol.style.Stroke({ 
+                color: config.textStrokeColor, 
+                width: isHighlighted ? config.textStrokeWidth * 1.3 : config.textStrokeWidth 
+            })
+        }));
+    }
+    
+    return style;
+}
+
+/**
+ * Create an OpenLayers Style object for a dwarf settlement marker only (no label)
+ * Used for the always-visible marker layer underneath the decluttered label layer
+ * @param {OL.Feature} feature - OpenLayers feature
+ * @param {number} currentResolution - Current map resolution
+ * @returns {OL.style.Style}
+ */
+function createDwarfSettlementMarkerOnlyStyle(feature, currentResolution) {
+    if (!STYLES_CONFIG) {
+        return null;
+    }
+    
+    const dwarfType = feature.get('dwarfType');
+    const config = STYLES_CONFIG.dwarfSettlements[dwarfType];
+    
+    if (!config) {
+        return null;
+    }
+    
+    // Early exit for performance
+    if (currentResolution > config.minZoomLevel * 2) {
+        return null;
+    }
+    
+    // Check if dot should be visible
+    const showDotVisible = shouldShowDot(config, currentResolution);
+    
+    if (!showDotVisible) {
+        return null;
+    }
+    
+    // Get interpolated radius
+    const radius = getInterpolatedRadius(config, currentResolution);
+    
+    // Check if this feature is highlighted (from search)
+    const isHighlighted = feature.get('highlighted') === true;
+    
+    // Cache the circle image - unless highlighted
+    let imageStyle = null;
+    if (isHighlighted) {
+        // Don't cache highlighted styles - create fresh red circle
+        imageStyle = new ol.style.Circle({
+            radius: radius * 1.3,  // Slightly larger
+            fill: new ol.style.Fill({ color: '#f44336' }),  // Red
+            stroke: new ol.style.Stroke({ 
+                color: '#d32f2f',
+                width: config.strokeWidth * 1.5 
+            })
+        });
+    } else {
+        const imageCacheKey = `dwarf_marker_${dwarfType}_${currentResolution.toFixed(4)}`;
+        imageStyle = getCachedStyle(STYLE_CACHE.settlements, imageCacheKey, () => {
+            return new ol.style.Circle({
+                radius: radius,
+                fill: new ol.style.Fill({ color: config.color }),
+                stroke: new ol.style.Stroke({ 
+                    color: config.strokeColor, 
+                    width: config.strokeWidth 
+                })
+            });
+        });
+    }
+    
+    // Return style with only the marker (no text)
+    return new ol.style.Style({
+        image: imageStyle,
+        zIndex: isHighlighted ? 9999 : 0
+    });
+}

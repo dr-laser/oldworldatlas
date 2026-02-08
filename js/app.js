@@ -23,6 +23,14 @@ async function initializeApp() {
         const olFeatures = settlementData.getOLFeatures();
         mapManager.addSettlementFeatures(olFeatures);
         
+        // Load dwarf settlements
+        const dwarfFeatures = await dwarfSettlementData.loadDwarfSettlements('data/karaz_ankor.geojson');
+        console.log(`Loaded ${dwarfFeatures.length} dwarf settlements`);
+        
+        // Add dwarf settlements to map
+        const olDwarfFeatures = dwarfSettlementData.getOLFeatures();
+        mapManager.addDwarfSettlementFeatures(olDwarfFeatures);
+        
         // Load POI data
         const poiFeatures = await poiData.loadPOIs('data/points_of_interest.geojson');
         console.log(`Loaded ${poiFeatures.length} points of interest`);

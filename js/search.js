@@ -82,6 +82,28 @@ class SearchManager {
             });
         }
 
+        // Get dwarf settlement features
+        const dwarfSettlementSource = mapManager.getDwarfSettlementSource();
+        
+        if (dwarfSettlementSource) {
+            const dwarfSettlements = dwarfSettlementSource.getFeatures();
+            dwarfSettlements.forEach(feature => {
+                const name = feature.get('name');
+                const dwarfHoldType = feature.get('dwarfHoldType');
+                const coord = feature.getGeometry().getCoordinates();
+                if (name) {
+                    this.allFeatures.push({
+                        feature: feature,
+                        name: name,
+                        normalizedName: this.normalizeString(name),
+                        type: 'Dwarf Settlement',
+                        details: dwarfHoldType || 'Khazid (Town)',
+                        coordinate: coord
+                    });
+                }
+            });
+        }
+
         // Get POI features
         const poiSource = mapManager.getPOISource();
         
@@ -232,10 +254,14 @@ class SearchManager {
         // Refresh the layers to apply highlighted style
         const settlementLayer = mapManager.getSettlementLayer();
         const settlementMarkersLayer = mapManager.getSettlementMarkersOnlyLayer();
+        const dwarfSettlementLayer = mapManager.getDwarfSettlementLayer();
+        const dwarfSettlementMarkersLayer = mapManager.getDwarfSettlementMarkersOnlyLayer();
         const poiLayer = mapManager.getPOILayer();
         
         if (settlementLayer) settlementLayer.changed();
         if (settlementMarkersLayer) settlementMarkersLayer.changed();
+        if (dwarfSettlementLayer) dwarfSettlementLayer.changed();
+        if (dwarfSettlementMarkersLayer) dwarfSettlementMarkersLayer.changed();
         if (poiLayer) poiLayer.changed();
         
         // Show feature through UI controls (zoom, center, popup)

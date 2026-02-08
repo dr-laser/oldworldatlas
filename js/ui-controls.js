@@ -262,6 +262,58 @@ class UIControls {
         const name = feature.get('name');
         const featureType = feature.get('featureType');
         
+        // Handle dwarf settlement features
+        if (featureType === 'dwarf') {
+            const dwarfHoldType = feature.get('dwarfHoldType');
+            const sourceTag = feature.get('sourceTag');
+            const wikiTitle = feature.get('wikiTitle');
+            const wikiUrl = feature.get('wikiUrl');
+            const wikiDescription = feature.get('wikiDescription');
+            
+            // Check if settlement has wiki data
+            const hasWiki = wikiTitle && wikiTitle.trim() !== '';
+            
+            // Build header with title and subtitle
+            let html = `<div class="settlement-popup">
+                <div class="settlement-popup-header">
+                    <h2 class="settlement-popup-title">${this.escapeHtml(name)}</h2>
+                    <p class="settlement-popup-subtitle">${this.escapeHtml(dwarfHoldType)}</p>
+                </div>`;
+            
+            // Add wiki section if available
+            if (hasWiki) {
+                html += `<div class="settlement-popup-wiki">`;
+                
+                // Add wiki title
+                html += `<div class="settlement-popup-wiki-title">${this.escapeHtml(wikiTitle)}</div>`;
+                
+                // Add wiki description if available
+                if (wikiDescription && wikiDescription.trim() !== '') {
+                    html += `<div class="settlement-popup-wiki-description">${this.escapeHtml(wikiDescription)}</div>`;
+                }
+                
+                // Add wiki link if available
+                if (wikiUrl && wikiUrl.trim() !== '') {
+                    html += `<a href="${this.escapeHtml(wikiUrl)}" target="_blank" class="settlement-popup-wiki-link">Read on Wiki</a>`;
+                }
+                
+                html += `</div>`;
+            }
+            
+            // Add source field at bottom as footnote if present
+            if (sourceTag) {
+                const fullSourceName = settlementData.getFullSourceName(sourceTag);
+                html += `<div class="settlement-popup-source">Source: ${this.escapeHtml(fullSourceName)}</div>`;
+            }
+            
+            html += '</div>';
+            
+            this.popupElement.innerHTML = html;
+            this.popupOverlay.setPosition(coordinate);
+            this.popupElement.style.display = 'block';
+            return;
+        }
+        
         // Handle POI features
         if (featureType === 'poi') {
             const poiType = feature.get('type');

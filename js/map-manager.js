@@ -10,6 +10,10 @@ class MapManager {
         this.settlementSource = null;
         this.settlementMarkersOnlyLayer = null;  // Marker-only layer (no declutter)
         this.settlementMarkersOnlySource = null;
+        this.dwarfSettlementVectorLayer = null;  // Dwarf settlement layer
+        this.dwarfSettlementSource = null;
+        this.dwarfSettlementMarkersOnlyLayer = null;  // Dwarf marker-only layer
+        this.dwarfSettlementMarkersOnlySource = null;
         this.poiVectorLayer = null;
         this.poiSource = null;
         this.provinceVectorLayer = null;
@@ -52,6 +56,8 @@ class MapManager {
 
         this.settlementSource = new ol.source.Vector();
         this.settlementMarkersOnlySource = new ol.source.Vector();  // Markers only (no labels)
+        this.dwarfSettlementSource = new ol.source.Vector();  // Dwarf settlements
+        this.dwarfSettlementMarkersOnlySource = new ol.source.Vector();  // Dwarf markers only
         this.poiSource = new ol.source.Vector();
         this.provinceSource = new ol.source.Vector();
         this.waterSource = new ol.source.Vector();
@@ -70,6 +76,8 @@ class MapManager {
                 this.createWaterLayer(),
                 this.createSettlementMarkersOnlyLayer(),  // Markers only, always visible
                 this.createSettlementLayer(),              // Labels + markers, can be decluttered
+                this.createDwarfSettlementMarkersOnlyLayer(),  // Dwarf markers only
+                this.createDwarfSettlementLayer(),              // Dwarf labels + markers
                 this.createPOILayer()
             ],
             view: new ol.View({
@@ -87,7 +95,9 @@ class MapManager {
         this.waterVectorLayer = this.map.getLayers().item(2);
         this.settlementMarkersOnlyLayer = this.map.getLayers().item(3);
         this.settlementVectorLayer = this.map.getLayers().item(4);
-        this.poiVectorLayer = this.map.getLayers().item(5);
+        this.dwarfSettlementMarkersOnlyLayer = this.map.getLayers().item(5);
+        this.dwarfSettlementVectorLayer = this.map.getLayers().item(6);
+        this.poiVectorLayer = this.map.getLayers().item(7);
         
         // POI layer starts hidden (unchecked)
         this.poiVectorLayer.setVisible(false);
@@ -173,6 +183,39 @@ class MapManager {
     }
 
     /**
+     * Create dwarf settlement vector layer
+     * @private
+     * @returns {ol.layer.Vector}
+     */
+    createDwarfSettlementLayer() {
+        return new ol.layer.Vector({
+            title: 'Dwarf Settlements',
+            source: this.dwarfSettlementSource,
+            declutter: true,               // Enable label decluttering to prevent overlaps
+            updateWhileAnimating: false,  // Performance: don't update during animation
+            updateWhileInteracting: false, // Performance: don't update while panning/zooming
+            renderBuffer: 100,             // Render features slightly outside viewport
+            style: (feature) => createDwarfSettlementStyle(feature, this.map.getView().getResolution())
+        });
+    }
+
+    /**
+     * Create dwarf settlement marker-only layer
+     * @private
+     * @returns {ol.layer.Vector}
+     */
+    createDwarfSettlementMarkersOnlyLayer() {
+        return new ol.layer.Vector({
+            title: 'Dwarf Settlement Markers',
+            source: this.dwarfSettlementMarkersOnlySource,
+            updateWhileAnimating: false,
+            updateWhileInteracting: false,
+            renderBuffer: 100,
+            style: (feature) => createDwarfSettlementMarkerOnlyStyle(feature, this.map.getView().getResolution())
+        });
+    }
+
+    /**
      * Create POI vector layer
      * @private
      * @returns {ol.layer.Vector}
@@ -230,6 +273,16 @@ class MapManager {
     }
 
     /**
+     * Add features to dwarf settlement layer
+     * @param {array} features - Array of ol.Feature objects
+     */
+    addDwarfSettlementFeatures(features) {
+        this.dwarfSettlementSource.addFeatures(features);
+        // Also add to marker-only layer for always-visible markers
+        this.dwarfSettlementMarkersOnlySource.addFeatures(features);
+    }
+
+    /**
      * Add features to POI layer
      * @param {array} features - Array of ol.Feature objects
      */
@@ -261,6 +314,8 @@ class MapManager {
         this.map.getView().on('change:resolution', () => {
             this.settlementSource.changed();
             this.settlementMarkersOnlySource.changed();
+            this.dwarfSettlementSource.changed();
+            this.dwarfSettlementMarkersOnlySource.changed();
             this.provinceSource.changed();
             this.waterSource.changed();
         });
@@ -350,6 +405,30 @@ class MapManager {
      */
     getWaterLayer() {
         return this.waterVectorLayer;
+    }
+    
+    /**
+     * Get dwarf settlement source
+     * @returns {ol.source.Vector}
+     */
+    getDwarfSettlementSource() {
+        return this.dwarfSettlementSource;
+    }
+    
+    /**
+     * Get dwarf settlement layer
+     * @returns {ol.layer.Vector}
+     */
+    getDwarfSettlementLayer() {
+        return this.dwarfSettlementVectorLayer;
+    }
+    
+    /**
+     * Get dwarf settlement markers only layer
+     * @returns {ol.layer.Vector}
+     */
+    getDwarfSettlementMarkersOnlyLayer() {
+        return this.dwarfSettlementMarkersOnlyLayer;
     }
 }
 

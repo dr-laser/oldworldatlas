@@ -159,6 +159,112 @@
       }
     }
   },
+  "dwarfSettlements": {
+    "Grung": {
+      "label": "Mining Settlement",
+      "color": "rgba(139, 90, 43, 1)",
+      "strokeColor": "rgba(205, 133, 63, 1)",
+      "strokeWidth": 1,
+      "zIndex": 3,
+      "textFont": "Arial, sans-serif",
+      "textFillColor": "#8B5A2B",
+      "textStrokeColor": "#fff",
+      "textStrokeWidth": 3,
+      "textOffsetY": -12,
+      "enableDecluttering": true,
+      "minFontSize": 6,
+      "maxFontSize": 14,
+      "minFontZoom": 0.020,
+      "maxFontZoom": 0.0005,
+      "minZoomLevel": 0.017,
+      "maxZoomLevel": 0.00001,
+      "marker": {
+        "type": "circle",
+        "minRadius": 3,
+        "maxRadius": 5,
+        "minRadiusZoom": 0.020,
+        "maxRadiusZoom": 0.0005
+      }
+    },
+    "Kazad": {
+      "label": "Fortress",
+      "color": "rgba(139, 90, 43, 1)",
+      "strokeColor": "rgba(205, 133, 63, 1)",
+      "strokeWidth": 1,
+      "zIndex": 3,
+      "textFont": "Arial, sans-serif",
+      "textFillColor": "#8B5A2B",
+      "textStrokeColor": "#fff",
+      "textStrokeWidth": 3,
+      "textOffsetY": -12,
+      "enableDecluttering": true,
+      "minFontSize": 6,
+      "maxFontSize": 14,
+      "minFontZoom": 0.020,
+      "maxFontZoom": 0.0005,
+      "minZoomLevel": 0.017,
+      "maxZoomLevel": 0.00001,
+      "marker": {
+        "type": "circle",
+        "minRadius": 3,
+        "maxRadius": 5,
+        "minRadiusZoom": 0.020,
+        "maxRadiusZoom": 0.0005
+      }
+    },
+    "Khazid": {
+      "label": "Town",
+      "color": "rgba(139, 90, 43, 1)",
+      "strokeColor": "rgba(205, 133, 63, 1)",
+      "strokeWidth": 1,
+      "zIndex": 3,
+      "textFont": "Arial, sans-serif",
+      "textFillColor": "#8B5A2B",
+      "textStrokeColor": "#fff",
+      "textStrokeWidth": 3,
+      "textOffsetY": -12,
+      "enableDecluttering": true,
+      "minFontSize": 6,
+      "maxFontSize": 14,
+      "minFontZoom": 0.020,
+      "maxFontZoom": 0.0005,
+      "minZoomLevel": 0.017,
+      "maxZoomLevel": 0.00001,
+      "marker": {
+        "type": "circle",
+        "minRadius": 3,
+        "maxRadius": 5,
+        "minRadiusZoom": 0.020,
+        "maxRadiusZoom": 0.0005
+      }
+    },
+    "Karak": {
+      "label": "Great Hold",
+      "color": "rgba(139, 90, 43, 1)",
+      "strokeColor": "rgba(205, 133, 63, 1)",
+      "strokeWidth": 1.5,
+      "zIndex": 4,
+      "textFont": "Arial, sans-serif",
+      "textFillColor": "#8B5A2B",
+      "textStrokeColor": "#fff",
+      "textStrokeWidth": 4,
+      "textOffsetY": -12,
+      "enableDecluttering": true,
+      "minFontSize": 9,
+      "maxFontSize": 16,
+      "minFontZoom": 0.030,
+      "maxFontZoom": 0.0005,
+      "minZoomLevel": 0.030,
+      "maxZoomLevel": 0.00001,
+      "marker": {
+        "type": "circle",
+        "minRadius": 2,
+        "maxRadius": 6,
+        "minRadiusZoom": 0.050,
+        "maxRadiusZoom": 0.0005
+      }
+    }
+  },
   "poi": {
     "default": {
       "color": "rgba(148, 0, 211, 0.7)",
