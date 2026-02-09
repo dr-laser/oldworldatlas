@@ -11,7 +11,7 @@
         ]
       },
       "properties": {
-        "name": "The Old / Sea of Clawsauer",
+        "name": "The Old Bögenauer",
         "type": "Taverns and Inns",
         "inkscape_coordinates": [
           360.19092,
@@ -42,16 +42,16 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -0.9852186465373709,
-          50.112075021349106
+          -0.966795843403923,
+          50.100615474460824
         ]
       },
       "properties": {
         "name": "The Child and Hammer",
         "type": "Taverns and Inns",
         "inkscape_coordinates": [
-          372.28601,
-          485.37045
+          373.33838,
+          486.02527
         ]
       }
     },
@@ -114,16 +114,16 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -0.44451981293082365,
-          51.16647689766343
+          -0.43583588932335093,
+          51.163583395618076
         ]
       },
       "properties": {
         "name": "The New Unberogen",
         "type": "Taverns and Inns",
         "inkscape_coordinates": [
-          403.19257,
-          425.13651
+          403.68866,
+          425.30188
         ]
       }
     },
@@ -150,16 +150,16 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -0.06618318605126916,
-          51.2903159729183
+          -0.06357759037149702,
+          51.288000538375464
         ]
       },
       "properties": {
         "name": "The Imperial Cross",
         "type": "Taverns and Inns",
         "inkscape_coordinates": [
-          424.80957,
-          418.06439
+          424.9584,
+          418.19669
         ]
       }
     },
@@ -258,16 +258,16 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -1.0027450087020515,
-          51.50025890438537
+          -0.9998484449807146,
+          51.49215477681479
         ]
       },
       "properties": {
         "name": "The Graf Manfred",
         "type": "Taverns and Inns",
         "inkscape_coordinates": [
-          371.30475,
-          406.06342
+          371.47012,
+          406.52643
         ]
       }
     },
@@ -330,16 +330,16 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          0.04006058823991321,
-          51.70466710890857
+          0.04150750938583769,
+          51.70495681181051
         ]
       },
       "properties": {
         "name": "The Auld Granger",
         "type": "Taverns and Inns",
         "inkscape_coordinates": [
-          430.8855,
-          394.39331
+          430.96817,
+          394.37677
         ]
       }
     },
@@ -366,16 +366,16 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -0.23075869920138015,
-          51.768086434874355
+          -0.22960098904048554,
+          51.767218039057894
         ]
       },
       "properties": {
         "name": "The Countless Arms",
         "type": "Taverns and Inns",
         "inkscape_coordinates": [
-          415.41391,
-          390.76816
+          415.48004,
+          390.81778
         ]
       }
     },
@@ -420,16 +420,16 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          0.1868383196813319,
-          52.176119629276165
+          0.2010226615275741,
+          52.16830648049659
         ]
       },
       "properties": {
         "name": "The Four Horns",
         "type": "Taverns and Inns",
         "inkscape_coordinates": [
-          439.27805,
-          367.46033
+          440.08832,
+          367.9068
         ]
       }
     },
@@ -438,16 +438,16 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          0.12686743563026504,
-          52.41206962843947
+          0.12571184870663465,
+          52.40454348099085
         ]
       },
       "properties": {
         "name": "The Coach and Horses",
         "type": "Taverns and Inns",
         "inkscape_coordinates": [
-          435.85519,
-          353.98007
+          435.78906,
+          354.41003
         ]
       }
     },
@@ -456,16 +456,16 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -9.15451476464213e-05,
-          52.412630623179865
+          -0.002404151398156529,
+          52.40047348115078
         ]
       },
       "properties": {
         "name": "The Five Brothers Lodge",
         "type": "Taverns and Inns",
         "inkscape_coordinates": [
-          428.60175,
-          353.94708
+          428.46945,
+          354.6416
         ]
       }
     },
@@ -510,16 +510,16 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          0.4510332146701428,
-          52.78092895063326
+          0.4452425476247335,
+          52.78671763077069
         ]
       },
       "properties": {
         "name": "The Yellow Eye Tavern",
         "type": "Taverns and Inns",
         "inkscape_coordinates": [
-          454.38083,
-          332.90955
+          454.05008,
+          332.5788
         ]
       }
     },
@@ -528,16 +528,16 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          0.33364788644367227,
-          51.771558703173355
+          0.3442908142901926,
+          51.77196915032517
         ]
       },
       "properties": {
         "name": "The Horned Father",
         "type": "Taverns and Inns",
         "inkscape_coordinates": [
-          447.65976,
-          390.57397
+          448.26782,
+          390.5506
         ]
       }
     },
@@ -564,16 +564,16 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          0.304574427017986,
-          51.93980271004811
+          0.3097827183508812,
+          51.94732955797838
         ]
       },
       "properties": {
         "name": "The Delb Down",
         "type": "Taverns and Inns",
         "inkscape_coordinates": [
-          446.00116,
-          380.96198
+          446.29883,
+          380.53201
         ]
       }
     },
@@ -582,16 +582,16 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          0.37546235365862035,
-          52.5041819046363
+          0.377200755525692,
+          52.496655957360296
         ]
       },
       "properties": {
         "name": "The Third Brother",
         "type": "Taverns and Inns",
         "inkscape_coordinates": [
-          450.0593,
-          348.71954
+          450.15851,
+          349.14951
         ]
       }
     },
@@ -708,8 +708,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          1.002014590144067,
-          49.80955567377041
+          1.0020154686501987,
+          49.80608236541708
         ]
       },
       "properties": {
@@ -717,7 +717,7 @@
         "type": "Taverns and Inns",
         "inkscape_coordinates": [
           485.81668,
-          502.66809
+          502.86652
         ]
       }
     },
@@ -726,16 +726,16 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          1.4100235514435715,
-          50.39038520266235
+          1.3952856625307009,
+          50.39857006353586
         ]
       },
       "properties": {
         "name": "The Third Comet",
         "type": "Taverns and Inns",
         "inkscape_coordinates": [
-          509.13553,
-          469.48834
+          508.29364,
+          469.02063
         ]
       }
     },
@@ -816,16 +816,88 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -2.205924035252184,
-          51.830757569649805
+          -0.7719920015768169,
+          49.76945255075947
+        ]
+      },
+      "properties": {
+        "name": "The Luitpold Inn",
+        "type": "Taverns and Inns",
+        "inkscape_coordinates": [
+          384.46317,
+          504.94604
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          0.1774733618055233,
+          49.63162510883427
+        ]
+      },
+      "properties": {
+        "name": "Rainwood Inn",
+        "type": "Taverns and Inns",
+        "inkscape_coordinates": [
+          438.70624,
+          512.82715
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          0.3232868017869386,
+          49.27141783337459
+        ]
+      },
+      "properties": {
+        "name": "The Crowned Kestrel",
+        "type": "Taverns and Inns",
+        "inkscape_coordinates": [
+          447.03168,
+          533.40686
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -1.8187052908801107,
+          50.57989790819304
+        ]
+      },
+      "properties": {
+        "name": "The Ram's Horn",
+        "type": "Taverns and Inns",
+        "inkscape_coordinates": [
+          324.67383,
+          458.63757
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -2.2065024573550582,
+          51.828441897331444
         ]
       },
       "properties": {
         "name": "Sacred Ground of Blessed Shallya",
         "type": "Monasteries and Temples",
         "inkscape_coordinates": [
-          302.56924,
-          387.17313
+          302.53616,
+          387.30542
         ]
       }
     },
@@ -960,16 +1032,610 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -2.2723168630074424,
-          53.35938942403628
+          0.18512473448625055,
+          51.63087316700469
+        ]
+      },
+      "properties": {
+        "name": "Comet and Sky Abbey",
+        "type": "Monasteries and Temples",
+        "inkscape_coordinates": [
+          439.17227,
+          398.61023
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          0.06934668498795205,
+          51.63548952581111
+        ]
+      },
+      "properties": {
+        "name": "Granger Abbey",
+        "type": "Monasteries and Temples",
+        "inkscape_coordinates": [
+          432.55768,
+          398.34564
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.054536748138360736,
+          51.644156997774985
+        ]
+      },
+      "properties": {
+        "name": "Sigmar's Rest",
+        "type": "Monasteries and Temples",
+        "inkscape_coordinates": [
+          425.48007,
+          397.84955
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.19288297207485794,
+          51.61693022343557
+        ]
+      },
+      "properties": {
+        "name": "Blessed Brothers of Blood Monastery",
+        "type": "Monasteries and Temples",
+        "inkscape_coordinates": [
+          417.57565,
+          399.40399
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          0.13183866750609496,
+          51.74375307199951
+        ]
+      },
+      "properties": {
+        "name": "Monastery of the Forged Hammer",
+        "type": "Monasteries and Temples",
+        "inkscape_coordinates": [
+          436.12955,
+          392.16101
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.16514809028501087,
+          51.82070883444651
+        ]
+      },
+      "properties": {
+        "name": "Silverfire Abbey",
+        "type": "Monasteries and Temples",
+        "inkscape_coordinates": [
+          419.16315,
+          387.76233
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          0.05714229520993186,
+          51.825369024579565
+        ]
+      },
+      "properties": {
+        "name": "The Great Hospice",
+        "type": "Monasteries and Temples",
+        "inkscape_coordinates": [
+          431.86316,
+          387.49774
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          0.018886313029566004,
+          52.02045554600051
+        ]
+      },
+      "properties": {
+        "name": "Berith's Garden",
+        "type": "Monasteries and Temples",
+        "inkscape_coordinates": [
+          429.68033,
+          376.35217
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.8158560990358819,
+          51.98966517387482
+        ]
+      },
+      "properties": {
+        "name": "Wolf's Watch",
+        "type": "Monasteries and Temples",
+        "inkscape_coordinates": [
+          381.9892,
+          378.10504
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.853935641297511,
+          51.487169490947025
+        ]
+      },
+      "properties": {
+        "name": "Monastery of the Blessed Fang",
+        "type": "Monasteries and Temples",
+        "inkscape_coordinates": [
+          379.80637,
+          406.81232
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.6976238201556697,
+          51.43450917406976
+        ]
+      },
+      "properties": {
+        "name": "Monastery of the Eternal Watch",
+        "type": "Monasteries and Temples",
+        "inkscape_coordinates": [
+          388.73605,
+          409.82196
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.4770661259058979,
+          51.42411749438611
+        ]
+      },
+      "properties": {
+        "name": "Monastery of the Holy Word",
+        "type": "Monasteries and Temples",
+        "inkscape_coordinates": [
+          401.33685,
+          410.41727
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.501879902029005,
+          51.113820384853426
+        ]
+      },
+      "properties": {
+        "name": "Order of the Northern Cross",
+        "type": "Monasteries and Temples",
+        "inkscape_coordinates": [
+          399.9147,
+          428.14435
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          0.12497660694726864,
+          51.40914408043929
+        ]
+      },
+      "properties": {
+        "name": "Monastery of the Broken Branch",
+        "type": "Monasteries and Temples",
+        "inkscape_coordinates": [
+          435.73267,
+          411.27716
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          0.1765192938441844,
+          51.323472261735816
+        ]
+      },
+      "properties": {
+        "name": "Chapterhouse of the Shattered Lance",
+        "type": "Monasteries and Temples",
+        "inkscape_coordinates": [
+          438.67618,
+          416.17197
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.13724221482289067,
+          51.34774579136389
+        ]
+      },
+      "properties": {
+        "name": "Altern Abbey",
+        "type": "Monasteries and Temples",
+        "inkscape_coordinates": [
+          420.75064,
+          414.7829
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.25877702166339667,
+          51.226159686725566
+        ]
+      },
+      "properties": {
+        "name": "Hammer's Lodge",
+        "type": "Monasteries and Temples",
+        "inkscape_coordinates": [
+          413.80533,
+          421.72821
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          1.8232182407256028,
+          52.21462325191114
+        ]
+      },
+      "properties": {
+        "name": "Monastery of Leopold",
+        "type": "Monasteries and Temples",
+        "inkscape_coordinates": [
+          532.76862,
+          365.27274
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          0.47907927225266533,
+          50.97659811175673
+        ]
+      },
+      "properties": {
+        "name": "Temple of Invidious Silence",
+        "type": "Monasteries and Temples",
+        "inkscape_coordinates": [
+          455.95709,
+          435.99112
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          0.08723405966137587,
+          50.36803199657197
+        ]
+      },
+      "properties": {
+        "name": "Karlsbaum Monastery",
+        "type": "Monasteries and Temples",
+        "inkscape_coordinates": [
+          433.56131,
+          470.75558
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          2.348871004298238,
+          51.692977822077566
+        ]
+      },
+      "properties": {
+        "name": "Schrammel Monastery",
+        "type": "Monasteries and Temples",
+        "inkscape_coordinates": [
+          562.79279,
+          395.07822
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.36778319226760736,
+          49.63357346053792
+        ]
+      },
+      "properties": {
+        "name": "Abbey of Blessed Anna",
+        "type": "Monasteries and Temples",
+        "inkscape_coordinates": [
+          407.5545521,
+          512.711802
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          0.09713294761243318,
+          49.34707554959632
+        ]
+      },
+      "properties": {
+        "name": "Seven Dovers Hospice",
+        "type": "Monasteries and Temples",
+        "inkscape_coordinates": [
+          434.1121021,
+          529.082862
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          0.24707857624515484,
+          49.28920400702845
+        ]
+      },
+      "properties": {
+        "name": "Abandoned Shrine of Lowengen",
+        "type": "Monasteries and Temples",
+        "inkscape_coordinates": [
+          442.6779921,
+          532.390172
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          0.3891893429897957,
+          49.27306348706551
+        ]
+      },
+      "properties": {
+        "name": "Blessded Magmis Monastery",
+        "type": "Monasteries and Temples",
+        "inkscape_coordinates": [
+          450.7968621,
+          533.313332
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.7208408026650241,
+          49.39096549656449
+        ]
+      },
+      "properties": {
+        "name": "The Ravenstones of Blessed Mortin",
+        "type": "Monasteries and Temples",
+        "inkscape_coordinates": [
+          387.3800821,
+          526.5693719999999
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.3243132941763589,
+          49.42170010338743
+        ]
+      },
+      "properties": {
+        "name": "Sigmartempel",
+        "type": "Monasteries and Temples",
+        "inkscape_coordinates": [
+          410.0350221,
+          524.8164419999999
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.099122537805024,
+          49.40320399615564
+        ]
+      },
+      "properties": {
+        "name": "Redclaw Monastery",
+        "type": "Monasteries and Temples",
+        "inkscape_coordinates": [
+          422.9004021,
+          525.874792
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.24234778942824153,
+          49.02164118751316
+        ]
+      },
+      "properties": {
+        "name": "Blessed Saal Monastery",
+        "type": "Monasteries and Temples",
+        "inkscape_coordinates": [
+          414.7121121,
+          547.6724019999999
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.5997732827622713,
+          49.070846055997336
+        ]
+      },
+      "properties": {
+        "name": "Grey Wolf Temple",
+        "type": "Monasteries and Temples",
+        "inkscape_coordinates": [
+          394.2923121,
+          544.8586819999999
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          1.6059992067786029,
+          57.33328735463196
+        ]
+      },
+      "properties": {
+        "name": "Throat of Tides",
+        "type": "Monasteries and Temples",
+        "inkscape_coordinates": [
+          520.4323821,
+          72.842017
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          0.5442946226346868,
+          57.46166705166545
+        ]
+      },
+      "properties": {
+        "name": "Temple of the Red Coral",
+        "type": "Monasteries and Temples",
+        "inkscape_coordinates": [
+          459.7767,
+          65.499825
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          0.3324378656848772,
+          57.40259101199638
+        ]
+      },
+      "properties": {
+        "name": "Stormguard Temple",
+        "type": "Monasteries and Temples",
+        "inkscape_coordinates": [
+          447.672,
+          68.873268
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -2.26494517107783,
+          53.345472465356515
         ]
       },
       "properties": {
         "name": "Ongediertefort",
         "type": "Forts and Castles",
         "inkscape_coordinates": [
-          298.79816,
-          299.84195
+          299.21912,
+          300.63708
         ]
       }
     },
@@ -1302,16 +1968,16 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -1.1962497331608173,
-          50.796753983530664
+          -1.18578825398105,
+          50.79415862914994
         ]
       },
       "properties": {
-        "name": "Schloss Grauenberg",
+        "name": "Schloss Grauenburg",
         "type": "Forts and Castles",
         "inkscape_coordinates": [
-          360.23923,
-          446.2532
+          360.83688,
+          446.40155
         ]
       }
     },
@@ -1428,16 +2094,16 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -0.2164877035637769,
-          51.50832864167872
+          -0.21566789775751705,
+          51.505053759235736
         ]
       },
       "properties": {
         "name": "Festung Reiksfang",
         "type": "Forts and Castles",
         "inkscape_coordinates": [
-          416.22549,
-          405.60822
+          416.27228,
+          405.79532
         ]
       }
     },
@@ -1446,16 +2112,16 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -0.28427075846447547,
-          51.523984661933916
+          -0.28311312153087176,
+          51.52340578141335
         ]
       },
       "properties": {
         "name": "Walfenburg",
         "type": "Forts and Castles",
         "inkscape_coordinates": [
-          412.35312,
-          404.71329
+          412.41925,
+          404.74637
         ]
       }
     },
@@ -1518,15 +2184,15 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -1.058784888924369,
-          51.39594596066721
+          -1.0579163772417886,
+          51.39594607327169
         ]
       },
       "properties": {
         "name": "Klauenschloss",
         "type": "Forts and Castles",
         "inkscape_coordinates": [
-          368.10156,
+          368.15118,
           412.0224
         ]
       }
@@ -1572,16 +2238,16 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -0.3663884321222133,
-          51.192839746901285
+          -0.3600204539342853,
+          51.19168303642076
         ]
       },
       "properties": {
         "name": "Schloss Bretzen",
         "type": "Forts and Castles",
         "inkscape_coordinates": [
-          407.65677,
-          423.63098
+          408.02057,
+          423.69711
         ]
       }
     },
@@ -1644,16 +2310,16 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -3.5677361220279855,
-          50.87953513216374
+          -3.575923645833226,
+          50.882399466974725
         ]
       },
       "properties": {
         "name": "Blackstone Tower",
         "type": "Forts and Castles",
         "inkscape_coordinates": [
-          224.75215,
-          441.50635
+          224.28442,
+          441.34265
         ]
       }
     },
@@ -2076,16 +2742,16 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          4.094868509854442,
-          52.996097285531135
+          4.146977441064821,
+          52.927636421716535
         ]
       },
       "properties": {
         "name": "Festung Heldenhame",
         "type": "Forts and Castles",
         "inkscape_coordinates": [
-          662.56433,
-          320.64398
+          665.5404395,
+          324.5555329
         ]
       }
     },
@@ -2094,16 +2760,16 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          3.657471229298282,
-          53.26021138947895
+          3.7095801605086605,
+          53.19175052566435
         ]
       },
       "properties": {
         "name": "Schloss Obelstein",
         "type": "Forts and Castles",
         "inkscape_coordinates": [
-          637.57867,
-          305.55191
+          640.5547795,
+          309.4634629
         ]
       }
     },
@@ -2148,16 +2814,16 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          1.0644349191527605,
-          55.888117193816335
+          1.0443163375467632,
+          55.87837223783555
         ]
       },
       "properties": {
         "name": "Schloss Midfast",
         "type": "Forts and Castles",
         "inkscape_coordinates": [
-          489.47073,
-          155.40053
+          488.32117,
+          155.95711
         ]
       }
     },
@@ -2166,16 +2832,16 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          0.5067624858116835,
-          55.28279301488929
+          0.5814535677069381,
+          55.192336692518985
         ]
       },
       "properties": {
         "name": "Jägerfestung",
         "type": "Forts and Castles",
         "inkscape_coordinates": [
-          457.60092,
-          189.97855
+          461.86688,
+          195.14687
         ]
       }
     },
@@ -2184,16 +2850,16 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          1.7744159136712012,
-          55.6383942941783
+          1.826524844881578,
+          55.569933430363704
         ]
       },
       "properties": {
         "name": "Brass Keep",
         "type": "Forts and Castles",
         "inkscape_coordinates": [
-          530.02991,
-          169.67245
+          533.0060195,
+          173.5840029
         ]
       }
     },
@@ -2202,16 +2868,16 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          1.6637517111514564,
-          57.50416444758728
+          1.281850830760992,
+          57.89821144634676
         ]
       },
       "properties": {
         "name": "Nordenwacht",
         "type": "Forts and Castles",
         "inkscape_coordinates": [
-          523.73438,
-          63.080242
+          501.92123,
+          40.565521
         ]
       }
     },
@@ -2220,16 +2886,16 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          1.1938378989310143,
-          57.74831799668286
+          1.2459468301413912,
+          57.67985713286826
         ]
       },
       "properties": {
         "name": "Jutongard",
         "type": "Forts and Castles",
         "inkscape_coordinates": [
-          496.89069,
-          49.128277
+          499.8667995,
+          53.0398299
         ]
       }
     },
@@ -2310,16 +2976,16 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          3.4458052159955743,
-          57.09528684298045
+          3.4411719789299715,
+          57.10339092042694
         ]
       },
       "properties": {
         "name": "Sigmarstein",
         "type": "Forts and Castles",
         "inkscape_coordinates": [
-          625.54114,
-          86.452606
+          625.27655,
+          85.989586
         ]
       }
     },
@@ -2364,16 +3030,304 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -3.0021102572640466,
-          52.819265791433025
+          -1.4501059521108575,
+          49.919186526797816
+        ]
+      },
+      "properties": {
+        "name": "Schloss Merwinwald",
+        "type": "Forts and Castles",
+        "inkscape_coordinates": [
+          345.72318,
+          496.38672
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -1.165205488989817,
+          49.89875592295593
+        ]
+      },
+      "properties": {
+        "name": "Burg Totenkopf",
+        "type": "Forts and Castles",
+        "inkscape_coordinates": [
+          361.99988,
+          497.55603
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.6317807318898838,
+          51.26277509613572
+        ]
+      },
+      "properties": {
+        "name": "Holzkrugburg",
+        "type": "Forts and Castles",
+        "inkscape_coordinates": [
+          392.49533,
+          419.63361
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.4804365189715094,
+          51.69179216134372
+        ]
+      },
+      "properties": {
+        "name": "Thurgenburg",
+        "type": "Forts and Castles",
+        "inkscape_coordinates": [
+          401.14816,
+          395.125
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.5484100993008498,
+          51.79084606879667
+        ]
+      },
+      "properties": {
+        "name": "Schloss Linter",
+        "type": "Forts and Castles",
+        "inkscape_coordinates": [
+          397.26611,
+          389.46555
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.5484388824963427,
+          51.90464483442514
+        ]
+      },
+      "properties": {
+        "name": "Schloss Bildhofen",
+        "type": "Forts and Castles",
+        "inkscape_coordinates": [
+          397.26611,
+          382.96423
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.35467068562562787,
+          51.577543567660214
+        ]
+      },
+      "properties": {
+        "name": "Rottefachturm",
+        "type": "Forts and Castles",
+        "inkscape_coordinates": [
+          408.33179,
+          401.65295
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -2.600414666709189,
+          53.15144426424675
+        ]
+      },
+      "properties": {
+        "name": "Rijker's Isle",
+        "type": "Forts and Castles",
+        "inkscape_coordinates": [
+          280.0502,
+          311.71942
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          3.6032764243525888,
+          57.04204782084904
+        ]
+      },
+      "properties": {
+        "name": "Bokenhof",
+        "type": "Forts and Castles",
+        "inkscape_coordinates": [
+          634.53705,
+          89.495316
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          3.629307103600568,
+          54.757119633352666
+        ]
+      },
+      "properties": {
+        "name": "Castle Lenkster",
+        "type": "Forts and Castles",
+        "inkscape_coordinates": [
+          635.9912221000001,
+          220.03338200000002
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          1.6340441514934598,
+          55.4260936005296
+        ]
+      },
+      "properties": {
+        "name": "Schloss Ferlangst",
+        "type": "Forts and Castles",
+        "inkscape_coordinates": [
+          522.0070921,
+          181.800142
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.4605504239286562,
+          49.13377434708835
+        ]
+      },
+      "properties": {
+        "name": "Schleuselschloss",
+        "type": "Forts and Castles",
+        "inkscape_coordinates": [
+          402.2473321,
+          541.2646219999999
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.3823417963941429,
+          49.02981103392797
+        ]
+      },
+      "properties": {
+        "name": "Höhewacht Tower",
+        "type": "Forts and Castles",
+        "inkscape_coordinates": [
+          406.7140621,
+          547.204622
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.3512009121699897,
+          48.90332593951315
+        ]
+      },
+      "properties": {
+        "name": "Frugelschloss",
+        "type": "Forts and Castles",
+        "inkscape_coordinates": [
+          408.4913821,
+          554.430942
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          0.07072526264174606,
+          49.28407436550256
+        ]
+      },
+      "properties": {
+        "name": "Grubewache Castle",
+        "type": "Forts and Castles",
+        "inkscape_coordinates": [
+          432.60246209999997,
+          532.681922
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          0.04095524845943288,
+          48.84443013695717
+        ]
+      },
+      "properties": {
+        "name": "Castle Grautal",
+        "type": "Forts and Castles",
+        "inkscape_coordinates": [
+          430.8952821,
+          557.798562
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -2.6134245196786594,
+          53.13426490275664
         ]
       },
       "properties": {
         "name": "Tempelwijk",
         "type": "City Districts",
         "inkscape_coordinates": [
-          257.09564,
-          330.69379
+          279.30667,
+          312.70078
         ]
       }
     },
@@ -2382,142 +3336,268 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -2.988230129374636,
-          52.802485330481694
-        ]
-      },
-      "properties": {
-        "name": "Suiddock",
-        "type": "City Districts",
-        "inkscape_coordinates": [
-          257.8884,
-          331.65256
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -2.9864312107264386,
-          52.788215119760075
-        ]
-      },
-      "properties": {
-        "name": "Doodkanaal",
-        "type": "City Districts",
-        "inkscape_coordinates": [
-          257.99097,
-          332.46783
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -2.972566025222781,
-          52.77099810840007
-        ]
-      },
-      "properties": {
-        "name": "Kruiersmuur",
-        "type": "City Districts",
-        "inkscape_coordinates": [
-          258.78287,
-          333.45154
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -2.958462294955626,
-          52.81546819259543
-        ]
-      },
-      "properties": {
-        "name": "Noordmuur",
-        "type": "City Districts",
-        "inkscape_coordinates": [
-          259.58929,
-          330.91107
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -2.9472132954759465,
-          52.791919838969406
-        ]
-      },
-      "properties": {
-        "name": "Ostmuur",
-        "type": "City Districts",
-        "inkscape_coordinates": [
-          260.23163,
-          332.25647
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -2.962006512860026,
-          52.80363663936358
-        ]
-      },
-      "properties": {
-        "name": "Paleisbuurt",
-        "type": "City Districts",
-        "inkscape_coordinates": [
-          259.38663,
-          331.58698
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -2.9518409684185034,
-          52.77802530495444
-        ]
-      },
-      "properties": {
-        "name": "Rijkspoort",
-        "type": "City Districts",
-        "inkscape_coordinates": [
-          259.96704,
-          333.05023
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -2.9773361681929416,
-          52.826279684834276
+          -2.5831370835124208,
+          53.14614053246651
         ]
       },
       "properties": {
         "name": "Elfsgemeente",
         "type": "City Districts",
         "inkscape_coordinates": [
-          258.51114,
-          330.29327
+          281.03723,
+          312.02255
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -2.6083029702797997,
+          53.11727763484319
+        ]
+      },
+      "properties": {
+        "name": "Suiddock",
+        "type": "City Districts",
+        "inkscape_coordinates": [
+          279.59903,
+          313.6713
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -2.597862703356447,
+          53.105817753159215
+        ]
+      },
+      "properties": {
+        "name": "Doodkanaal",
+        "type": "City Districts",
+        "inkscape_coordinates": [
+          280.19534,
+          314.32608
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -2.559182126872239,
+          53.111553910944615
+        ]
+      },
+      "properties": {
+        "name": "Ostmuur",
+        "type": "City Districts",
+        "inkscape_coordinates": [
+          282.40533,
+          313.99866
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -2.5665455604993763,
+          53.095588480184155
+        ]
+      },
+      "properties": {
+        "name": "Rijkspoort",
+        "type": "City Districts",
+        "inkscape_coordinates": [
+          281.98441,
+          314.91071
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -2.578210577561477,
+          53.089242136597825
+        ]
+      },
+      "properties": {
+        "name": "Kruiersmuur",
+        "type": "City Districts",
+        "inkscape_coordinates": [
+          281.31787,
+          315.27319
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -2.5751485422217133,
+          53.1223988626042
+        ]
+      },
+      "properties": {
+        "name": "Paleisbuurt",
+        "type": "City Districts",
+        "inkscape_coordinates": [
+          281.49329,
+          313.37897
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -2.5683972125491303,
+          53.13427144080537
+        ]
+      },
+      "properties": {
+        "name": "Noordmuur",
+        "type": "City Districts",
+        "inkscape_coordinates": [
+          281.87918,
+          312.70074
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.007800594756678159,
+          51.45177033458075
+        ]
+      },
+      "properties": {
+        "name": "South Bank",
+        "type": "City Districts",
+        "inkscape_coordinates": [
+          428.14743,
+          408.84094
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          0.020646331817724572,
+          51.45689147712215
+        ]
+      },
+      "properties": {
+        "name": "East End",
+        "type": "City Districts",
+        "inkscape_coordinates": [
+          429.77274,
+          408.54858
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          0.005497353146087569,
+          51.47244422166772
+        ]
+      },
+      "properties": {
+        "name": "City North",
+        "type": "City Districts",
+        "inkscape_coordinates": [
+          428.90747,
+          407.65994
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          1.2574629059090396,
+          48.00209135464053
+        ]
+      },
+      "properties": {
+        "name": "Neuestadt",
+        "type": "City Districts",
+        "inkscape_coordinates": [
+          500.38489,
+          605.93036
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          1.274925555637954,
+          47.99171780326012
+        ]
+      },
+      "properties": {
+        "name": "Der Halbinsel",
+        "type": "City Districts",
+        "inkscape_coordinates": [
+          501.38242,
+          606.52313
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          1.2478631488014296,
+          47.99070151610831
+        ]
+      },
+      "properties": {
+        "name": "Faulestadt",
+        "type": "City Districts",
+        "inkscape_coordinates": [
+          499.83627,
+          606.58099
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          1.267829030425152,
+          48.011109682574684
+        ]
+      },
+      "properties": {
+        "name": "Altestadt",
+        "type": "City Districts",
+        "inkscape_coordinates": [
+          500.97726,
+          605.41522
         ]
       }
     },
@@ -2621,11 +3701,281 @@
         ]
       },
       "properties": {
-        "name": "Daemon's Bowl",
+        "name": "Devil's Bowl",
         "type": "Other",
         "inkscape_coordinates": [
           528.70367,
           451.31305
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.5870837423506128,
+          49.25204524859207
+        ]
+      },
+      "properties": {
+        "name": "Black Rock Mine",
+        "type": "Other",
+        "inkscape_coordinates": [
+          395.0199121,
+          534.5068719999999
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.751416314523599,
+          48.97414876276031
+        ]
+      },
+      "properties": {
+        "name": "West Azgaraz Trading Post",
+        "type": "Other",
+        "inkscape_coordinates": [
+          385.6272121,
+          550.3818719999999
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.5273996804569334,
+          49.01933291756433
+        ]
+      },
+      "properties": {
+        "name": "East Azgaraz Trading Post",
+        "type": "Other",
+        "inkscape_coordinates": [
+          398.4264321,
+          547.802162
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.5615606420181445,
+          49.047116531612645
+        ]
+      },
+      "properties": {
+        "name": "De Blanc's School for Girls",
+        "type": "Other",
+        "inkscape_coordinates": [
+          396.47514209999997,
+          546.2146319999999
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.425338352715273,
+          49.09407243090048
+        ]
+      },
+      "properties": {
+        "name": "Tower of Vane",
+        "type": "Other",
+        "inkscape_coordinates": [
+          404.2585021,
+          543.533052
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.5092169856719035,
+          48.95652025593334
+        ]
+      },
+      "properties": {
+        "name": "Mound of Krell",
+        "type": "Other",
+        "inkscape_coordinates": [
+          399.4643421,
+          551.390782
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          9.758262212827013,
+          36.38362031642595
+        ]
+      },
+      "properties": {
+        "name": "Karagril (Silverhorn)",
+        "type": "Other",
+        "inkscape_coordinates": [
+          985.88651256,
+          1269.7561989699998
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          9.890870376929307,
+          36.339436539045934
+        ]
+      },
+      "properties": {
+        "name": "Karag Lhune (Crescent Mountain)",
+        "type": "Other",
+        "inkscape_coordinates": [
+          993.46207256,
+          1272.2813989699998
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          9.616214529396455,
+          36.30467134542008
+        ]
+      },
+      "properties": {
+        "name": "Karag Zilfin (Windswept Mountain)",
+        "type": "Other",
+        "inkscape_coordinates": [
+          977.7698725600001,
+          1274.26549897
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          9.601512388460272,
+          36.1825934028079
+        ]
+      },
+      "properties": {
+        "name": "Karag Yar (Sunset Mountain)",
+        "type": "Other",
+        "inkscape_coordinates": [
+          976.92814256,
+          1281.2396989699998
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          9.719397740921345,
+          36.09736445853707
+        ]
+      },
+      "properties": {
+        "name": "Karag Rhyn (Mount Redstone)",
+        "type": "Other",
+        "inkscape_coordinates": [
+          983.66196256,
+          1286.10969897
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          9.906696325634684,
+          36.17947350791238
+        ]
+      },
+      "properties": {
+        "name": "Kvinn-Wyr (White Lady)",
+        "type": "Other",
+        "inkscape_coordinates": [
+          994.36393256,
+          1281.42019897
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          9.984554367301115,
+          36.24157710868889
+        ]
+      },
+      "properties": {
+        "name": "Karag Nar (Sunrise Mountain)",
+        "type": "Other",
+        "inkscape_coordinates": [
+          998.81303256,
+          1277.8727989699998
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.64077249430995,
+          37.071879463308925
+        ]
+      },
+      "properties": {
+        "name": "Karag Drakkloc (Dragon Peak)",
+        "type": "Other",
+        "inkscape_coordinates": [
+          922.05179256,
+          1230.42769897
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.352319599869546,
+          37.265709163915794
+        ]
+      },
+      "properties": {
+        "name": "Karag Grim",
+        "type": "Other",
+        "inkscape_coordinates": [
+          1076.97129256,
+          1219.37429897
         ]
       }
     }
