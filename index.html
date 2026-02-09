@@ -53,7 +53,7 @@
         #attribution {
             position: absolute;
             bottom: 10px;
-            left: 70px;
+            left: 10px;
             z-index: 10;
             font-size: 14px;
             color: rgba(255, 255, 255, 0.8);
@@ -64,7 +64,7 @@
         }
         
         #attribution.shifted {
-            left: 350px;
+            left: 310px;
         }
         
         /* Scale control */
@@ -1143,8 +1143,8 @@
             top: 10px;
             left: 10px;
             z-index: 10001;
-            width: 44px;
-            height: 44px;
+            width: 50px;
+            height: 50px;
             background: rgba(255, 255, 255, 0.9);
             border: none;
             border-radius: 4px;
@@ -1426,23 +1426,28 @@
             right: 10px;
             z-index: 10000;
             background: rgba(255, 255, 255, 0.95);
-            padding: 8px 12px;
+            padding: 0px 12px;
             border-radius: 4px;
             box-shadow: 0 2px 4px rgba(0,0,0,0.1);
             text-align: center;
+            height: 44px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
         }
         
         .mobile-title h1 {
             margin: 0;
             font-size: 20px;
             color: #333;
+            line-height: 1.2;
         }
         
         .mobile-title .mobile-subtitle {
-            margin: 4px 0 0 0;
-            font-size: 10px;
+            margin: 2px 0 0 0;
+            font-size: 9px;
             color: #666;
-            line-height: 1.3;
+            line-height: 1.2;
         }
         
         /* Mobile dropdown menu */
@@ -1521,6 +1526,15 @@
                 display: none;
             }
             
+            /* Hide hamburger and side panel on mobile */
+            .hamburger-button {
+                display: none !important;
+            }
+            
+            .side-panel {
+                display: none !important;
+            }
+            
             /* Show mobile menu button */
             .mobile-menu-button {
                 display: block;
@@ -1528,7 +1542,7 @@
             
             /* Show mobile title */
             .mobile-title {
-                display: block;
+                display: flex;
             }
             
             /* Show mobile dropdown */
@@ -1571,33 +1585,13 @@
                 max-height: calc(75vh - 60px);
             }
             
-            /* Mobile changelog dropdown */
-            .mobile-changelog-dropdown {
-                display: block;
-                position: fixed;
-                bottom: -100%;
-                left: 0;
-                right: 0;
-                max-height: 70vh;
-                background: rgba(255, 255, 255, 0.98);
-                border-radius: 8px 8px 0 0;
-                box-shadow: 0 -4px 12px rgba(0,0,0,0.2);
-                transition: bottom 0.3s ease;
-                z-index: 10003;
-            }
-            
-            .mobile-changelog-dropdown.active {
-                bottom: 0;
-            }
-            
-            .mobile-changelog-dropdown .changelog-dropdown-body {
-                padding: 15px;
-                max-height: 65vh;
-                overflow-y: auto;
-            }
-            
             .changelog-dropdown {
                 display: none;
+            }
+            
+            /* Update attribution text for mobile */
+            #attribution {
+                font-size: 11px;
             }
         }
     </style>
@@ -1630,7 +1624,7 @@
     <!-- Mobile title -->
     <div class="mobile-title">
         <h1>Atlas of the Old World</h1>
-        <p class="mobile-subtitle">An unofficial, fan-made map of the Warhammer world. @toddkoz</p>
+        <p class="mobile-subtitle">An unofficial map of the Warhammer world. @toddkoz</p>
     </div>
     
     <!-- Mobile dropdown menu -->
@@ -1665,11 +1659,12 @@
                 <label for="mobile-published-canon-only-checkbox">Published Canon Only</label>
             </div>
         </div>
-        <div class="mobile-dropdown-item">
-            <button id="mobile-measure-button">📏 Measure Distances</button>
-        </div>
-        <div class="mobile-dropdown-item">
-            <button id="mobile-clear-measure-button" style="display: none;">🗑️ Clear Measurements</button>
+        <div class="mobile-dropdown-item" style="padding: 16px;">
+            <div style="margin-bottom: 8px; font-size: 13px; font-weight: 600; color: #666;">Units</div>
+            <div class="units-toggle">
+                <button id="mobile-units-miles" class="active">Miles</button>
+                <button id="mobile-units-kilometers">Kilometers</button>
+            </div>
         </div>
         <div class="mobile-dropdown-item">
             <button id="mobile-about-button">About</button>
@@ -1678,22 +1673,7 @@
             <button id="mobile-feedback-button">Feedback / Suggest</button>
         </div>
         <div class="mobile-dropdown-item">
-            <button id="mobile-changelog-button" class="changelog-button">
-                Feature Requests / Changelog
-                <span class="chevron"></span>
-            </button>
-        </div>
-    </div>
-    
-    <!-- Mobile changelog dropdown -->
-    <div class="mobile-changelog-dropdown" id="mobile-changelog-dropdown">
-        <div class="changelog-dropdown-body">
-            <div id="mobile-changelog-dropdown-content">
-                <div class="changelog-content">
-                    <h1>Loading...</h1>
-                    <p>Please wait while the content loads.</p>
-                </div>
-            </div>
+            <button id="mobile-changelog-button">Feature Requests / Changelog</button>
         </div>
     </div>
     
@@ -1947,38 +1927,66 @@
                     });
                 }
                 
-                // Wire up mobile changelog button (separate handling)
+                // Wire up mobile changelog button
                 const mobileChangelogButton = document.getElementById('mobile-changelog-button');
-                const mobileChangelogDropdown = document.getElementById('mobile-changelog-dropdown');
-                if (mobileChangelogButton && mobileChangelogDropdown) {
+                const desktopChangelogButton = document.getElementById('changelog-button');
+                if (mobileChangelogButton && desktopChangelogButton) {
                     mobileChangelogButton.addEventListener('click', function() {
-                        mobileChangelogButton.classList.toggle('active');
-                        mobileChangelogDropdown.classList.toggle('active');
-                        // Close main mobile menu
+                        desktopChangelogButton.click();
+                        // Close mobile menu
                         menuButton.classList.remove('active');
                         dropdown.classList.remove('active');
                     });
-                    
-                    // Load content for mobile dropdown
-                    fetch('changelog-content.html')
-                        .then(response => response.text())
-                        .then(html => {
-                            const contentDiv = document.getElementById('mobile-changelog-dropdown-content');
-                            if (contentDiv) {
-                                contentDiv.innerHTML = html;
-                            }
-                        })
-                        .catch(error => console.error('Error loading mobile changelog:', error));
-                    
-                    // Close mobile changelog when clicking outside
-                    document.addEventListener('click', function(e) {
-                        if (mobileChangelogDropdown.classList.contains('active') &&
-                            !mobileChangelogButton.contains(e.target) &&
-                            !mobileChangelogDropdown.contains(e.target)) {
-                            mobileChangelogButton.classList.remove('active');
-                            mobileChangelogDropdown.classList.remove('active');
-                        }
+                }
+                
+                // Sync mobile units buttons with desktop
+                const mobileUnitsMiles = document.getElementById('mobile-units-miles');
+                const mobileUnitsKilometers = document.getElementById('mobile-units-kilometers');
+                const desktopUnitsMiles = document.getElementById('units-miles');
+                const desktopUnitsKilometers = document.getElementById('units-kilometers');
+                
+                if (mobileUnitsMiles && desktopUnitsMiles) {
+                    mobileUnitsMiles.addEventListener('click', function() {
+                        desktopUnitsMiles.click();
                     });
+                }
+                
+                if (mobileUnitsKilometers && desktopUnitsKilometers) {
+                    mobileUnitsKilometers.addEventListener('click', function() {
+                        desktopUnitsKilometers.click();
+                    });
+                }
+                
+                // Listen for units changes to update mobile UI
+                window.addEventListener('unitsChanged', function(e) {
+                    const units = e.detail.units;
+                    if (mobileUnitsMiles && mobileUnitsKilometers) {
+                        if (units === 'miles') {
+                            mobileUnitsMiles.classList.add('active');
+                            mobileUnitsKilometers.classList.remove('active');
+                        } else {
+                            mobileUnitsKilometers.classList.add('active');
+                            mobileUnitsMiles.classList.remove('active');
+                        }
+                    }
+                });
+                
+                // Update mobile units UI on load
+                const currentUnits = localStorage.getItem('map_units') || 'miles';
+                if (mobileUnitsMiles && mobileUnitsKilometers) {
+                    if (currentUnits === 'miles') {
+                        mobileUnitsMiles.classList.add('active');
+                        mobileUnitsKilometers.classList.remove('active');
+                    } else {
+                        mobileUnitsKilometers.classList.add('active');
+                        mobileUnitsMiles.classList.remove('active');
+                    }
+                }
+                
+                // Update attribution text for mobile
+                const attribution = document.getElementById('attribution');
+                if (attribution && window.innerWidth <= 768) {
+                    attribution.textContent = 'Map adapted from Andy Law. Unofficial, fan-made.';
                 }
             }
             
